@@ -1,4 +1,8 @@
 #![cfg_attr(not(test), no_std)] // Forbids using std::*.
+#![cfg_attr(bench, feature(test))]
+
+#[cfg(bench)]
+extern crate test;
 
 #[cfg(feature = "alloc")]
 extern crate alloc;
@@ -9,6 +13,8 @@ use shogi_core::{
 };
 
 mod normal;
+#[cfg(test)]
+mod perft;
 mod prelegality;
 
 pub struct LiteLegalityChecker;

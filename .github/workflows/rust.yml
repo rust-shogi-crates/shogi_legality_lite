@@ -40,3 +40,5 @@ jobs:
         cargo build --verbose --all-features
     - name: Document
       run: cargo doc --verbose
+    - name: benchmark
+      run: ./bench.sh
