@@ -2,11 +2,11 @@ use shogi_core::{LegalityChecker, PartialPosition};
 
 use crate::LiteLegalityChecker;
 
-struct Stat {
-    all: u64,
+pub struct Stat {
+    pub all: u64,
 }
 
-fn perft(pos: PartialPosition, depth: usize) -> Stat {
+pub fn perft(pos: PartialPosition, depth: usize) -> Stat {
     if depth == 0 {
         return Stat { all: 1 };
     }
@@ -21,6 +21,7 @@ fn perft(pos: PartialPosition, depth: usize) -> Stat {
     Stat { all: answer_all }
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
     // Table is retrieved from https://qiita.com/ak11/items/8bd5f2bb0f5b014143c8.

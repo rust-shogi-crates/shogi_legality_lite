@@ -13,8 +13,9 @@ use shogi_core::{
 };
 
 mod normal;
-#[cfg(test)]
-mod perft;
+#[doc(hidden)]
+#[cfg(feature = "alloc")]
+pub mod perft;
 mod prelegality;
 
 pub struct LiteLegalityChecker;
