@@ -17,4 +17,4 @@ crate-type = [
 ]
 
 [dependencies]
-shogi_core = { version = "0.1", default-features = false }
+shogi_core = { version = "0.1.2", default-features = false }

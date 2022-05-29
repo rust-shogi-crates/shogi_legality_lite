@@ -218,7 +218,7 @@ mod tests {
     fn pawn_moves_are_correct() {
         let position = PartialPosition::startpos();
         let pawn = Piece::new(PieceKind::Pawn, Color::Black);
-        let pawn_square = Square::new(7, 7).unwrap();
+        let pawn_square = Square::SQ_7G;
         let attacking = attacking(&position, pawn, pawn_square);
         assert_eq!(attacking, single(7, 6));
 
@@ -248,13 +248,13 @@ mod tests {
         let mut position = PartialPosition::startpos();
         let moves = [
             Move::Normal {
-                from: Square::new(7, 7).unwrap(),
-                to: Square::new(7, 6).unwrap(),
+                from: Square::SQ_7G,
+                to: Square::SQ_7F,
                 promote: false,
             },
             Move::Normal {
-                from: Square::new(3, 3).unwrap(),
-                to: Square::new(3, 4).unwrap(),
+                from: Square::SQ_3C,
+                to: Square::SQ_3D,
                 promote: false,
             },
         ];
@@ -262,7 +262,7 @@ mod tests {
             position.make_move(mv).unwrap();
         }
         let knight = Piece::new(PieceKind::Knight, Color::Black);
-        let knight_square = Square::new(8, 9).unwrap();
+        let knight_square = Square::SQ_8I;
         let attacking = attacking(&position, knight, knight_square);
         assert_eq!(attacking, single(7, 7));
     }
@@ -271,16 +271,16 @@ mod tests {
     fn silver_moves_are_correct() {
         let position = PartialPosition::startpos();
         let silver = Piece::new(PieceKind::Silver, Color::Black);
-        let silver_square = Square::new(3, 9).unwrap();
+        let silver_square = Square::SQ_3I;
         let attacking = attacking(&position, silver, silver_square);
         let expected = single(3, 8) | single(4, 8);
         assert_eq!(attacking, expected);
 
-        let square = Square::new(8, 1).unwrap();
+        let square = Square::SQ_8A;
         let expected = single(7, 2) | single(9, 2);
         assert_eq!(super::silver(Color::Black, square), expected);
 
-        let square = Square::new(8, 1).unwrap();
+        let square = Square::SQ_8A;
         let expected = single(7, 2) | single(8, 2) | single(9, 2);
         assert_eq!(super::silver(Color::White, square), expected);
 
@@ -303,16 +303,16 @@ mod tests {
     fn gold_moves_are_correct() {
         let position = PartialPosition::startpos();
         let gold = Piece::new(PieceKind::Gold, Color::Black);
-        let gold_square = Square::new(4, 9).unwrap();
+        let gold_square = Square::SQ_4I;
         let attacking = attacking(&position, gold, gold_square);
         let expected = single(3, 8) | single(4, 8) | single(5, 8);
         assert_eq!(attacking, expected);
 
-        let square = Square::new(8, 1).unwrap();
+        let square = Square::SQ_8A;
         let expected = single(7, 1) | single(8, 2) | single(9, 1);
         assert_eq!(super::gold(Color::Black, square), expected);
 
-        let square = Square::new(8, 1).unwrap();
+        let square = Square::SQ_8A;
         let expected = single(7, 1) | single(7, 2) | single(8, 2) | single(9, 1) | single(9, 2);
         assert_eq!(super::gold(Color::White, square), expected);
 
@@ -335,7 +335,7 @@ mod tests {
     fn king_moves_are_correct() {
         let position = PartialPosition::startpos();
         let king = Piece::new(PieceKind::King, Color::Black);
-        let king_square = Square::new(5, 9).unwrap();
+        let king_square = Square::SQ_5I;
         let attacking = attacking(&position, king, king_square);
         let expected = single(4, 8) | single(5, 8) | single(6, 8);
         assert_eq!(attacking, expected);
@@ -348,13 +348,13 @@ mod tests {
         let mut position = PartialPosition::startpos();
         let moves = [
             Move::Normal {
-                from: Square::new(7, 7).unwrap(),
-                to: Square::new(7, 6).unwrap(),
+                from: Square::SQ_7G,
+                to: Square::SQ_7F,
                 promote: false,
             },
             Move::Normal {
-                from: Square::new(3, 3).unwrap(),
-                to: Square::new(3, 4).unwrap(),
+                from: Square::SQ_3C,
+                to: Square::SQ_3D,
                 promote: false,
             },
         ];
@@ -362,7 +362,7 @@ mod tests {
             position.make_move(mv).unwrap();
         }
         let bishop = Piece::new(PieceKind::Bishop, Color::Black);
-        let bishop_square = Square::new(8, 8).unwrap();
+        let bishop_square = Square::SQ_8H;
         let attacking = attacking(&position, bishop, bishop_square);
         let expected =
             single(2, 2) | single(3, 3) | single(4, 4) | single(5, 5) | single(6, 6) | single(7, 7);
@@ -373,7 +373,7 @@ mod tests {
     fn rook_moves_are_correct() {
         let position = PartialPosition::startpos();
         let rook = Piece::new(PieceKind::Rook, Color::Black);
-        let rook_square = Square::new(2, 8).unwrap();
+        let rook_square = Square::SQ_2H;
         let attacking = attacking(&position, rook, rook_square);
         let expected =
             single(1, 8) | single(3, 8) | single(4, 8) | single(5, 8) | single(6, 8) | single(7, 8);
