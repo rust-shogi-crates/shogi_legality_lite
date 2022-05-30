@@ -1,4 +1,4 @@
-use shogi_core::{Color, Move, PartialPosition, Piece, PieceKind, Square};
+use shogi_core::{Bitboard, Color, Move, PartialPosition, Piece, PieceKind, Square};
 
 pub fn check(position: &PartialPosition, mv: Move) -> bool {
     let side = position.side_to_move();
@@ -38,6 +38,9 @@ pub fn check(position: &PartialPosition, mv: Move) -> bool {
             if promote && from.relative_rank(side) > 3 && to.relative_rank(side) > 3 {
                 return false;
             }
+            if promote && from_piece.promote().is_none() {
+                return false;
+            }
             // Is the move valid?
             crate::normal::check(position, from_piece, from, to)
         }
@@ -71,6 +74,16 @@ pub fn check(position: &PartialPosition, mv: Move) -> bool {
             if rel_rank == 2 && piece.piece_kind() == PieceKind::Knight {
                 return false;
             }
+            // Does a double-pawn (`二歩`, *nifu*) happen?
+            if piece.piece_kind() == PieceKind::Pawn {
+                let file = to.file();
+                for i in 1..=9 {
+                    let square = unsafe { Square::new(file, i).unwrap_unchecked() };
+                    if position.piece_at(square) == Some(piece) {
+                        return false;
+                    }
+                }
+            }
             // Does a drop-pawn-mate (`打ち歩詰め`, *uchifu-zume*) happen?
             if piece.piece_kind() == PieceKind::Pawn {
                 let mut next = position.clone();
@@ -83,6 +96,84 @@ pub fn check(position: &PartialPosition, mv: Move) -> bool {
             true
         }
     }
+}
+
+const FIRST_RANK: Bitboard = {
+    let mut result = Bitboard::empty();
+    let mut i = 1;
+    while i <= 9 {
+        result = result.or(unsafe { Bitboard::from_file(i, 1 << 8 | 1) });
+        i += 1;
+    }
+    result
+};
+
+const FIRST_TWO_RANKS: Bitboard = {
+    let mut result = Bitboard::empty();
+    let mut i = 1;
+    while i <= 9 {
+        result = result.or(unsafe { Bitboard::from_file(i, 1 << 8 | 1 << 7 | 2 | 1) });
+        i += 1;
+    }
+    result
+};
+
+const BLACK_PROMOTION: Bitboard = {
+    let mut result = Bitboard::empty();
+    let mut i = 1;
+    while i <= 9 {
+        result = result.or(unsafe { Bitboard::from_file(i, 7) });
+        i += 1;
+    }
+    result
+};
+
+const WHITE_PROMOTION: Bitboard = {
+    let mut result = Bitboard::empty();
+    let mut i = 1;
+    while i <= 9 {
+        result = result.or(unsafe { Bitboard::from_file(i, 7 << 6) });
+        i += 1;
+    }
+    result
+};
+
+#[allow(unused)] // TODO: remove
+pub fn normal_from_candidates(position: &PartialPosition, from: Square) -> [Bitboard; 2] {
+    let side = position.side_to_move();
+    let from_piece = if let Some(x) = position.piece_at(from) {
+        x
+    } else {
+        return [Bitboard::empty(); 2];
+    };
+    if from_piece.color() != side {
+        return [Bitboard::empty(); 2];
+    }
+    // Is the move valid?
+    let valid_to = crate::normal::from_candidates(position, from_piece, from);
+    // Is `to` occupied by `side`'s piece?
+    let my_bb = position.player_bitboard(side);
+    let base = my_bb.andnot(valid_to);
+    // Stuck?
+    let mut unpromote_prohibited = Bitboard::empty();
+    match from_piece.piece_kind() {
+        PieceKind::Pawn | PieceKind::Lance => unpromote_prohibited = FIRST_RANK,
+        PieceKind::Knight => unpromote_prohibited = FIRST_TWO_RANKS,
+        _ => {}
+    }
+    // Can promote?
+    let mut promotable = if from.relative_rank(side) > 3 {
+        match side {
+            Color::Black => BLACK_PROMOTION,
+            Color::White => WHITE_PROMOTION,
+        }
+    } else {
+        !Bitboard::empty()
+    };
+    if from_piece.promote().is_none() {
+        promotable = Bitboard::empty();
+    }
+    [unpromote_prohibited.andnot(base), base & promotable]
 }
 
 #[allow(unused)]
@@ -107,7 +198,8 @@ pub fn all_legal_moves(position: &PartialPosition) -> impl Iterator<Item = Move>
 pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
     let side = position.side_to_move();
     let king = king_position(position, side.flip())?;
-    for from in Square::all() {
+    let my_bb = position.player_bitboard(side);
+    for from in my_bb {
         let piece = if let Some(x) = position.piece_at(from) {
             x
         } else {

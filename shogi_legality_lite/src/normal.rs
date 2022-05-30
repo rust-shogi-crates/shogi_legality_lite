@@ -11,11 +11,11 @@ pub extern "C" fn check(
     from: Square,
     to: Square,
 ) -> bool {
-    let attacking = attacking(position, piece, from);
+    let attacking = from_candidates(position, piece, from);
     attacking.contains(to)
 }
 
-pub fn attacking(position: &PartialPosition, piece: Piece, from: Square) -> Bitboard {
+pub fn from_candidates(position: &PartialPosition, piece: Piece, from: Square) -> Bitboard {
     debug_assert_eq!(position.side_to_move(), piece.color());
     debug_assert_eq!(position.piece_at(from), Some(piece));
     // Is `piece` long-range?
@@ -219,7 +219,7 @@ mod tests {
         let position = PartialPosition::startpos();
         let pawn = Piece::new(PieceKind::Pawn, Color::Black);
         let pawn_square = Square::SQ_7G;
-        let attacking = attacking(&position, pawn, pawn_square);
+        let attacking = from_candidates(&position, pawn, pawn_square);
         assert_eq!(attacking, single(7, 6));
 
         // Exhaustive checking: `super::pawn` cannot panic or cause UB
@@ -263,7 +263,7 @@ mod tests {
         }
         let knight = Piece::new(PieceKind::Knight, Color::Black);
         let knight_square = Square::SQ_8I;
-        let attacking = attacking(&position, knight, knight_square);
+        let attacking = from_candidates(&position, knight, knight_square);
         assert_eq!(attacking, single(7, 7));
     }
 
@@ -272,7 +272,7 @@ mod tests {
         let position = PartialPosition::startpos();
         let silver = Piece::new(PieceKind::Silver, Color::Black);
         let silver_square = Square::SQ_3I;
-        let attacking = attacking(&position, silver, silver_square);
+        let attacking = from_candidates(&position, silver, silver_square);
         let expected = single(3, 8) | single(4, 8);
         assert_eq!(attacking, expected);
 
@@ -304,7 +304,7 @@ mod tests {
         let position = PartialPosition::startpos();
         let gold = Piece::new(PieceKind::Gold, Color::Black);
         let gold_square = Square::SQ_4I;
-        let attacking = attacking(&position, gold, gold_square);
+        let attacking = from_candidates(&position, gold, gold_square);
         let expected = single(3, 8) | single(4, 8) | single(5, 8);
         assert_eq!(attacking, expected);
 
@@ -336,7 +336,7 @@ mod tests {
         let position = PartialPosition::startpos();
         let king = Piece::new(PieceKind::King, Color::Black);
         let king_square = Square::SQ_5I;
-        let attacking = attacking(&position, king, king_square);
+        let attacking = from_candidates(&position, king, king_square);
         let expected = single(4, 8) | single(5, 8) | single(6, 8);
         assert_eq!(attacking, expected);
     }
@@ -363,7 +363,7 @@ mod tests {
         }
         let bishop = Piece::new(PieceKind::Bishop, Color::Black);
         let bishop_square = Square::SQ_8H;
-        let attacking = attacking(&position, bishop, bishop_square);
+        let attacking = from_candidates(&position, bishop, bishop_square);
         let expected =
             single(2, 2) | single(3, 3) | single(4, 4) | single(5, 5) | single(6, 6) | single(7, 7);
         assert_eq!(attacking, expected);
@@ -374,7 +374,7 @@ mod tests {
         let position = PartialPosition::startpos();
         let rook = Piece::new(PieceKind::Rook, Color::Black);
         let rook_square = Square::SQ_2H;
-        let attacking = attacking(&position, rook, rook_square);
+        let attacking = from_candidates(&position, rook, rook_square);
         let expected =
             single(1, 8) | single(3, 8) | single(4, 8) | single(5, 8) | single(6, 8) | single(7, 8);
         assert_eq!(attacking, expected);

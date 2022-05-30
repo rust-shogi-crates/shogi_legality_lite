@@ -64,19 +64,29 @@ impl LegalityChecker for LiteLegalityChecker {
 
     #[cfg(feature = "alloc")]
     fn all_legal_moves_partial(&self, position: &PartialPosition) -> alloc::vec::Vec<Move> {
+        let side = position.side_to_move();
+        let my_bb = position.player_bitboard(side);
         let mut result = alloc::vec::Vec::new();
-        for from in Square::all() {
-            for to in Square::all() {
-                for promote in [true, false] {
+        for from in my_bb {
+            let to_candidates = prelegality::normal_from_candidates(position, from);
+            for (index, to_candidates) in to_candidates.into_iter().enumerate() {
+                let promote = index == 1;
+                for to in to_candidates {
                     let mv = Move::Normal { from, to, promote };
-                    if self.is_legal_partial_lite(position, mv) {
-                        result.push(mv);
+                    let mut next = position.clone();
+                    if next.make_move(mv).is_none() {
+                        continue;
                     }
+                    if prelegality::will_king_be_captured(&next) != Some(false) {
+                        continue;
+                    }
+                    result.push(mv);
                 }
             }
         }
-        for piece in shogi_core::Piece::all() {
-            for to in Square::all() {
+        for piece_kind in shogi_core::Hand::all_hand_pieces() {
+            let piece = Piece::new(piece_kind, side);
+            for to in position.vacant_bitboard() {
                 let mv = Move::Drop { piece, to };
                 if self.is_legal_partial_lite(position, mv) {
                     result.push(mv);

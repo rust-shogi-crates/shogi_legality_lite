@@ -85,6 +85,16 @@ typedef struct Hand {
 typedef uint8_t OptionPiece;
 
 /**
+ * A subset of all squares.
+ *
+ * Because [`Bitboard`] is cheap to copy, it implements [`Copy`].
+ * Its [`Default`] value is an empty instance.
+ */
+typedef struct Bitboard {
+  uint64_t _0[2];
+} Bitboard;
+
+/**
  * C-compatible type for <code>[Option]<[CompactMove]></code>.
  *
  * cbindgen cannot deduce that <code>[Option]<[CompactMove]></code> can be represented by `uint16_t` in C, so we need to define the bridge type.
@@ -105,6 +115,7 @@ typedef struct PartialPosition {
   uint16_t ply;
   struct Hand hands[2];
   OptionPiece board[81];
+  struct Bitboard player_bb[2];
   OptionCompactMove last_move;
 } PartialPosition;
 

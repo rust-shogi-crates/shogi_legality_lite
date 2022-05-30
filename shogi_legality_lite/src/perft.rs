@@ -39,7 +39,7 @@ mod tests {
 
     #[test]
     fn perft_result_matches() {
-        for (depth, &expected) in TABLE_ALL[..3].iter().enumerate() {
+        for (depth, &expected) in TABLE_ALL[..4].iter().enumerate() {
             let pos = PartialPosition::startpos();
             let result = perft(pos, depth);
             assert_eq!(result.all, expected);
@@ -48,8 +48,20 @@ mod tests {
 
     #[cfg(bench)]
     #[bench]
-    fn bench_perft(b: &mut test::Bencher) {
+    fn bench_perft_2(b: &mut test::Bencher) {
         let depth = 2;
+        let expected = TABLE_ALL[depth];
+        b.iter(|| {
+            let pos = PartialPosition::startpos();
+            let result = perft(pos, depth);
+            assert_eq!(result.all, expected);
+        });
+    }
+
+    #[cfg(bench)]
+    #[bench]
+    fn bench_perft_3(b: &mut test::Bencher) {
+        let depth = 3;
         let expected = TABLE_ALL[depth];
         b.iter(|| {
             let pos = PartialPosition::startpos();
