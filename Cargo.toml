@@ -16,3 +16,6 @@ strip = "debuginfo" # "symbol" removes exported symbols, which renders the gener
 [profile.release-speed]
 inherits = "release"
 opt-level = 3
+
+[patch.crates-io]
+shogi_core = { git = "https://github.com/rust-shogi-crates/shogi_core", branch = "feature/position-faster-bb" }
