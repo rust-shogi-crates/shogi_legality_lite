@@ -5,7 +5,7 @@ version = 3
 [[package]]
 name = "shogi_core"
 version = "0.1.2"
-source = "git+https://github.com/rust-shogi-crates/shogi_core?branch=feature/position-faster-bb#d40856b9f44fa6816bb338d43fc354764a28e0ab"
+source = "git+https://github.com/rust-shogi-crates/shogi_core?branch=feature/position-faster-bb#93b6c0500606aeb8ec7feb7496e925551a8279c3"
 
 [[package]]
 name = "shogi_legality_lite"

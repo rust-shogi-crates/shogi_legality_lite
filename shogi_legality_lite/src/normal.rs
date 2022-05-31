@@ -166,11 +166,10 @@ fn king(from: Square) -> Bitboard {
 }
 
 fn lance_range(color: Color, from: Square, occupied: Bitboard) -> Bitboard {
-    let direction = match color {
-        Color::Black => (0, -1),
-        Color::White => (0, 1),
-    };
-    long_range(from, occupied, direction)
+    match color {
+        Color::Black => long_range_0m1(from, occupied),
+        Color::White => long_range_01(from, occupied),
+    }
 }
 
 fn bishop_range(from: Square, occupied: Bitboard) -> Bitboard {
@@ -183,8 +182,8 @@ fn bishop_range(from: Square, occupied: Bitboard) -> Bitboard {
 }
 
 fn rook_range(from: Square, occupied: Bitboard) -> Bitboard {
-    let directions = [(0, 1), (0, -1), (1, 0), (-1, 0)];
-    let mut result = Bitboard::empty();
+    let directions = [(1, 0), (-1, 0)];
+    let mut result = long_range_0m1(from, occupied) | long_range_01(from, occupied);
     for direction in directions {
         result |= long_range(from, occupied, direction);
     }
@@ -203,6 +202,32 @@ fn long_range(from: Square, occupied: Bitboard, (file_delta, rank_delta): (i8, i
         current = next;
     }
     result
+}
+
+fn long_range_01(from: Square, occupied: Bitboard) -> Bitboard {
+    let file = from.file();
+    let rank = from.rank();
+    let occ = occupied.as_u128();
+    let step_effect = 0xffffu16.wrapping_shl(rank as u32) & 0x1ff;
+    let step_effect = unsafe { Bitboard::from_file_unchecked(file, step_effect) }.as_u128();
+    let x = occ & step_effect;
+    // Qugiy-style
+    let x = (x ^ x.wrapping_sub(1)) & step_effect;
+    unsafe { Bitboard::from_u128_unchecked(x) }
+}
+
+fn long_range_0m1(from: Square, occupied: Bitboard) -> Bitboard {
+    let file = from.file();
+    let rank = from.rank();
+    let step_effect = 1u16.wrapping_shl(rank as u32 - 1) - 1;
+    let occ_file_pat = unsafe { occupied.get_file_unchecked(file) };
+    let x = occ_file_pat & step_effect;
+    let x = x | x.wrapping_shr(1);
+    let x = x | x.wrapping_shr(2);
+    let x = x | x.wrapping_shr(4);
+    let x = x.wrapping_shr(1);
+    let file_pat = !x & step_effect;
+    unsafe { Bitboard::from_file_unchecked(file, file_pat) }
 }
 
 #[cfg(test)]
