@@ -158,7 +158,7 @@ fn gold(color: Color, from: Square) -> Bitboard {
     result
 }
 
-fn king(from: Square) -> Bitboard {
+pub fn king(from: Square) -> Bitboard {
     use core::cmp::{max, min};
 
     let file = from.file();

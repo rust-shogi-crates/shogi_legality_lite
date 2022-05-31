@@ -198,7 +198,42 @@ pub fn all_legal_moves(position: &PartialPosition) -> impl Iterator<Item = Move>
 pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
     let side = position.side_to_move();
     let king = king_position(position, side.flip())?;
-    for piece_kind in PieceKind::all() {
+    let king_peripheral = crate::normal::king(king);
+    let my_bb_peripheral = position.player_bitboard(side) & king_peripheral;
+    if !my_bb_peripheral.is_empty() {
+        for piece_kind in [PieceKind::King, PieceKind::ProBishop, PieceKind::ProRook] {
+            let my_piece = Piece::new(piece_kind, side);
+            let piece_bb = position.piece_bitboard(my_piece);
+            if !(piece_bb & king_peripheral).is_empty() {
+                return Some(true);
+            }
+        }
+        for piece_kind in [
+            PieceKind::Pawn,
+            PieceKind::Silver,
+            PieceKind::Gold,
+            PieceKind::ProPawn,
+            PieceKind::ProLance,
+            PieceKind::ProKnight,
+            PieceKind::ProSilver,
+        ] {
+            let piece = Piece::new(piece_kind, side.flip());
+            let my_piece = Piece::new(piece_kind, side);
+            let piece_bb = position.piece_bitboard(my_piece);
+            let attack = crate::normal::from_candidates_without_assertion(position, piece, king);
+            if !(piece_bb & attack).is_empty() {
+                return Some(true);
+            }
+        }
+    }
+    for piece_kind in [
+        PieceKind::Lance,
+        PieceKind::Knight,
+        PieceKind::Bishop,
+        PieceKind::Rook,
+        PieceKind::ProBishop,
+        PieceKind::ProRook,
+    ] {
         let piece = Piece::new(piece_kind, side.flip());
         let my_piece = Piece::new(piece_kind, side);
         let piece_bb = position.piece_bitboard(my_piece);
