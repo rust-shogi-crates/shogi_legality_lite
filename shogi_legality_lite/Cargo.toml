@@ -7,8 +7,6 @@ categories = ["no-std"]
 [features]
 default = ["std"]
 alloc = ["shogi_core/alloc"]
-hash = ["shogi_core/hash"]
-ord = ["shogi_core/ord"]
 std = ["alloc", "shogi_core/std"]
 
 [lib]

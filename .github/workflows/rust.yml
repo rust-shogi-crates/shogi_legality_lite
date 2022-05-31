@@ -35,8 +35,6 @@ jobs:
         cargo build --verbose --no-default-features
         cargo +nightly build --verbose --no-default-features --features alloc
         cargo build --verbose --no-default-features --features std
-        cargo build --verbose --no-default-features --features hash
-        cargo build --verbose --no-default-features --features ord
         cargo build --verbose --all-features
     - name: Document
       run: cargo doc --verbose
