@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1654009351797,
+  "lastUpdate": 1654009691673,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -107,6 +107,42 @@ window.BENCHMARK_DATA = {
             "name": "perft::tests::bench_perft_3",
             "value": 50295943,
             "range": "± 5620451",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "distinct": true,
+          "id": "65d460af3a80cf48bc72258ee54ec0108b04735e",
+          "message": "Optimize will_king_be_captured",
+          "timestamp": "2022-06-01T00:06:49+09:00",
+          "tree_id": "8ee891f3f422f5e161c5f816843a681d9921960c",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/65d460af3a80cf48bc72258ee54ec0108b04735e"
+        },
+        "date": 1654009682632,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft::tests::bench_perft_2",
+            "value": 1194543,
+            "range": "± 58286",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_3",
+            "value": 35433726,
+            "range": "± 46820",
             "unit": "ns/iter"
           }
         ]
