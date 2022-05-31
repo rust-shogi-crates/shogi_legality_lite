@@ -198,17 +198,16 @@ pub fn all_legal_moves(position: &PartialPosition) -> impl Iterator<Item = Move>
 pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
     let side = position.side_to_move();
     let king = king_position(position, side.flip())?;
-    let my_bb = position.player_bitboard(side);
-    for from in my_bb {
-        let piece = if let Some(x) = position.piece_at(from) {
-            x
-        } else {
-            continue;
-        };
-        if piece.color() != side {
+    for piece_kind in PieceKind::all() {
+        let piece = Piece::new(piece_kind, side.flip());
+        let my_piece = Piece::new(piece_kind, side);
+        let piece_bb = position.piece_bitboard(my_piece);
+        if piece_bb.is_empty() {
             continue;
         }
-        if crate::normal::check(position, piece, from, king) {
+        // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
+        let attack = crate::normal::from_candidates_without_assertion(position, piece, king);
+        if !(attack & piece_bb).is_empty() {
             return Some(true);
         }
     }

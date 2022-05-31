@@ -77,7 +77,7 @@ impl LegalityChecker for LiteLegalityChecker {
                     if next.make_move(mv).is_none() {
                         continue;
                     }
-                    if prelegality::will_king_be_captured(&next) != Some(false) {
+                    if prelegality::will_king_be_captured(&next) == Some(true) {
                         continue;
                     }
                     result.push(mv);

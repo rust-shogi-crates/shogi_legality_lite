@@ -15,9 +15,18 @@ pub extern "C" fn check(
     attacking.contains(to)
 }
 
+#[inline(always)]
 pub fn from_candidates(position: &PartialPosition, piece: Piece, from: Square) -> Bitboard {
     debug_assert_eq!(position.side_to_move(), piece.color());
     debug_assert_eq!(position.piece_at(from), Some(piece));
+    from_candidates_without_assertion(position, piece, from)
+}
+
+pub fn from_candidates_without_assertion(
+    position: &PartialPosition,
+    piece: Piece,
+    from: Square,
+) -> Bitboard {
     // Is `piece` long-range?
     if matches!(
         piece.piece_kind(),
