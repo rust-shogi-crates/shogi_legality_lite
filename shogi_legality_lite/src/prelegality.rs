@@ -222,7 +222,9 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
             let piece = Piece::new(piece_kind, side.flip());
             let my_piece = Piece::new(piece_kind, side);
             let piece_bb = position.piece_bitboard(my_piece);
-            let attack = crate::normal::from_candidates_without_assertion(position, piece, king);
+            let attack = crate::normal::from_candidates_without_assertion(
+                position, piece, king_file, king_rank,
+            );
             if !(piece_bb & attack).is_empty() {
                 return Some(true);
             }
@@ -236,7 +238,8 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
             continue;
         }
         // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
-        let attack = crate::normal::from_candidates_without_assertion(position, piece, king);
+        let attack =
+            crate::normal::from_candidates_without_assertion(position, piece, king_file, king_rank);
         if !(attack & piece_bb).is_empty() {
             return Some(true);
         }
@@ -253,7 +256,8 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
             continue;
         }
         // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
-        let attack = crate::normal::from_candidates_without_assertion(position, piece, king);
+        let attack =
+            crate::normal::from_candidates_without_assertion(position, piece, king_file, king_rank);
         if !(attack & piece_bb).is_empty() {
             return Some(true);
         }

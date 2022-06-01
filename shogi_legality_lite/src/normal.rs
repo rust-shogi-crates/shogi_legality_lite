@@ -19,16 +19,17 @@ pub extern "C" fn check(
 pub fn from_candidates(position: &PartialPosition, piece: Piece, from: Square) -> Bitboard {
     debug_assert_eq!(position.side_to_move(), piece.color());
     debug_assert_eq!(position.piece_at(from), Some(piece));
-    from_candidates_without_assertion(position, piece, from)
+    let file = from.file();
+    let rank = from.rank();
+    from_candidates_without_assertion(position, piece, file, rank)
 }
 
 pub fn from_candidates_without_assertion(
     position: &PartialPosition,
     piece: Piece,
-    from: Square,
+    file: u8,
+    rank: u8,
 ) -> Bitboard {
-    let file = from.file();
-    let rank = from.rank();
     // Is `piece` long-range?
     if matches!(
         piece.piece_kind(),
@@ -98,97 +99,72 @@ fn pawn(color: Color, from: Square) -> Bitboard {
 }
 
 fn knight(color: Color, file: u8, rank: u8) -> Bitboard {
-    let rank = match color {
+    let rrank = match color {
         Color::Black => rank,
         Color::White => 10 - rank,
     };
-    if rank <= 2 {
+    if rrank <= 2 {
         return Bitboard::empty();
     }
-    let file = match color {
-        Color::Black => file,
-        Color::White => 10 - file,
+    let to_rank = match color {
+        Color::Black => rank - 2,
+        Color::White => rank + 2,
     };
     let mut result = Bitboard::empty();
     if file >= 2 {
-        // Safety: file - 1 >= 1, rank - 2 >= 1
-        result |= unsafe { Square::new_relative(file - 1, rank - 2, color).unwrap_unchecked() };
+        // Safety: file - 1 >= 1, to_rank is in 1..=9
+        result |= unsafe { Square::new(file - 1, to_rank).unwrap_unchecked() };
     }
     if file <= 8 {
-        // Safety: file + 1 <= 9, rank - 2 >= 1
-        result |= unsafe { Square::new_relative(file + 1, rank - 2, color).unwrap_unchecked() };
+        // Safety: file + 1 <= 9, to_rank is in 1..=9
+        result |= unsafe { Square::new(file + 1, to_rank).unwrap_unchecked() };
     }
     result
 }
 
 fn silver(color: Color, file: u8, rank: u8) -> Bitboard {
-    use core::cmp::{max, min};
-
-    let file = match color {
-        Color::Black => file,
-        Color::White => 10 - file,
+    let mut result = unsafe {
+        Bitboard::from_file_unchecked(
+            file,
+            match color {
+                Color::Black => 1 << rank >> 2,
+                Color::White => 1 << rank & 0x1ff,
+            },
+        )
     };
-    let rank = match color {
-        Color::Black => rank,
-        Color::White => 10 - rank,
-    };
-    let mut result = Bitboard::empty();
-    if rank >= 2 {
-        for to_file in max(1, file - 1)..=min(9, file + 1) {
-            // Safety: `to_file` and `rank - 1` are both in `1..=9`.
-            result |= unsafe { Square::new_relative(to_file, rank - 1, color).unwrap_unchecked() };
-        }
+    let pat = (5 << rank >> 2) & 0x1ff;
+    if file >= 2 {
+        result |= unsafe { Bitboard::from_file_unchecked(file - 1, pat) };
     }
-    if rank <= 8 {
-        if file <= 8 {
-            // Safety: `file + 1` and `rank + 1` are both in `1..=9`.
-            result |= unsafe { Square::new_relative(file + 1, rank + 1, color).unwrap_unchecked() };
-        }
-        if file >= 2 {
-            // Safety: `file - 1` and `rank + 1` are both in `1..=9`.
-            result |= unsafe { Square::new_relative(file - 1, rank + 1, color).unwrap_unchecked() };
-        }
+    if file <= 8 {
+        result |= unsafe { Bitboard::from_file_unchecked(file + 1, pat) };
     }
     result
 }
 
 fn gold(color: Color, file: u8, rank: u8) -> Bitboard {
-    use core::cmp::{max, min};
-
-    let rfile = match color {
-        Color::Black => file,
-        Color::White => 10 - file,
+    let mut result = unsafe { Bitboard::from_file_unchecked(file, (5 << rank >> 2) & 0x1ff) };
+    let pat = match color {
+        Color::Black => 3 << rank >> 2,
+        Color::White => (3 << (rank - 1)) & 0x1ff,
     };
-    let rrank = match color {
-        Color::Black => rank,
-        Color::White => 10 - rank,
-    };
-    let mut result = Bitboard::empty();
-    for to_file in max(1, rfile - 1)..=min(9, rfile + 1) {
-        for to_rank in max(1, rrank - 1)..=rrank {
-            // Safety: `to_file` and `to_rank` are both in `1..=9`.
-            result |= unsafe { Square::new_relative(to_file, to_rank, color).unwrap_unchecked() };
-        }
+    if file >= 2 {
+        result |= unsafe { Bitboard::from_file_unchecked(file - 1, pat) };
     }
-    if rrank <= 8 {
-        // Safety: `rfile` and `rrank + 1` are both in `1..=9`.
-        result |= unsafe { Square::new_relative(rfile, rrank + 1, color).unwrap_unchecked() };
+    if file <= 8 {
+        result |= unsafe { Bitboard::from_file_unchecked(file + 1, pat) };
     }
-    result ^= unsafe { Square::new(file, rank).unwrap_unchecked() }; // Cannot move to the original square
     result
 }
 
 pub fn king(file: u8, rank: u8) -> Bitboard {
-    use core::cmp::{max, min};
-
-    let mut result = Bitboard::empty();
-    for to_file in max(1, file - 1)..=min(9, file + 1) {
-        for to_rank in max(1, rank - 1)..=min(9, rank + 1) {
-            // Safety: `to_file` and `to_rank` are both in 1..=9.
-            result |= unsafe { Square::new(to_file, to_rank).unwrap_unchecked() };
-        }
+    let mut result = unsafe { Bitboard::from_file_unchecked(file, (5 << rank >> 2) & 0x1ff) };
+    if file >= 2 {
+        result |= unsafe { Bitboard::from_file_unchecked(file - 1, (7 << rank >> 2) & 0x1ff) };
     }
-    result ^= unsafe { Square::new(file, rank).unwrap_unchecked() }; // Cannot move to the original square
+    if file <= 8 {
+        result |= unsafe { Bitboard::from_file_unchecked(file + 1, (7 << rank >> 2) & 0x1ff) };
+    }
     result
 }
 
