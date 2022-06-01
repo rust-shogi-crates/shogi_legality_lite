@@ -200,11 +200,9 @@ fn lance_range(color: Color, file: u8, rank: u8, occupied: Bitboard) -> Bitboard
 }
 
 fn bishop_range(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
-    let directions = [(1, 1), (1, -1), (-1, 1), (-1, -1)];
-    let mut result = Bitboard::empty();
-    for direction in directions {
-        result |= unsafe { long_range(file, rank, occupied, direction) };
-    }
+    let mut result = long_range_1m1(file, rank, occupied) | long_range_11(file, rank, occupied);
+    result |= long_range_m1m1(file, rank, occupied);
+    result |= long_range_m11(file, rank, occupied);
     result
 }
 
@@ -216,6 +214,7 @@ fn rook_range(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     result
 }
 
+#[allow(unused)]
 unsafe fn long_range(
     file: u8,
     rank: u8,
@@ -282,6 +281,68 @@ fn long_range_10(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
 fn long_range_m10(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     let occ = occupied.as_u128().swap_bytes();
     let step_effect = unsafe { ROW.shift_down(rank - 1).shift_right(10 - file) };
+    let step_effect = step_effect.as_u128().swap_bytes();
+    let x = occ & step_effect;
+    // Qugiy-style
+    let x = (x ^ x.wrapping_sub(1)) & step_effect;
+    unsafe { Bitboard::from_u128_unchecked(x.swap_bytes()) }
+}
+
+/// cbindgen:ignore
+const SLASH: Bitboard = {
+    let mut result = Bitboard::empty();
+    let mut i = 1;
+    while i <= 9 {
+        result = result.or(unsafe { Bitboard::from_file_unchecked(i, 1 << (i - 1)) });
+        i += 1;
+    }
+    result
+};
+
+/// cbindgen:ignore
+const BACKSLASH: Bitboard = {
+    let mut result = Bitboard::empty();
+    let mut i = 1;
+    while i <= 9 {
+        result = result.or(unsafe { Bitboard::from_file_unchecked(i, 1 << (9 - i)) });
+        i += 1;
+    }
+    result
+};
+
+fn long_range_11(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+    let occ = occupied.as_u128();
+    let step_effect = unsafe { SLASH.shift_down(rank).shift_left(file) };
+    let step_effect = step_effect.as_u128();
+    let x = occ & step_effect;
+    // Qugiy-style
+    let x = (x ^ x.wrapping_sub(1)) & step_effect;
+    unsafe { Bitboard::from_u128_unchecked(x) }
+}
+
+fn long_range_1m1(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+    let occ = occupied.as_u128();
+    let step_effect = unsafe { BACKSLASH.shift_up(10 - rank).shift_left(file) };
+    let step_effect = step_effect.as_u128();
+    let x = occ & step_effect;
+    // Qugiy-style
+    let x = (x ^ x.wrapping_sub(1)) & step_effect;
+    unsafe { Bitboard::from_u128_unchecked(x) }
+}
+
+fn long_range_m1m1(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+    let occ = occupied.as_u128().swap_bytes();
+    let step_effect = unsafe { SLASH.shift_up(10 - rank).shift_right(10 - file) };
+    let step_effect = step_effect.as_u128().swap_bytes();
+    let x = occ & step_effect;
+    // Qugiy-style
+    let x = (x ^ x.wrapping_sub(1)) & step_effect;
+    unsafe { Bitboard::from_u128_unchecked(x.swap_bytes()) }
+}
+
+fn long_range_m11(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+    let occ = occupied.as_u128().swap_bytes();
+    let step_effect = unsafe { BACKSLASH.shift_down(rank).shift_right(10 - file) };
     let step_effect = step_effect.as_u128().swap_bytes();
     let x = occ & step_effect;
     // Qugiy-style
