@@ -198,7 +198,9 @@ pub fn all_legal_moves(position: &PartialPosition) -> impl Iterator<Item = Move>
 pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
     let side = position.side_to_move();
     let king = king_position(position, side.flip())?;
-    let king_peripheral = crate::normal::king(king);
+    let king_file = king.file();
+    let king_rank = king.rank();
+    let king_peripheral = crate::normal::king(king_file, king_rank);
     let my_bb_peripheral = position.player_bitboard(side) & king_peripheral;
     if !my_bb_peripheral.is_empty() {
         for piece_kind in [PieceKind::King, PieceKind::ProBishop, PieceKind::ProRook] {
@@ -226,17 +228,27 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
             }
         }
     }
-    for piece_kind in [
-        PieceKind::Lance,
-        PieceKind::Knight,
-        PieceKind::Bishop,
-        PieceKind::Rook,
-        PieceKind::ProBishop,
-        PieceKind::ProRook,
-    ] {
+    for piece_kind in [PieceKind::Lance, PieceKind::Knight] {
         let piece = Piece::new(piece_kind, side.flip());
         let my_piece = Piece::new(piece_kind, side);
         let piece_bb = position.piece_bitboard(my_piece);
+        if piece_bb.is_empty() {
+            continue;
+        }
+        // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
+        let attack = crate::normal::from_candidates_without_assertion(position, piece, king);
+        if !(attack & piece_bb).is_empty() {
+            return Some(true);
+        }
+    }
+    for (piece_kind, pro_piece_kind) in [
+        (PieceKind::Bishop, PieceKind::ProBishop),
+        (PieceKind::Rook, PieceKind::ProRook),
+    ] {
+        let piece = Piece::new(piece_kind, side.flip());
+        let my_piece = Piece::new(piece_kind, side);
+        let my_pro_piece = Piece::new(pro_piece_kind, side);
+        let piece_bb = position.piece_bitboard(my_piece) | position.piece_bitboard(my_pro_piece);
         if piece_bb.is_empty() {
             continue;
         }

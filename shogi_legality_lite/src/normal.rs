@@ -27,6 +27,8 @@ pub fn from_candidates_without_assertion(
     piece: Piece,
     from: Square,
 ) -> Bitboard {
+    let file = from.file();
+    let rank = from.rank();
     // Is `piece` long-range?
     if matches!(
         piece.piece_kind(),
@@ -38,33 +40,33 @@ pub fn from_candidates_without_assertion(
     ) {
         let occupied = !position.vacant_bitboard();
         let range = match piece.piece_kind() {
-            PieceKind::Lance => lance_range(piece.color(), from, occupied),
-            PieceKind::Bishop => bishop_range(from, occupied),
-            PieceKind::Rook => rook_range(from, occupied),
-            PieceKind::ProBishop => bishop_range(from, occupied) | king(from),
-            PieceKind::ProRook => rook_range(from, occupied) | king(from),
+            PieceKind::Lance => lance_range(piece.color(), file, rank, occupied),
+            PieceKind::Bishop => bishop_range(file, rank, occupied),
+            PieceKind::Rook => rook_range(file, rank, occupied),
+            PieceKind::ProBishop => bishop_range(file, rank, occupied) | king(file, rank),
+            PieceKind::ProRook => rook_range(file, rank, occupied) | king(file, rank),
             _ => unreachable!(),
         };
         return range & !position.player_bitboard(piece.color());
     }
     // `piece` is short-range, i.e., no blocking is possible
     // no need to consider the possibility of blockading by pieces
-    let range = unsafe { short_range(piece, from) };
+    let range = unsafe { short_range(piece, file, rank) };
     range & !position.player_bitboard(piece.color())
 }
 
 // Safety: `piece` must be short-range, i.e., `piece`'s move cannot be blockaded
-unsafe fn short_range(piece: Piece, from: Square) -> Bitboard {
+unsafe fn short_range(piece: Piece, file: u8, rank: u8) -> Bitboard {
     match piece.piece_kind() {
-        PieceKind::Pawn => pawn(piece.color(), from),
-        PieceKind::Knight => knight(piece.color(), from),
-        PieceKind::Silver => silver(piece.color(), from),
+        PieceKind::Pawn => pawn(piece.color(), Square::new(file, rank).unwrap_unchecked()),
+        PieceKind::Knight => knight(piece.color(), file, rank),
+        PieceKind::Silver => silver(piece.color(), file, rank),
         PieceKind::Gold
         | PieceKind::ProPawn
         | PieceKind::ProLance
         | PieceKind::ProKnight
-        | PieceKind::ProSilver => gold(piece.color(), from),
-        PieceKind::King => king(from),
+        | PieceKind::ProSilver => gold(piece.color(), file, rank),
+        PieceKind::King => king(file, rank),
         PieceKind::Lance
         | PieceKind::Bishop
         | PieceKind::Rook
@@ -95,12 +97,18 @@ fn pawn(color: Color, from: Square) -> Bitboard {
     }
 }
 
-fn knight(color: Color, from: Square) -> Bitboard {
-    let rank = from.relative_rank(color);
+fn knight(color: Color, file: u8, rank: u8) -> Bitboard {
+    let rank = match color {
+        Color::Black => rank,
+        Color::White => 10 - rank,
+    };
     if rank <= 2 {
         return Bitboard::empty();
     }
-    let file = from.relative_file(color);
+    let file = match color {
+        Color::Black => file,
+        Color::White => 10 - file,
+    };
     let mut result = Bitboard::empty();
     if file >= 2 {
         // Safety: file - 1 >= 1, rank - 2 >= 1
@@ -113,11 +121,17 @@ fn knight(color: Color, from: Square) -> Bitboard {
     result
 }
 
-fn silver(color: Color, from: Square) -> Bitboard {
+fn silver(color: Color, file: u8, rank: u8) -> Bitboard {
     use core::cmp::{max, min};
 
-    let file = from.relative_file(color);
-    let rank = from.relative_rank(color);
+    let file = match color {
+        Color::Black => file,
+        Color::White => 10 - file,
+    };
+    let rank = match color {
+        Color::Black => rank,
+        Color::White => 10 - rank,
+    };
     let mut result = Bitboard::empty();
     if rank >= 2 {
         for to_file in max(1, file - 1)..=min(9, file + 1) {
@@ -138,31 +152,35 @@ fn silver(color: Color, from: Square) -> Bitboard {
     result
 }
 
-fn gold(color: Color, from: Square) -> Bitboard {
+fn gold(color: Color, file: u8, rank: u8) -> Bitboard {
     use core::cmp::{max, min};
 
-    let file = from.relative_file(color);
-    let rank = from.relative_rank(color);
+    let rfile = match color {
+        Color::Black => file,
+        Color::White => 10 - file,
+    };
+    let rrank = match color {
+        Color::Black => rank,
+        Color::White => 10 - rank,
+    };
     let mut result = Bitboard::empty();
-    for to_file in max(1, file - 1)..=min(9, file + 1) {
-        for to_rank in max(1, rank - 1)..=rank {
+    for to_file in max(1, rfile - 1)..=min(9, rfile + 1) {
+        for to_rank in max(1, rrank - 1)..=rrank {
             // Safety: `to_file` and `to_rank` are both in `1..=9`.
             result |= unsafe { Square::new_relative(to_file, to_rank, color).unwrap_unchecked() };
         }
     }
-    if rank <= 8 {
-        // Safety: `file` and `rank + 1` are both in `1..=9`.
-        result |= unsafe { Square::new_relative(file, rank + 1, color).unwrap_unchecked() };
+    if rrank <= 8 {
+        // Safety: `rfile` and `rrank + 1` are both in `1..=9`.
+        result |= unsafe { Square::new_relative(rfile, rrank + 1, color).unwrap_unchecked() };
     }
-    result ^= from; // Cannot move to the original square
+    result ^= unsafe { Square::new(file, rank).unwrap_unchecked() }; // Cannot move to the original square
     result
 }
 
-pub fn king(from: Square) -> Bitboard {
+pub fn king(file: u8, rank: u8) -> Bitboard {
     use core::cmp::{max, min};
 
-    let file = from.file();
-    let rank = from.rank();
     let mut result = Bitboard::empty();
     for to_file in max(1, file - 1)..=min(9, file + 1) {
         for to_rank in max(1, rank - 1)..=min(9, rank + 1) {
@@ -170,36 +188,41 @@ pub fn king(from: Square) -> Bitboard {
             result |= unsafe { Square::new(to_file, to_rank).unwrap_unchecked() };
         }
     }
-    result ^= from; // Cannot move to the original square
+    result ^= unsafe { Square::new(file, rank).unwrap_unchecked() }; // Cannot move to the original square
     result
 }
 
-fn lance_range(color: Color, from: Square, occupied: Bitboard) -> Bitboard {
+fn lance_range(color: Color, file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     match color {
-        Color::Black => long_range_0m1(from, occupied),
-        Color::White => long_range_01(from, occupied),
+        Color::Black => long_range_0m1(file, rank, occupied),
+        Color::White => long_range_01(file, rank, occupied),
     }
 }
 
-fn bishop_range(from: Square, occupied: Bitboard) -> Bitboard {
+fn bishop_range(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     let directions = [(1, 1), (1, -1), (-1, 1), (-1, -1)];
     let mut result = Bitboard::empty();
     for direction in directions {
-        result |= long_range(from, occupied, direction);
+        result |= unsafe { long_range(file, rank, occupied, direction) };
     }
     result
 }
 
-fn rook_range(from: Square, occupied: Bitboard) -> Bitboard {
-    let directions = [(1, 0), (-1, 0)];
-    let mut result = long_range_0m1(from, occupied) | long_range_01(from, occupied);
-    for direction in directions {
-        result |= long_range(from, occupied, direction);
-    }
+fn rook_range(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+    let mut result = long_range_0m1(file, rank, occupied)
+        | long_range_01(file, rank, occupied)
+        | long_range_10(file, rank, occupied);
+    result |= long_range_m10(file, rank, occupied);
     result
 }
 
-fn long_range(from: Square, occupied: Bitboard, (file_delta, rank_delta): (i8, i8)) -> Bitboard {
+unsafe fn long_range(
+    file: u8,
+    rank: u8,
+    occupied: Bitboard,
+    (file_delta, rank_delta): (i8, i8),
+) -> Bitboard {
+    let from = Square::new(file, rank).unwrap_unchecked();
     let mut result = Bitboard::empty();
     let mut current = from;
     while let Some(next) = current.shift(file_delta, rank_delta) {
@@ -213,9 +236,7 @@ fn long_range(from: Square, occupied: Bitboard, (file_delta, rank_delta): (i8, i
     result
 }
 
-fn long_range_01(from: Square, occupied: Bitboard) -> Bitboard {
-    let file = from.file();
-    let rank = from.rank();
+fn long_range_01(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     let occ = occupied.as_u128();
     let step_effect = 0xffffu16.wrapping_shl(rank as u32) & 0x1ff;
     let step_effect = unsafe { Bitboard::from_file_unchecked(file, step_effect) }.as_u128();
@@ -225,9 +246,7 @@ fn long_range_01(from: Square, occupied: Bitboard) -> Bitboard {
     unsafe { Bitboard::from_u128_unchecked(x) }
 }
 
-fn long_range_0m1(from: Square, occupied: Bitboard) -> Bitboard {
-    let file = from.file();
-    let rank = from.rank();
+fn long_range_0m1(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     let step_effect = 1u16.wrapping_shl(rank as u32 - 1) - 1;
     let occ_file_pat = unsafe { occupied.get_file_unchecked(file) };
     let x = occ_file_pat & step_effect;
@@ -237,6 +256,37 @@ fn long_range_0m1(from: Square, occupied: Bitboard) -> Bitboard {
     let x = x.wrapping_shr(1);
     let file_pat = !x & step_effect;
     unsafe { Bitboard::from_file_unchecked(file, file_pat) }
+}
+
+/// cbindgen:ignore
+const ROW: Bitboard = {
+    let mut result = Bitboard::empty();
+    let mut file = 1;
+    while file <= 9 {
+        result = result.or(unsafe { Bitboard::from_file_unchecked(file, 1) });
+        file += 1;
+    }
+    result
+};
+
+fn long_range_10(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+    let occ = occupied.as_u128();
+    let step_effect = unsafe { ROW.shift_down(rank - 1).shift_left(file) };
+    let step_effect = step_effect.as_u128();
+    let x = occ & step_effect;
+    // Qugiy-style
+    let x = (x ^ x.wrapping_sub(1)) & step_effect;
+    unsafe { Bitboard::from_u128_unchecked(x) }
+}
+
+fn long_range_m10(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+    let occ = occupied.as_u128().swap_bytes();
+    let step_effect = unsafe { ROW.shift_down(rank - 1).shift_right(10 - file) };
+    let step_effect = step_effect.as_u128().swap_bytes();
+    let x = occ & step_effect;
+    // Qugiy-style
+    let x = (x ^ x.wrapping_sub(1)) & step_effect;
+    unsafe { Bitboard::from_u128_unchecked(x.swap_bytes()) }
 }
 
 #[cfg(test)]
@@ -310,25 +360,24 @@ mod tests {
         let expected = single(3, 8) | single(4, 8);
         assert_eq!(attacking, expected);
 
-        let square = Square::SQ_8A;
         let expected = single(7, 2) | single(9, 2);
-        assert_eq!(super::silver(Color::Black, square), expected);
+        assert_eq!(super::silver(Color::Black, 8, 1), expected);
 
-        let square = Square::SQ_8A;
         let expected = single(7, 2) | single(8, 2) | single(9, 2);
-        assert_eq!(super::silver(Color::White, square), expected);
+        assert_eq!(super::silver(Color::White, 8, 1), expected);
 
         // Exhaustive checking: `super::silver` cannot panic or cause UB
         for color in Color::all() {
             for square in Square::all() {
-                let result = super::silver(color, square);
+                let result = super::silver(color, square.file(), square.rank());
                 assert!(result.count() <= 5);
             }
         }
         // Compatibility with `flip`
         for square in Square::all() {
-            let result_black = super::silver(Color::Black, square);
-            let result_white = super::silver(Color::White, square.flip());
+            let result_black = super::silver(Color::Black, square.file(), square.rank());
+            let result_white =
+                super::silver(Color::White, square.flip().file(), square.flip().rank());
             assert_eq!(result_white.flip(), result_black);
         }
     }
@@ -342,25 +391,24 @@ mod tests {
         let expected = single(3, 8) | single(4, 8) | single(5, 8);
         assert_eq!(attacking, expected);
 
-        let square = Square::SQ_8A;
         let expected = single(7, 1) | single(8, 2) | single(9, 1);
-        assert_eq!(super::gold(Color::Black, square), expected);
+        assert_eq!(super::gold(Color::Black, 8, 1), expected);
 
-        let square = Square::SQ_8A;
         let expected = single(7, 1) | single(7, 2) | single(8, 2) | single(9, 1) | single(9, 2);
-        assert_eq!(super::gold(Color::White, square), expected);
+        assert_eq!(super::gold(Color::White, 8, 1), expected);
 
         // Exhaustive checking: `super::gold` cannot panic or cause UB
         for color in Color::all() {
             for square in Square::all() {
-                let result = super::gold(color, square);
+                let result = super::gold(color, square.file(), square.rank());
                 assert!(result.count() <= 6);
             }
         }
         // Compatibility with `flip`
         for square in Square::all() {
-            let result_black = super::gold(Color::Black, square);
-            let result_white = super::gold(Color::White, square.flip());
+            let result_black = super::gold(Color::Black, square.file(), square.rank());
+            let result_white =
+                super::gold(Color::White, square.flip().file(), square.flip().rank());
             assert_eq!(result_white.flip(), result_black);
         }
     }
