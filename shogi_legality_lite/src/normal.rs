@@ -213,9 +213,9 @@ unsafe fn long_range(
 }
 
 fn long_range_01(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
-    let occ = occupied.as_u128();
+    let occ = occupied.to_u128();
     let step_effect = 0xffffu16.wrapping_shl(rank as u32) & 0x1ff;
-    let step_effect = unsafe { Bitboard::from_file_unchecked(file, step_effect) }.as_u128();
+    let step_effect = unsafe { Bitboard::from_file_unchecked(file, step_effect) }.to_u128();
     let x = occ & step_effect;
     // Qugiy-style
     let x = (x ^ x.wrapping_sub(1)) & step_effect;
@@ -246,9 +246,9 @@ const ROW: Bitboard = {
 };
 
 fn long_range_10(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
-    let occ = occupied.as_u128();
+    let occ = occupied.to_u128();
     let step_effect = unsafe { ROW.shift_down(rank - 1).shift_left(file) };
-    let step_effect = step_effect.as_u128();
+    let step_effect = step_effect.to_u128();
     let x = occ & step_effect;
     // Qugiy-style
     let x = (x ^ x.wrapping_sub(1)) & step_effect;
@@ -256,9 +256,9 @@ fn long_range_10(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
 }
 
 fn long_range_m10(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
-    let occ = occupied.as_u128().swap_bytes();
+    let occ = occupied.to_u128().swap_bytes();
     let step_effect = unsafe { ROW.shift_down(rank - 1).shift_right(10 - file) };
-    let step_effect = step_effect.as_u128().swap_bytes();
+    let step_effect = step_effect.to_u128().swap_bytes();
     let x = occ & step_effect;
     // Qugiy-style
     let x = (x ^ x.wrapping_sub(1)) & step_effect;
@@ -288,9 +288,9 @@ const BACKSLASH: Bitboard = {
 };
 
 fn long_range_11(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
-    let occ = occupied.as_u128();
+    let occ = occupied.to_u128();
     let step_effect = unsafe { SLASH.shift_down(rank).shift_left(file) };
-    let step_effect = step_effect.as_u128();
+    let step_effect = step_effect.to_u128();
     let x = occ & step_effect;
     // Qugiy-style
     let x = (x ^ x.wrapping_sub(1)) & step_effect;
@@ -298,9 +298,9 @@ fn long_range_11(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
 }
 
 fn long_range_1m1(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
-    let occ = occupied.as_u128();
+    let occ = occupied.to_u128();
     let step_effect = unsafe { BACKSLASH.shift_up(10 - rank).shift_left(file) };
-    let step_effect = step_effect.as_u128();
+    let step_effect = step_effect.to_u128();
     let x = occ & step_effect;
     // Qugiy-style
     let x = (x ^ x.wrapping_sub(1)) & step_effect;
@@ -308,9 +308,9 @@ fn long_range_1m1(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
 }
 
 fn long_range_m1m1(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
-    let occ = occupied.as_u128().swap_bytes();
+    let occ = occupied.to_u128().swap_bytes();
     let step_effect = unsafe { SLASH.shift_up(10 - rank).shift_right(10 - file) };
-    let step_effect = step_effect.as_u128().swap_bytes();
+    let step_effect = step_effect.to_u128().swap_bytes();
     let x = occ & step_effect;
     // Qugiy-style
     let x = (x ^ x.wrapping_sub(1)) & step_effect;
@@ -318,9 +318,9 @@ fn long_range_m1m1(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
 }
 
 fn long_range_m11(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
-    let occ = occupied.as_u128().swap_bytes();
+    let occ = occupied.to_u128().swap_bytes();
     let step_effect = unsafe { BACKSLASH.shift_down(rank).shift_right(10 - file) };
-    let step_effect = step_effect.as_u128().swap_bytes();
+    let step_effect = step_effect.to_u128().swap_bytes();
     let x = occ & step_effect;
     // Qugiy-style
     let x = (x ^ x.wrapping_sub(1)) & step_effect;
