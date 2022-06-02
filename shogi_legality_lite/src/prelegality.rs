@@ -231,40 +231,52 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
             }
         }
     }
-    for piece_kind in [PieceKind::Lance, PieceKind::Knight] {
-        let piece = Piece::new(piece_kind, side.flip());
-        let my_piece = Piece::new(piece_kind, side);
+    // lance, knight
+    {
+        let my_piece = Piece::new(PieceKind::Lance, side);
         let piece_bb = position.piece_bitboard(my_piece);
-        if piece_bb.is_empty() {
-            continue;
+        if !piece_bb.is_empty() {
+            // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
+            let attack = crate::normal::lance_range(side.flip(), king_file, king_rank, occupied);
+            if !(attack & piece_bb).is_empty() {
+                return Some(true);
+            }
         }
-        // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
-        let attack = crate::normal::from_candidates_without_assertion(
-            occupied, position, piece, king_file, king_rank,
-        );
-        if !(attack & piece_bb).is_empty() {
-            return Some(true);
-        }
-    }
-    for (piece_kind, pro_piece_kind) in [
-        (PieceKind::Bishop, PieceKind::ProBishop),
-        (PieceKind::Rook, PieceKind::ProRook),
-    ] {
-        let piece = Piece::new(piece_kind, side.flip());
-        let my_piece = Piece::new(piece_kind, side);
-        let my_pro_piece = Piece::new(pro_piece_kind, side);
-        let piece_bb = position.piece_bitboard(my_piece) | position.piece_bitboard(my_pro_piece);
-        if piece_bb.is_empty() {
-            continue;
-        }
-        // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
-        let attack = crate::normal::from_candidates_without_assertion(
-            occupied, position, piece, king_file, king_rank,
-        );
-        if !(attack & piece_bb).is_empty() {
-            return Some(true);
+        let my_piece = Piece::new(PieceKind::Knight, side);
+        let piece_bb = position.piece_bitboard(my_piece);
+        if !piece_bb.is_empty() {
+            // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
+            let attack = crate::normal::knight(side.flip(), king_file, king_rank);
+            if !(attack & piece_bb).is_empty() {
+                return Some(true);
+            }
         }
     }
+    macro_rules! ranges {
+        ($piece_kind:expr, $pro_piece_kind:expr, $func:expr,) => {
+            let my_piece = Piece::new($piece_kind, side);
+            let my_pro_piece = Piece::new($pro_piece_kind, side);
+            let piece_bb =
+                position.piece_bitboard(my_piece) | position.piece_bitboard(my_pro_piece);
+            if !piece_bb.is_empty() {
+                // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
+                let attack = $func(king_file, king_rank, occupied);
+                if !(attack & piece_bb).is_empty() {
+                    return Some(true);
+                }
+            }
+        };
+    }
+    ranges!(
+        PieceKind::Bishop,
+        PieceKind::ProBishop,
+        crate::normal::bishop_range,
+    );
+    ranges!(
+        PieceKind::Rook,
+        PieceKind::ProRook,
+        crate::normal::rook_range,
+    );
     Some(false)
 }
 

@@ -99,7 +99,7 @@ fn pawn(color: Color, from: Square) -> Bitboard {
     }
 }
 
-fn knight(color: Color, file: u8, rank: u8) -> Bitboard {
+pub fn knight(color: Color, file: u8, rank: u8) -> Bitboard {
     let rrank = match color {
         Color::Black => rank,
         Color::White => 10 - rank,
@@ -169,21 +169,21 @@ pub fn king(file: u8, rank: u8) -> Bitboard {
     result
 }
 
-fn lance_range(color: Color, file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+pub fn lance_range(color: Color, file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     match color {
         Color::Black => long_range_0m1(file, rank, occupied),
         Color::White => long_range_01(file, rank, occupied),
     }
 }
 
-fn bishop_range(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+pub fn bishop_range(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     let mut result = long_range_1m1(file, rank, occupied) | long_range_11(file, rank, occupied);
     result |= long_range_m1m1(file, rank, occupied);
     result |= long_range_m11(file, rank, occupied);
     result
 }
 
-fn rook_range(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
+pub fn rook_range(file: u8, rank: u8, occupied: Bitboard) -> Bitboard {
     let mut result = long_range_0m1(file, rank, occupied)
         | long_range_01(file, rank, occupied)
         | long_range_10(file, rank, occupied);
