@@ -197,7 +197,8 @@ pub fn all_legal_moves(position: &PartialPosition) -> impl Iterator<Item = Move>
 // Can `side` play a move that captures the opponent's king?
 pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
     let side = position.side_to_move();
-    let king = king_position(position, side.flip())?;
+    let occupied = !position.vacant_bitboard();
+    let king = position.king_position(side.flip())?;
     let king_file = king.file();
     let king_rank = king.rank();
     let king_peripheral = crate::normal::king(king_file, king_rank);
@@ -223,7 +224,7 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
             let my_piece = Piece::new(piece_kind, side);
             let piece_bb = position.piece_bitboard(my_piece);
             let attack = crate::normal::from_candidates_without_assertion(
-                position, piece, king_file, king_rank,
+                occupied, position, piece, king_file, king_rank,
             );
             if !(piece_bb & attack).is_empty() {
                 return Some(true);
@@ -238,8 +239,9 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
             continue;
         }
         // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
-        let attack =
-            crate::normal::from_candidates_without_assertion(position, piece, king_file, king_rank);
+        let attack = crate::normal::from_candidates_without_assertion(
+            occupied, position, piece, king_file, king_rank,
+        );
         if !(attack & piece_bb).is_empty() {
             return Some(true);
         }
@@ -256,24 +258,14 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
             continue;
         }
         // from `king`, can `piece` reach a piece of `side` with `piece_kind`?
-        let attack =
-            crate::normal::from_candidates_without_assertion(position, piece, king_file, king_rank);
+        let attack = crate::normal::from_candidates_without_assertion(
+            occupied, position, piece, king_file, king_rank,
+        );
         if !(attack & piece_bb).is_empty() {
             return Some(true);
         }
     }
     Some(false)
-}
-
-// TODO: move to shogi_core (PartialPosition)
-fn king_position(position: &PartialPosition, color: Color) -> Option<Square> {
-    let king = Piece::new(PieceKind::King, color);
-    for square in Square::all() {
-        if position.piece_at(square) == Some(king) {
-            return Some(square);
-        }
-    }
-    None
 }
 
 // The king does not need to be in check.

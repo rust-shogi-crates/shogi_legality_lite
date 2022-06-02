@@ -103,6 +103,17 @@ typedef struct Bitboard {
 typedef uint16_t OptionCompactMove;
 
 /**
+ * C interface of <code>[Option]<[Square]></code>.
+ *
+ * This type is provided for C interoperability.
+ * cbindgen cannot deduce that <code>[Option]<[Square]></code> can be represented by `uint8_t` in C, so we need to define the bridge type.
+ * Users of this type should convert to/from <code>[Option]<[Square]></code>.
+ *
+ * See: <https://github.com/eqrion/cbindgen/issues/326>.
+ */
+typedef uint8_t OptionSquare;
+
+/**
  * A position with its move sequence omitted.
  *
  * This data is insufficient for complete legality checking (such as repetition checking),
@@ -118,6 +129,7 @@ typedef struct PartialPosition {
   struct Bitboard player_bb[2];
   struct Bitboard piece_bb[NUM];
   OptionCompactMove last_move;
+  OptionSquare king_square[NUM];
 } PartialPosition;
 
 /**

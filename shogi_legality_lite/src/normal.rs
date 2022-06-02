@@ -21,10 +21,12 @@ pub fn from_candidates(position: &PartialPosition, piece: Piece, from: Square) -
     debug_assert_eq!(position.piece_at(from), Some(piece));
     let file = from.file();
     let rank = from.rank();
-    from_candidates_without_assertion(position, piece, file, rank)
+    let occupied = !position.vacant_bitboard();
+    from_candidates_without_assertion(occupied, position, piece, file, rank)
 }
 
 pub fn from_candidates_without_assertion(
+    occupied: Bitboard,
     position: &PartialPosition,
     piece: Piece,
     file: u8,
@@ -39,7 +41,6 @@ pub fn from_candidates_without_assertion(
             | PieceKind::ProBishop
             | PieceKind::ProRook
     ) {
-        let occupied = !position.vacant_bitboard();
         let range = match piece.piece_kind() {
             PieceKind::Lance => lance_range(piece.color(), file, rank, occupied),
             PieceKind::Bishop => bishop_range(file, rank, occupied),
