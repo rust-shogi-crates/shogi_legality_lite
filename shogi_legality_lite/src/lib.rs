@@ -86,6 +86,10 @@ impl LegalityChecker for LiteLegalityChecker {
         }
         for piece_kind in shogi_core::Hand::all_hand_pieces() {
             let piece = Piece::new(piece_kind, side);
+            let count = unsafe { position.hand(piece).unwrap_unchecked() };
+            if count == 0 {
+                continue;
+            }
             for to in position.vacant_bitboard() {
                 let mv = Move::Drop { piece, to };
                 if self.is_legal_partial_lite(position, mv) {
