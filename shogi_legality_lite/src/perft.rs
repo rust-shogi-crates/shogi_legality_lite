@@ -11,6 +11,11 @@ pub fn perft(pos: PartialPosition, depth: usize) -> Stat {
         return Stat { all: 1 };
     }
     let all = LiteLegalityChecker.all_legal_moves_partial(&pos);
+    if depth == 1 {
+        return Stat {
+            all: all.len() as u64,
+        };
+    }
     let mut answer_all = 0;
     for mv in all {
         let mut next = pos.clone();
