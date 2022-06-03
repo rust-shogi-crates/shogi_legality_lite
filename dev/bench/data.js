@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1654272783975,
+  "lastUpdate": 1654278900504,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -611,6 +611,48 @@ window.BENCHMARK_DATA = {
             "name": "perft::tests::bench_perft_4",
             "value": 217049148,
             "range": "± 1800930",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "distinct": true,
+          "id": "a61f1efd39d9ae46833a16376c684ef012cd76dc",
+          "message": "Don't check irrelevant pieces in drop move enumeration",
+          "timestamp": "2022-06-04T02:52:34+09:00",
+          "tree_id": "07c39e8648d15f0db7145fd6016672275bb92bfe",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/a61f1efd39d9ae46833a16376c684ef012cd76dc"
+        },
+        "date": 1654278900045,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft::tests::bench_perft_2",
+            "value": 226847,
+            "range": "± 466",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_3",
+            "value": 6526155,
+            "range": "± 7383",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_4",
+            "value": 183606471,
+            "range": "± 132447",
             "unit": "ns/iter"
           }
         ]
