@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1654278900504,
+  "lastUpdate": 1654339237637,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -653,6 +653,48 @@ window.BENCHMARK_DATA = {
             "name": "perft::tests::bench_perft_4",
             "value": 183606471,
             "range": "± 132447",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "distinct": true,
+          "id": "e0e4273a9b2afc6a12a11a51b6b7a37aa105ac93",
+          "message": "Skip drop moves when no pieces are in hand",
+          "timestamp": "2022-06-04T19:36:50+09:00",
+          "tree_id": "9331964872d376cfd86e5b87e4d1a10d94af58f8",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/e0e4273a9b2afc6a12a11a51b6b7a37aa105ac93"
+        },
+        "date": 1654339237075,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft::tests::bench_perft_2",
+            "value": 195093,
+            "range": "± 1437",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_3",
+            "value": 5573854,
+            "range": "± 14882",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_4",
+            "value": 157986135,
+            "range": "± 92027",
             "unit": "ns/iter"
           }
         ]
