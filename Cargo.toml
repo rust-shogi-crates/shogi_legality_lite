@@ -17,6 +17,3 @@ lto = true
 [profile.release-speed]
 inherits = "release"
 opt-level = 3
-
-[patch.crates-io]
-shogi_core = { git = "https://github.com/rust-shogi-crates/shogi_core", branch = "main" }

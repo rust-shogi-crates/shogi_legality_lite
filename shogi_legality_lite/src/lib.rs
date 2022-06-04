@@ -64,6 +64,8 @@ impl LegalityChecker for LiteLegalityChecker {
 
     #[cfg(feature = "alloc")]
     fn all_legal_moves_partial(&self, position: &PartialPosition) -> alloc::vec::Vec<Move> {
+        use shogi_core::Hand;
+
         let side = position.side_to_move();
         let my_bb = position.player_bitboard(side);
         let mut result = alloc::vec::Vec::new();
@@ -84,12 +86,17 @@ impl LegalityChecker for LiteLegalityChecker {
                 }
             }
         }
+
+        let my_hand = position.hand_of_a_player(side);
+        if my_hand == Hand::new() {
+            return result;
+        }
         for piece_kind in shogi_core::Hand::all_hand_pieces() {
-            let piece = Piece::new(piece_kind, side);
-            let count = unsafe { position.hand(piece).unwrap_unchecked() };
+            let count = unsafe { my_hand.count(piece_kind).unwrap_unchecked() };
             if count == 0 {
                 continue;
             }
+            let piece = Piece::new(piece_kind, side);
             for to in position.vacant_bitboard() {
                 let mv = Move::Drop { piece, to };
                 if self.is_legal_partial_lite(position, mv) {
