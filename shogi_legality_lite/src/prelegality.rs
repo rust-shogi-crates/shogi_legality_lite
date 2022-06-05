@@ -281,7 +281,7 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
 }
 
 // The king does not need to be in check.
-fn is_mate(position: &PartialPosition) -> Option<bool> {
+pub fn is_mate(position: &PartialPosition) -> Option<bool> {
     let all = all_legal_moves(position);
     for mv in all {
         let mut next = position.clone();
