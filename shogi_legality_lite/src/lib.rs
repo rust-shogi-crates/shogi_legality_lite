@@ -1,5 +1,6 @@
 #![cfg_attr(not(test), no_std)] // Forbids using std::*.
 #![cfg_attr(bench, feature(test))]
+#![doc = include_str!("../README.md")]
 
 #[cfg(bench)]
 extern crate test;
@@ -18,6 +19,10 @@ mod normal;
 pub mod perft;
 mod prelegality;
 
+/// A type for legality checking.
+///
+/// Methods of this type do not use constant tables.
+/// They do not allocate unless it is necessary.
 pub struct LiteLegalityChecker;
 
 impl LegalityChecker for LiteLegalityChecker {
