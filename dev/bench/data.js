@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1654524688112,
+  "lastUpdate": 1654525632806,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -863,6 +863,48 @@ window.BENCHMARK_DATA = {
             "name": "perft::tests::bench_perft_4",
             "value": 192236393,
             "range": "± 14201705",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "distinct": true,
+          "id": "2db8c14e254b7dcc16e658851dc3e2c450569c9a",
+          "message": "Fix description",
+          "timestamp": "2022-06-06T23:24:21+09:00",
+          "tree_id": "806e18a48cc7d986511973923d9aa965df3131ca",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/2db8c14e254b7dcc16e658851dc3e2c450569c9a"
+        },
+        "date": 1654525631927,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft::tests::bench_perft_2",
+            "value": 174759,
+            "range": "± 677",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_3",
+            "value": 5006314,
+            "range": "± 9751",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_4",
+            "value": 141997257,
+            "range": "± 218307",
             "unit": "ns/iter"
           }
         ]
