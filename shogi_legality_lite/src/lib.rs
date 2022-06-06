@@ -177,12 +177,24 @@ impl LegalityChecker for LiteLegalityChecker {
 
     fn normal_from_candidates(&self, position: &PartialPosition, from: Square) -> Bitboard {
         let mut result = Bitboard::empty();
-        for to in Square::all() {
-            for promote in [true, false] {
+        let side = position.side_to_move();
+        let my_bb = position.player_bitboard(side);
+        if !my_bb.contains(from) {
+            return Bitboard::empty();
+        }
+        let to_candidates = prelegality::normal_from_candidates(position, from);
+        for (index, to_candidates) in to_candidates.into_iter().enumerate() {
+            let promote = index == 1;
+            for to in to_candidates {
                 let mv = Move::Normal { from, to, promote };
-                if self.is_legal_partial_lite(position, mv) {
-                    result |= to;
+                let mut next = position.clone();
+                if next.make_move(mv).is_none() {
+                    continue;
                 }
+                if prelegality::will_king_be_captured(&next) == Some(true) {
+                    continue;
+                }
+                result |= to;
             }
         }
         result
