@@ -1,4 +1,5 @@
 #![cfg_attr(not(test), no_std)] // Forbids using std::*.
+#![cfg_attr(docsrs, feature(doc_cfg))]
 #![cfg_attr(bench, feature(test))]
 #![doc = include_str!("../README.md")]
 
@@ -26,8 +27,8 @@ mod prelegality;
 pub struct LiteLegalityChecker;
 
 impl LegalityChecker for LiteLegalityChecker {
-    #[allow(unused)]
     #[cfg(feature = "alloc")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
     fn status(&self, position: &shogi_core::Position) -> PositionStatus {
         let result = self.status_partial(position.inner());
         if result != PositionStatus::InProgress {
@@ -38,7 +39,7 @@ impl LegalityChecker for LiteLegalityChecker {
         let length = moves.len();
         let mut history = alloc::vec::Vec::with_capacity(length + 1);
         let mut current = position.initial_position().clone();
-        current.ply_set(1);
+        let _ = current.ply_set(1);
         history.push(current.to_sfen_owned());
         let mut repeated = false;
         for i in 0..length {
@@ -46,7 +47,7 @@ impl LegalityChecker for LiteLegalityChecker {
             if result.is_none() {
                 return PositionStatus::Invalid;
             }
-            current.ply_set(1);
+            let _ = current.ply_set(1);
             history.push(current.to_sfen_owned());
             debug_assert_eq!(history.len(), i + 2);
             let mut eq = 0;
@@ -66,7 +67,6 @@ impl LegalityChecker for LiteLegalityChecker {
         PositionStatus::InProgress
     }
 
-    #[allow(unused)]
     fn status_partial(&self, position: &PartialPosition) -> PositionStatus {
         let side = position.side_to_move();
         if crate::prelegality::is_mate(position) == Some(true) {
@@ -130,6 +130,7 @@ impl LegalityChecker for LiteLegalityChecker {
     }
 
     #[cfg(feature = "alloc")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
     fn all_legal_moves_partial(&self, position: &PartialPosition) -> alloc::vec::Vec<Move> {
         use shogi_core::Hand;
 

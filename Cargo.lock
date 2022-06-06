@@ -17,7 +17,7 @@ dependencies = [
 
 [[package]]
 name = "shogi_legality_lite_c"
-version = "0.1.0"
+version = "0.0.0-unpublished"
 dependencies = [
  "shogi_legality_lite",
 ]
