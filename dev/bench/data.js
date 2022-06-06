@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1654519579471,
+  "lastUpdate": 1654522363967,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -779,6 +779,48 @@ window.BENCHMARK_DATA = {
             "name": "perft::tests::bench_perft_4",
             "value": 167322734,
             "range": "± 15418906",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "koba-e964",
+            "username": "koba-e964"
+          },
+          "distinct": true,
+          "id": "220ccf40fd0b29746e7ab54cc4f31b2f89e69bc1",
+          "message": "Update Cargo.toml",
+          "timestamp": "2022-06-06T22:29:57+09:00",
+          "tree_id": "1fd4655f2462f27b0211e8d5e76c30adfb84b805",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/220ccf40fd0b29746e7ab54cc4f31b2f89e69bc1"
+        },
+        "date": 1654522363553,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft::tests::bench_perft_2",
+            "value": 194016,
+            "range": "± 616",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_3",
+            "value": 5559463,
+            "range": "± 6251",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_4",
+            "value": 157166867,
+            "range": "± 124407",
             "unit": "ns/iter"
           }
         ]
