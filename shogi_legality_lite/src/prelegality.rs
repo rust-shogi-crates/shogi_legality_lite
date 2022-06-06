@@ -1,4 +1,6 @@
-use shogi_core::{Bitboard, Color, Move, PartialPosition, Piece, PieceKind, Square};
+use shogi_core::{
+    Bitboard, Color, IllegalMoveKind, Move, PartialPosition, Piece, PieceKind, Square,
+};
 
 pub fn check(position: &PartialPosition, mv: Move) -> bool {
     let side = position.side_to_move();
@@ -98,6 +100,108 @@ pub fn check(position: &PartialPosition, mv: Move) -> bool {
     }
 }
 
+pub fn check_with_error(position: &PartialPosition, mv: Move) -> Result<(), IllegalMoveKind> {
+    let side = position.side_to_move();
+    match mv {
+        Move::Normal { from, to, promote } => {
+            // Is `from` occupied by `side`'s piece?
+            let from_piece = if let Some(x) = position.piece_at(from) {
+                x
+            } else {
+                return Err(IllegalMoveKind::IncorrectMove);
+            };
+            if from_piece.color() != side {
+                return Err(IllegalMoveKind::IncorrectMove);
+            }
+            // Is `to` occupied by `side`'s piece?
+            let to_piece = position.piece_at(to);
+            if let Some(x) = to_piece {
+                if x.color() == side {
+                    return Err(IllegalMoveKind::IncorrectMove);
+                }
+            }
+            // Stuck?
+            let rel_rank = to.relative_rank(side);
+            if rel_rank == 1
+                && matches!(
+                    from_piece.piece_kind(),
+                    PieceKind::Pawn | PieceKind::Lance | PieceKind::Knight,
+                )
+                && !promote
+            {
+                return Err(IllegalMoveKind::NormalStuck);
+            }
+            if rel_rank == 2 && from_piece.piece_kind() == PieceKind::Knight && !promote {
+                return Err(IllegalMoveKind::NormalStuck);
+            }
+            // Can promote?
+            if promote && from.relative_rank(side) > 3 && to.relative_rank(side) > 3 {
+                return Err(IllegalMoveKind::IncorrectMove);
+            }
+            if promote && from_piece.promote().is_none() {
+                return Err(IllegalMoveKind::IncorrectMove);
+            }
+            // Is the move valid?
+            if crate::normal::check(position, from_piece, from, to) {
+                Ok(())
+            } else {
+                Err(IllegalMoveKind::IncorrectMove)
+            }
+        }
+        Move::Drop { piece, to } => {
+            // Does `side` have a piece?
+            if piece.color() != side {
+                return Err(IllegalMoveKind::IncorrectMove);
+            }
+            let remaining = if let Some(x) = position.hand(piece) {
+                x
+            } else {
+                return Err(IllegalMoveKind::IncorrectMove);
+            };
+            if remaining == 0 {
+                return Err(IllegalMoveKind::IncorrectMove);
+            }
+            // Is `to` vacant?
+            if position.piece_at(to).is_some() {
+                return Err(IllegalMoveKind::IncorrectMove);
+            }
+            // Stuck?
+            let rel_rank = to.relative_rank(side);
+            if rel_rank == 1
+                && matches!(
+                    piece.piece_kind(),
+                    PieceKind::Pawn | PieceKind::Lance | PieceKind::Knight,
+                )
+            {
+                return Err(IllegalMoveKind::DropStuck);
+            }
+            if rel_rank == 2 && piece.piece_kind() == PieceKind::Knight {
+                return Err(IllegalMoveKind::DropStuck);
+            }
+            // Does a double-pawn (`二歩`, *nifu*) happen?
+            if piece.piece_kind() == PieceKind::Pawn {
+                let file = to.file();
+                for i in 1..=9 {
+                    let square = unsafe { Square::new(file, i).unwrap_unchecked() };
+                    if position.piece_at(square) == Some(piece) {
+                        return Err(IllegalMoveKind::TwoPawns);
+                    }
+                }
+            }
+            // Does a drop-pawn-mate (`打ち歩詰め`, *uchifu-zume*) happen?
+            if piece.piece_kind() == PieceKind::Pawn {
+                let mut next = position.clone();
+                let result = next.make_move(mv); // always Some(())
+                debug_assert_eq!(result, Some(()));
+                if is_mate(&next) != Some(false) {
+                    return Err(IllegalMoveKind::DropPawnMate);
+                }
+            }
+            Ok(())
+        }
+    }
+}
+
 const FIRST_RANK: Bitboard = {
     let mut result = Bitboard::empty();
     let mut i = 1;
@@ -138,7 +242,6 @@ const WHITE_PROMOTION: Bitboard = {
     result
 };
 
-#[allow(unused)] // TODO: remove
 pub fn normal_from_candidates(position: &PartialPosition, from: Square) -> [Bitboard; 2] {
     let side = position.side_to_move();
     let from_piece = if let Some(x) = position.piece_at(from) {
@@ -176,7 +279,6 @@ pub fn normal_from_candidates(position: &PartialPosition, from: Square) -> [Bitb
     [unpromote_prohibited.andnot(base), base & promotable]
 }
 
-#[allow(unused)]
 pub fn all_legal_moves(position: &PartialPosition) -> impl Iterator<Item = Move> + '_ {
     Square::all()
         .flat_map(|from| {

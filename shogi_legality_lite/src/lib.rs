@@ -104,13 +104,13 @@ impl LegalityChecker for LiteLegalityChecker {
         position: &PartialPosition,
         mv: Move,
     ) -> Result<(), IllegalMoveKind> {
-        if !prelegality::check(position, mv) {
+        prelegality::check_with_error(position, mv)?;
+        let mut next = position.clone();
+        if next.make_move(mv).is_none() {
             return Err(IllegalMoveKind::IncorrectMove);
         }
-        let mut next = position.clone();
-        if next.make_move(mv).is_none() {}
-        if prelegality::will_king_be_captured(&next) != Some(false) {
-            return Err(IllegalMoveKind::IncorrectMove);
+        if prelegality::will_king_be_captured(&next) == Some(true) {
+            return Err(IllegalMoveKind::IgnoredCheck);
         }
         Ok(())
     }
@@ -123,7 +123,7 @@ impl LegalityChecker for LiteLegalityChecker {
         if next.make_move(mv).is_none() {
             return false;
         }
-        if prelegality::will_king_be_captured(&next) != Some(false) {
+        if prelegality::will_king_be_captured(&next) == Some(true) {
             return false;
         }
         true
