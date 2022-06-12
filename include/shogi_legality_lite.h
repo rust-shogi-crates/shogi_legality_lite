@@ -52,6 +52,152 @@ enum Color {
 typedef uint8_t Color;
 
 /**
+ * Kinds of pieces.
+ *
+ * [`PieceKind`] and <code>[Option]<[PieceKind]></code> are both 1-byte data types.
+ * Because they are cheap to copy, they implement [`Copy`].
+ */
+enum PieceKind {
+  /**
+   * A pawn. Unlike in chess, it always moves one square forward,
+   * even if the destination square is occuipied by an enemy piece.
+   *
+   * Known as `歩` (*fu*) or `歩兵` (*fuhyō*), although the latter name is rarely used.
+   *
+   * Discriminant = 1.
+   */
+  Pawn = 1,
+  /**
+   * A lance. It moves any number of squares forward without jumping over other pieces.
+   * Chess has no counterpart of it.
+   *
+   * Known as `香` (*kyō*) or `香車` (*kyōsha*).
+   *
+   * Discriminant = 2.
+   */
+  Lance = 2,
+  /**
+   * A knight. Unlike in chess, it can only move two squares forward and one square vertically.
+   *
+   * Known as `桂` (*kē*) or `桂馬` (*kēma*).
+   *
+   * Discriminant = 3.
+   */
+  Knight = 3,
+  /**
+   * A silver general. It moves one square forward or diagonally.
+   * Chess has no counterpart of it.
+   *
+   * Known as `銀` (*gin*) or `銀将` (*ginshō*), although the latter name is rarely used.
+   *
+   * Discriminant = 4.
+   */
+  Silver = 4,
+  /**
+   * A gold general. It moves one square horizontally, vertically, and diagonally forward.
+   * Chess has no counterpart of it.
+   *
+   * Known as `金` (*kin*) or `金将` (*kinshō*), although the latter name is rarely used.
+   *
+   * Discriminant = 5.
+   */
+  Gold = 5,
+  /**
+   * A bishop. It moves any number of squares diagonally,
+   * exactly the same way as a bishop does in chess.
+   *
+   * Known as `角` (*kaku*) or `角行` (*kakugyō*), although the latter name is rarely used.
+   *
+   * Discriminant = 6.
+   */
+  Bishop = 6,
+  /**
+   * A rook. It moves any number of squares horizontally or vertically.
+   * It is almost the same as a rook in chess, but shogi has no rule of castling.
+   *
+   * Known as `飛` (*hi*) or `飛車` (*hisha*), although the former name is rarely used to refer to a piece.
+   *
+   * Discriminant = 7.
+   */
+  Rook = 7,
+  /**
+   * A king. It moves one square horizontally, vertically or diagonally.
+   * A move that would expose the king to an enemy piece's capture threat is an illegal move,
+   * and the player that has no legal moves immediately loses.
+   *
+   * It is almost the same as a king in chess, but shogi has no rule of castling.
+   *
+   * Known as `王` (*ō*), `王将` (*ōshō*), `玉` (*gyoku*) or `玉将` (*gyokushō*).
+   * The two-letter names are rarely used to refer to pieces.
+   *
+   * Discriminant = 8.
+   */
+  King = 8,
+  /**
+   * A promoted pawn. Moves exactly the same way as a gold general.
+   *
+   * Known as `と` (*to*) or `と金` (*tokin*),
+   * although the former name is rarely used to refer to a piece.
+   *
+   * Discriminant = 9.
+   */
+  ProPawn = 9,
+  /**
+   * A promoted lance. Moves exactly the same way as a gold general.
+   *
+   * Known as `成香` (*narikyō*).
+   *
+   * Discriminant = 10.
+   */
+  ProLance = 10,
+  /**
+   * A promoted knight. Moves exactly the same way as a gold general.
+   *
+   * Known as `成桂` (*narikē*).
+   *
+   * Discriminant = 11.
+   */
+  ProKnight = 11,
+  /**
+   * A promoted silver general. Moves exactly the same way as a gold general.
+   *
+   * Known as `成銀` (*narigin*).
+   *
+   * Discriminant = 12.
+   */
+  ProSilver = 12,
+  /**
+   * A promoted bishop. It moves any number of squares diagonally, or one square horizontally or vertically.
+   *
+   * Known as `馬` (*uma*), `竜馬` (*ryūma*),
+   * although the latter is rarely used and confusing.
+   *
+   * Discriminant = 13.
+   */
+  ProBishop = 13,
+  /**
+   * A promoted rook.  It moves any number of squares horizontally or vertically, or one square diagonally.
+   *
+   * Known as `竜` (*ryū*), `竜王` (*ryūō*),
+   * although the latter is rarely used and confusing.
+   *
+   * Discriminant = 14.
+   */
+  ProRook = 14,
+};
+typedef uint8_t PieceKind;
+
+/**
+ * A subset of all squares.
+ *
+ * Because [`Bitboard`] is cheap to copy, it implements [`Copy`].
+ * Its [`Default`] value is an empty instance.
+ */
+typedef struct Bitboard {
+  uint64_t _0[2];
+} Bitboard;
+
+/**
  * A hand of a single player. A hand is a multiset of unpromoted pieces (except a king).
  *
  * This type can hold up to 255 pieces of each kind, although the rule of shogi prohibits it.
@@ -83,16 +229,6 @@ typedef struct Hand {
  * See: <https://github.com/eqrion/cbindgen/issues/326>
  */
 typedef uint8_t OptionPiece;
-
-/**
- * A subset of all squares.
- *
- * Because [`Bitboard`] is cheap to copy, it implements [`Copy`].
- * Its [`Default`] value is an empty instance.
- */
-typedef struct Bitboard {
-  uint64_t _0[2];
-} Bitboard;
 
 /**
  * C-compatible type for <code>[Option]<[CompactMove]></code>.
@@ -185,6 +321,9 @@ typedef uint8_t Square;
  * Since: 0.1.2
  */
 #define Square_NUM 81
+
+struct Bitboard all_drop_checks_partial(const struct PartialPosition *position,
+                                        PieceKind piece_kind);
 
 bool is_in_check_partial_lite(const struct PartialPosition *position);
 

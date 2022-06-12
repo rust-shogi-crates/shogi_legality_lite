@@ -236,17 +236,117 @@ impl LegalityChecker for LiteLegalityChecker {
 #[cfg(feature = "alloc")]
 #[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
 pub fn all_checks_partial(position: &PartialPosition) -> alloc::vec::Vec<Move> {
-    let all = LiteLegalityChecker.all_legal_moves_partial(position);
-    all.into_iter()
-        .filter(|&mv| {
-            let mut next = position.clone();
-            if next.make_move(mv).is_some() {
-                is_in_check_partial_lite(&next)
-            } else {
-                false
+    use shogi_core::Hand;
+
+    let side = position.side_to_move();
+    let king = match position.king_position(side.flip()) {
+        Some(x) => x,
+        None => return alloc::vec::Vec::new(),
+    };
+    let king_file = king.file();
+    let king_rank = king.rank();
+    let my_bb = position.player_bitboard(side);
+    let mut result = alloc::vec::Vec::new();
+    for from in my_bb {
+        let to_candidates = prelegality::normal_from_candidates(position, from);
+        for (index, to_candidates) in to_candidates.into_iter().enumerate() {
+            let promote = index == 1;
+            for to in to_candidates {
+                let mv = Move::Normal { from, to, promote };
+                let mut next = position.clone();
+                if next.make_move(mv).is_none() {
+                    continue;
+                }
+                if prelegality::will_king_be_captured(&next) == Some(true) {
+                    continue;
+                }
+                if is_in_check_partial_lite(&next) {
+                    result.push(mv);
+                }
             }
-        })
-        .collect()
+        }
+    }
+
+    let my_hand = position.hand_of_a_player(side);
+    if my_hand == Hand::new() {
+        return result;
+    }
+    for piece_kind in shogi_core::Hand::all_hand_pieces() {
+        let count = unsafe { my_hand.count(piece_kind).unwrap_unchecked() };
+        if count == 0 {
+            continue;
+        }
+        let bb = all_drop_checks_partial_sub(position, piece_kind, king_file, king_rank);
+        for to in bb {
+            let mv = Move::Drop {
+                piece: Piece::new(piece_kind, side),
+                to,
+            };
+            result.push(mv);
+        }
+    }
+    result
+}
+
+#[no_mangle]
+pub extern "C" fn all_drop_checks_partial(
+    position: &PartialPosition,
+    piece_kind: PieceKind,
+) -> Bitboard {
+    let side = position.side_to_move();
+    let my_hand = position.hand_of_a_player(side);
+    let count = unsafe { my_hand.count(piece_kind).unwrap_unchecked() };
+    if count == 0 {
+        return Bitboard::empty();
+    }
+    let king = match position.king_position(side.flip()) {
+        Some(x) => x,
+        None => return Bitboard::empty(),
+    };
+    all_drop_checks_partial_sub(position, piece_kind, king.file(), king.rank())
+}
+
+// Does not check if:
+// - at least one piece of `piece_kind` is in hand
+fn all_drop_checks_partial_sub(
+    position: &PartialPosition,
+    piece_kind: PieceKind,
+    king_file: u8,
+    king_rank: u8,
+) -> Bitboard {
+    let side = position.side_to_move();
+    // Special handling for drop pawn mate
+    if piece_kind == PieceKind::Pawn {
+        let new_rank = match (side, king_rank) {
+            (Color::Black, 9) | (Color::White, 1) => {
+                return Bitboard::empty();
+            }
+            (Color::Black, x) => x + 1,
+            (Color::White, x) => x - 1,
+        };
+        // There is at most one candidate square
+        let candidate = unsafe { Square::new(king_file, new_rank).unwrap_unchecked() };
+        // Is dropping a pawn there legal?
+        let mv = Move::Drop {
+            piece: Piece::new(PieceKind::Pawn, side),
+            to: candidate,
+        };
+        if prelegality::check(position, mv) {
+            return Bitboard::single(candidate);
+        } else {
+            return Bitboard::empty();
+        }
+    }
+    let piece = Piece::new(piece_kind, side.flip());
+    let in_range = crate::normal::from_candidates_without_assertion(
+        position.occupied_bitboard(),
+        position,
+        piece,
+        king_file,
+        king_rank,
+    );
+    // If a drop move is stuck, it cannot be a check.
+    position.vacant_bitboard() & in_range
 }
 
 #[no_mangle]
