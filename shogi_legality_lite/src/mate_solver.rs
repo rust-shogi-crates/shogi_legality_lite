@@ -27,7 +27,14 @@ fn all_mymoves(position: &PartialPosition, depth: usize) -> MateResult {
     for mv in all {
         let mut next = position.clone();
         next.make_move(mv).unwrap();
-        let sub = all_countermoves(&next, depth - 1);
+        let sub = all_countermoves(
+            &next,
+            if fastest.is_empty() {
+                depth - 1
+            } else {
+                fastest.len() - 3
+            },
+        );
         nodes += sub.nodes;
         let mut pv_rev = sub.pv_rev;
         pv_rev.push(mv);
@@ -110,6 +117,21 @@ mod tests {
         assert!(result.is_mate);
     }
 
+    #[cfg(bench)]
+    #[bench]
+    fn bench_mate_0(b: &mut test::Bencher) {
+        use shogi_usi_parser::FromUsi;
+
+        // From https://github.com/koba-e964/shogi-mate-problems/blob/d58d61336dd82096856bc3ac0ba372e5cd722bc8/2022-05-18/mate5.psn#L3
+        let position =
+            PartialPosition::from_usi("sfen 3g1ks2/6g2/4S4/7B1/9/9/9/9/9 b G2rbg2s4n4l18p 1")
+                .unwrap();
+        b.iter(|| {
+            let result = solve_mate_problem(&position, 5);
+            assert!(result.is_mate);
+        });
+    }
+
     #[test]
     fn solve_mate_problem_works_1() {
         use shogi_usi_parser::FromUsi;
@@ -124,5 +146,24 @@ mod tests {
         pv.reverse();
         assert_eq!(pv[0].to_usi_owned(), "S*5b");
         assert_eq!(pv[1].to_usi_owned(), "4a3b");
+    }
+
+    #[cfg(bench)]
+    #[bench]
+    fn bench_mate_1(b: &mut test::Bencher) {
+        use shogi_usi_parser::FromUsi;
+
+        // From https://github.com/koba-e964/shogi-mate-problems/blob/d58d61336dd82096856bc3ac0ba372e5cd722bc8/2022-05-18/mate9.psn#L3
+        let position =
+            PartialPosition::from_usi("sfen 5kgnl/9/4+B1pp1/8p/9/9/9/9/9 b 2S2rb3g2s3n3l15p 1")
+                .unwrap();
+        b.iter(|| {
+            let result = solve_mate_problem(&position, 9);
+            assert!(result.is_mate);
+            let mut pv = result.pv_rev;
+            pv.reverse();
+            assert_eq!(pv[0].to_usi_owned(), "S*5b");
+            assert_eq!(pv[1].to_usi_owned(), "4a3b");
+        })
     }
 }
