@@ -28,3 +28,6 @@ crate-type = [
 
 [dependencies]
 shogi_core = { version = "0.1.3", default-features = false }
+
+[dev-dependencies]
+shogi_usi_parser = { version = "=0.1.0", default-features = false }

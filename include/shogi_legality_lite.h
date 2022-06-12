@@ -186,6 +186,8 @@ typedef uint8_t Square;
  */
 #define Square_NUM 81
 
+bool is_in_check_partial_lite(const struct PartialPosition *position);
+
 /**
  * Checks if the normal move is legal.
  *
