@@ -23,25 +23,36 @@ fn all_mymoves(position: &PartialPosition, depth: usize) -> MateResult {
     }
     let all = crate::all_checks_partial(position);
     let mut nodes = 0;
+    let mut fastest = alloc::vec::Vec::new();
     for mv in all {
         let mut next = position.clone();
         next.make_move(mv).unwrap();
         let sub = all_countermoves(&next, depth - 1);
         nodes += sub.nodes;
+        let mut pv_rev = sub.pv_rev;
+        pv_rev.push(mv);
         if sub.is_mate {
-            let mut pv_rev = sub.pv_rev;
-            pv_rev.push(mv);
-            return MateResult {
-                is_mate: true,
-                nodes,
-                pv_rev,
+            if pv_rev.len() == 1 {
+                return MateResult {
+                    is_mate: true,
+                    nodes,
+                    pv_rev,
+                };
+            }
+            let old_len = if fastest.is_empty() {
+                usize::max_value()
+            } else {
+                fastest.len()
             };
+            if old_len > pv_rev.len() {
+                fastest = pv_rev;
+            }
         }
     }
     MateResult {
-        is_mate: false,
+        is_mate: !fastest.is_empty(),
         nodes,
-        pv_rev: alloc::vec::Vec::new(),
+        pv_rev: fastest,
     }
 }
 
