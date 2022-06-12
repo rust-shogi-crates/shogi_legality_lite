@@ -16,10 +16,14 @@ use shogi_core::{
 };
 
 mod normal;
+mod prelegality;
+
+#[doc(hidden)]
+#[cfg(feature = "alloc")]
+pub mod mate_solver;
 #[doc(hidden)]
 #[cfg(feature = "alloc")]
 pub mod perft;
-mod prelegality;
 
 /// A type for legality checking.
 ///
