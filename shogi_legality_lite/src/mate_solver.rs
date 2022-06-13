@@ -5,29 +5,38 @@ use crate::{prelegality::is_mate, LiteLegalityChecker};
 #[derive(Debug, Clone, Default)]
 pub struct MateResult {
     pub is_mate: bool,
-    pub nodes: u64,
     pub pv_rev: alloc::vec::Vec<Move>,
 }
 
-pub fn solve_mate_problem(position: &PartialPosition, depth: usize) -> MateResult {
+#[derive(Debug, Clone, Default)]
+pub struct SearchStats {
+    pub nodes: u64,
+    pub edges: u64,
+}
+
+pub fn solve_mate_problem(position: &PartialPosition, depth: usize) -> (MateResult, SearchStats) {
     all_mymoves(position, depth)
 }
 
-fn all_mymoves(position: &PartialPosition, depth: usize) -> MateResult {
+fn all_mymoves(position: &PartialPosition, depth: usize) -> (MateResult, SearchStats) {
     if depth == 0 {
-        return MateResult {
-            is_mate: false,
-            nodes: 1,
-            pv_rev: alloc::vec::Vec::new(),
-        };
+        return (
+            MateResult {
+                is_mate: false,
+                pv_rev: alloc::vec::Vec::new(),
+            },
+            SearchStats { nodes: 1, edges: 0 },
+        );
     }
     let all = crate::all_checks_partial(position);
     let mut nodes = 0;
+    let mut edges = 0;
     let mut fastest = alloc::vec::Vec::new();
     for mv in all {
+        edges += 1;
         let mut next = position.clone();
         next.make_move(mv).unwrap();
-        let sub = all_countermoves(
+        let (sub, substat) = all_countermoves(
             &next,
             if fastest.is_empty() {
                 depth - 1
@@ -35,16 +44,19 @@ fn all_mymoves(position: &PartialPosition, depth: usize) -> MateResult {
                 fastest.len() - 3
             },
         );
-        nodes += sub.nodes;
+        nodes += substat.nodes;
+        edges += substat.edges;
         let mut pv_rev = sub.pv_rev;
         pv_rev.push(mv);
         if sub.is_mate {
             if pv_rev.len() == 1 {
-                return MateResult {
-                    is_mate: true,
-                    nodes,
-                    pv_rev,
-                };
+                return (
+                    MateResult {
+                        is_mate: true,
+                        pv_rev,
+                    },
+                    SearchStats { nodes, edges },
+                );
             }
             let old_len = if fastest.is_empty() {
                 usize::max_value()
@@ -56,47 +68,58 @@ fn all_mymoves(position: &PartialPosition, depth: usize) -> MateResult {
             }
         }
     }
-    MateResult {
-        is_mate: !fastest.is_empty(),
-        nodes,
-        pv_rev: fastest,
-    }
+    (
+        MateResult {
+            is_mate: !fastest.is_empty(),
+            pv_rev: fastest,
+        },
+        SearchStats { nodes, edges },
+    )
 }
 
-fn all_countermoves(position: &PartialPosition, depth: usize) -> MateResult {
+fn all_countermoves(position: &PartialPosition, depth: usize) -> (MateResult, SearchStats) {
     if depth == 0 {
-        return MateResult {
-            is_mate: matches!(is_mate(position), Some(true)),
-            nodes: 1,
-            pv_rev: alloc::vec::Vec::new(),
-        };
+        return (
+            MateResult {
+                is_mate: matches!(is_mate(position), Some(true)),
+                pv_rev: alloc::vec::Vec::new(),
+            },
+            SearchStats { nodes: 1, edges: 0 },
+        );
     }
     let all = LiteLegalityChecker.all_legal_moves_partial(position);
     let mut nodes = 0;
+    let mut edges = 0;
     let mut best = alloc::vec::Vec::new();
     for mv in all {
+        edges += 1;
         let mut next = position.clone();
         next.make_move(mv).unwrap();
-        let sub = all_mymoves(&next, depth - 1);
-        nodes += sub.nodes;
+        let (sub, substat) = all_mymoves(&next, depth - 1);
+        nodes += substat.nodes;
+        edges += substat.edges;
         let mut pv_rev = sub.pv_rev;
         pv_rev.push(mv);
         if !sub.is_mate {
-            return MateResult {
-                is_mate: false,
-                nodes,
-                pv_rev,
-            };
+            return (
+                MateResult {
+                    is_mate: false,
+                    pv_rev,
+                },
+                SearchStats { nodes, edges },
+            );
         }
         if best.len() < pv_rev.len() {
             best = pv_rev;
         }
     }
-    MateResult {
-        is_mate: true,
-        nodes,
-        pv_rev: best,
-    }
+    (
+        MateResult {
+            is_mate: true,
+            pv_rev: best,
+        },
+        SearchStats { nodes, edges },
+    )
 }
 
 #[cfg(test)]
@@ -113,7 +136,7 @@ mod tests {
         let position =
             PartialPosition::from_usi("sfen 3g1ks2/6g2/4S4/7B1/9/9/9/9/9 b G2rbg2s4n4l18p 1")
                 .unwrap();
-        let result = solve_mate_problem(&position, 5);
+        let (result, _stat) = solve_mate_problem(&position, 5);
         assert!(result.is_mate);
     }
 
@@ -127,7 +150,7 @@ mod tests {
             PartialPosition::from_usi("sfen 3g1ks2/6g2/4S4/7B1/9/9/9/9/9 b G2rbg2s4n4l18p 1")
                 .unwrap();
         b.iter(|| {
-            let result = solve_mate_problem(&position, 5);
+            let (result, _stat) = solve_mate_problem(&position, 5);
             assert!(result.is_mate);
         });
     }
@@ -140,7 +163,7 @@ mod tests {
         let position =
             PartialPosition::from_usi("sfen 5kgnl/9/4+B1pp1/8p/9/9/9/9/9 b 2S2rb3g2s3n3l15p 1")
                 .unwrap();
-        let result = solve_mate_problem(&position, 9);
+        let (result, _stat) = solve_mate_problem(&position, 9);
         assert!(result.is_mate);
         let mut pv = result.pv_rev;
         pv.reverse();
@@ -158,7 +181,7 @@ mod tests {
             PartialPosition::from_usi("sfen 5kgnl/9/4+B1pp1/8p/9/9/9/9/9 b 2S2rb3g2s3n3l15p 1")
                 .unwrap();
         b.iter(|| {
-            let result = solve_mate_problem(&position, 9);
+            let (result, _stat) = solve_mate_problem(&position, 9);
             assert!(result.is_mate);
             let mut pv = result.pv_rev;
             pv.reverse();
