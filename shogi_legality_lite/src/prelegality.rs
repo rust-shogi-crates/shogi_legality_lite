@@ -21,6 +21,10 @@ pub fn check(position: &PartialPosition, mv: Move) -> bool {
                 if x.color() == side {
                     return false;
                 }
+                // Capturing king is not allowed.
+                if x.piece_kind() == PieceKind::King {
+                    return false;
+                }
             }
             // Stuck?
             let rel_rank = to.relative_rank(side);
@@ -117,6 +121,10 @@ pub fn check_with_error(position: &PartialPosition, mv: Move) -> Result<(), Ille
             let to_piece = position.piece_at(to);
             if let Some(x) = to_piece {
                 if x.color() == side {
+                    return Err(IllegalMoveKind::IncorrectMove);
+                }
+                // Capturing king is not allowed.
+                if x.piece_kind() == PieceKind::King {
                     return Err(IllegalMoveKind::IncorrectMove);
                 }
             }
@@ -255,7 +263,9 @@ pub fn normal_from_candidates(position: &PartialPosition, from: Square) -> [Bitb
     // Is the move valid?
     let valid_to = crate::normal::from_candidates(position, from_piece, from);
     // Is `to` occupied by `side`'s piece?
+    // Capturing king is not allowed either.
     let my_bb = position.player_bitboard(side);
+    let my_bb = my_bb | position.piece_kind_bitboard(PieceKind::King);
     let base = my_bb.andnot(valid_to);
     // Stuck?
     let mut unpromote_prohibited = Bitboard::empty();

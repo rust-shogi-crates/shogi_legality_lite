@@ -9,16 +9,21 @@ extern crate test;
 #[cfg(feature = "alloc")]
 extern crate alloc;
 
+use prelegality::will_king_be_captured;
 use shogi_core::{
     Bitboard, Color, IllegalMoveKind, LegalityChecker, Move, PartialPosition, Piece, PieceKind,
     PositionStatus, Square,
 };
 
 mod normal;
+mod prelegality;
+
+#[doc(hidden)]
+#[cfg(feature = "alloc")]
+pub mod mate_solver;
 #[doc(hidden)]
 #[cfg(feature = "alloc")]
 pub mod perft;
-mod prelegality;
 
 /// A type for legality checking.
 ///
@@ -232,6 +237,129 @@ impl LegalityChecker for LiteLegalityChecker {
     }
 }
 
+#[cfg(feature = "alloc")]
+#[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
+pub fn all_checks_partial(position: &PartialPosition) -> alloc::vec::Vec<Move> {
+    use shogi_core::Hand;
+
+    let side = position.side_to_move();
+    let king = match position.king_position(side.flip()) {
+        Some(x) => x,
+        None => return alloc::vec::Vec::new(),
+    };
+    let king_file = king.file();
+    let king_rank = king.rank();
+    let my_bb = position.player_bitboard(side);
+    let mut result = alloc::vec::Vec::new();
+    for from in my_bb {
+        let to_candidates = prelegality::normal_from_candidates(position, from);
+        for (index, to_candidates) in to_candidates.into_iter().enumerate() {
+            let promote = index == 1;
+            for to in to_candidates {
+                let mv = Move::Normal { from, to, promote };
+                let mut next = position.clone();
+                if next.make_move(mv).is_none() {
+                    continue;
+                }
+                if prelegality::will_king_be_captured(&next) == Some(true) {
+                    continue;
+                }
+                if is_in_check_partial_lite(&next) {
+                    result.push(mv);
+                }
+            }
+        }
+    }
+
+    let my_hand = position.hand_of_a_player(side);
+    if my_hand == Hand::new() {
+        return result;
+    }
+    for piece_kind in shogi_core::Hand::all_hand_pieces() {
+        let count = unsafe { my_hand.count(piece_kind).unwrap_unchecked() };
+        if count == 0 {
+            continue;
+        }
+        let bb = all_drop_checks_partial_sub(position, piece_kind, king_file, king_rank);
+        for to in bb {
+            let mv = Move::Drop {
+                piece: Piece::new(piece_kind, side),
+                to,
+            };
+            result.push(mv);
+        }
+    }
+    result
+}
+
+#[no_mangle]
+pub extern "C" fn all_drop_checks_partial(
+    position: &PartialPosition,
+    piece_kind: PieceKind,
+) -> Bitboard {
+    let side = position.side_to_move();
+    let my_hand = position.hand_of_a_player(side);
+    let count = unsafe { my_hand.count(piece_kind).unwrap_unchecked() };
+    if count == 0 {
+        return Bitboard::empty();
+    }
+    let king = match position.king_position(side.flip()) {
+        Some(x) => x,
+        None => return Bitboard::empty(),
+    };
+    all_drop_checks_partial_sub(position, piece_kind, king.file(), king.rank())
+}
+
+// Does not check if:
+// - at least one piece of `piece_kind` is in hand
+fn all_drop_checks_partial_sub(
+    position: &PartialPosition,
+    piece_kind: PieceKind,
+    king_file: u8,
+    king_rank: u8,
+) -> Bitboard {
+    let side = position.side_to_move();
+    // Special handling for drop pawn mate
+    if piece_kind == PieceKind::Pawn {
+        let new_rank = match (side, king_rank) {
+            (Color::Black, 9) | (Color::White, 1) => {
+                return Bitboard::empty();
+            }
+            (Color::Black, x) => x + 1,
+            (Color::White, x) => x - 1,
+        };
+        // There is at most one candidate square
+        let candidate = unsafe { Square::new(king_file, new_rank).unwrap_unchecked() };
+        // Is dropping a pawn there legal?
+        let mv = Move::Drop {
+            piece: Piece::new(PieceKind::Pawn, side),
+            to: candidate,
+        };
+        if prelegality::check(position, mv) {
+            return Bitboard::single(candidate);
+        } else {
+            return Bitboard::empty();
+        }
+    }
+    let piece = Piece::new(piece_kind, side.flip());
+    let in_range = crate::normal::from_candidates_without_assertion(
+        position.occupied_bitboard(),
+        position,
+        piece,
+        king_file,
+        king_rank,
+    );
+    // If a drop move is stuck, it cannot be a check.
+    position.vacant_bitboard() & in_range
+}
+
+#[no_mangle]
+pub extern "C" fn is_in_check_partial_lite(position: &PartialPosition) -> bool {
+    let mut next = position.clone();
+    next.side_to_move_set(next.side_to_move().flip());
+    matches!(will_king_be_captured(&next), Some(true))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -368,5 +496,44 @@ mod tests {
         }
         let result = LiteLegalityChecker.status_partial(&position);
         assert_eq!(result, PositionStatus::BlackWins);
+    }
+
+    #[test]
+    fn all_checks_partial_works_0() {
+        use shogi_usi_parser::FromUsi;
+
+        // From https://github.com/koba-e964/shogi-mate-problems/blob/d58d61336dd82096856bc3ac0ba372e5cd722bc8/2022-05-18/mate5.psn#L3
+        let position =
+            PartialPosition::from_usi("sfen 3g1ks2/6g2/4S4/7B1/9/9/9/9/9 b G2rbg2s4n4l18p 1")
+                .unwrap();
+        let checks = all_checks_partial(&position);
+        assert_eq!(checks.len(), 9);
+        assert_eq!(checks.iter().filter(|mv| mv.is_drop()).count(), 3);
+    }
+
+    #[test]
+    fn all_checks_partial_works_1() {
+        use shogi_usi_parser::FromUsi;
+
+        // From https://github.com/koba-e964/shogi-mate-problems/blob/d58d61336dd82096856bc3ac0ba372e5cd722bc8/2022-05-18/mate9.psn#L3
+        let position =
+            PartialPosition::from_usi("sfen 5kgnl/9/4+B1pp1/8p/9/9/9/9/9 b 2S2rb3g2s3n3l15p 1")
+                .unwrap();
+        let checks = all_checks_partial(&position);
+        assert_eq!(checks.len(), 7);
+        assert_eq!(checks.iter().filter(|mv| mv.is_drop()).count(), 3);
+    }
+
+    #[test]
+    fn all_checks_partial_works_2() {
+        use shogi_usi_parser::FromUsi;
+
+        // From https://github.com/koba-e964/shogi-mate-problems/blob/d58d61336dd82096856bc3ac0ba372e5cd722bc8/2022-05-19/dpm.psn#L3
+        let position =
+            PartialPosition::from_usi("sfen 7nk/9/6PB1/6NP1/9/9/9/9/9 b P2rb4g4s2n4l15p 1")
+                .unwrap();
+        let checks = all_checks_partial(&position);
+        assert_eq!(checks.len(), 2);
+        assert_eq!(checks.iter().filter(|mv| mv.is_drop()).count(), 0);
     }
 }
