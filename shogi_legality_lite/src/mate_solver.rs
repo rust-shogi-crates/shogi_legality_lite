@@ -28,7 +28,8 @@ fn all_mymoves(position: &PartialPosition, depth: usize) -> (MateResult, SearchS
             SearchStats { nodes: 1, edges: 0 },
         );
     }
-    let all = crate::all_checks_partial(position);
+    let mut all = crate::all_checks_partial(position);
+    order_mymoves(position, &mut all);
     let mut nodes = 0;
     let mut edges = 0;
     let mut fastest = alloc::vec::Vec::new();
@@ -87,10 +88,11 @@ fn all_countermoves(position: &PartialPosition, depth: usize) -> (MateResult, Se
             SearchStats { nodes: 1, edges: 0 },
         );
     }
-    let all = LiteLegalityChecker.all_legal_moves_partial(position);
+    let mut all = LiteLegalityChecker.all_legal_moves_partial(position);
     let mut nodes = 0;
     let mut edges = 0;
     let mut best = alloc::vec::Vec::new();
+    order_countermoves(position, &mut all);
     for mv in all {
         edges += 1;
         let mut next = position.clone();
@@ -120,6 +122,43 @@ fn all_countermoves(position: &PartialPosition, depth: usize) -> (MateResult, Se
         },
         SearchStats { nodes, edges },
     )
+}
+
+fn order_mymoves(position: &PartialPosition, moves: &mut [Move]) {
+    let side = position.side_to_move();
+    moves.sort_unstable_by_key(|&mv| {
+        let mut score = 0;
+        match mv {
+            Move::Normal { from, to, promote } => {
+                if !promote && (from.relative_rank(side) <= 3 || to.relative_rank(side) <= 3) {
+                    score = 20;
+                }
+            }
+            Move::Drop { .. } => score = -10,
+        }
+        score
+    });
+}
+
+fn order_countermoves(position: &PartialPosition, moves: &mut [Move]) {
+    moves.sort_unstable_by_key(|&mv| {
+        let mut score = 0;
+        // is mv a capture?
+        if let Move::Normal {
+            from: _,
+            to,
+            promote,
+        } = mv
+        {
+            if position.piece_at(to).is_some() {
+                score = -10;
+            }
+            if !promote {
+                score += 1;
+            }
+        }
+        score
+    });
 }
 
 #[cfg(test)]
