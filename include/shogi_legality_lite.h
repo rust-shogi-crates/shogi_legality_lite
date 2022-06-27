@@ -322,9 +322,17 @@ typedef uint8_t Square;
  */
 #define Square_NUM 81
 
+/**
+ * Finds all checks that are drop moves.
+ */
 struct Bitboard all_drop_checks_partial(const struct PartialPosition *position,
                                         PieceKind piece_kind);
 
+/**
+ * Determines if king is in check.
+ *
+ * Since: 0.1.1
+ */
 bool is_in_check_partial_lite(const struct PartialPosition *position);
 
 /**

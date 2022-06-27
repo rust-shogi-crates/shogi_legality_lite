@@ -34,159 +34,191 @@ pub struct LiteLegalityChecker;
 impl LegalityChecker for LiteLegalityChecker {
     #[cfg(feature = "alloc")]
     #[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
+    #[inline(always)]
     fn status(&self, position: &shogi_core::Position) -> PositionStatus {
-        let result = self.status_partial(position.inner());
-        if result != PositionStatus::InProgress {
-            return result;
-        }
-        // repetition check, takes O(length^2)-time
-        let moves = position.moves();
-        let length = moves.len();
-        let mut history = alloc::vec::Vec::with_capacity(length + 1);
-        let mut current = position.initial_position().clone();
-        let _ = current.ply_set(1);
-        history.push(current.to_sfen_owned());
-        let mut repeated = false;
-        for i in 0..length {
-            let result = current.make_move(moves[i]);
-            if result.is_none() {
-                return PositionStatus::Invalid;
-            }
-            let _ = current.ply_set(1);
-            history.push(current.to_sfen_owned());
-            debug_assert_eq!(history.len(), i + 2);
-            let mut eq = 0;
-            for j in 0..i + 1 {
-                if history[i + 1] == history[j] {
-                    eq += 1;
-                }
-            }
-            if eq >= 3 {
-                // The same position appeared 4 times.
-                repeated = true;
-            }
-        }
-        if repeated {
-            return PositionStatus::Draw;
-        }
-        PositionStatus::InProgress
+        crate::status(position)
     }
 
+    #[inline(always)]
     fn status_partial(&self, position: &PartialPosition) -> PositionStatus {
-        let side = position.side_to_move();
-        if crate::prelegality::is_mate(position) == Some(true) {
-            return [PositionStatus::WhiteWins, PositionStatus::BlackWins][side.array_index()];
-        }
-        let hand_b = position.hand_of_a_player(Color::Black);
-        let hand_w = position.hand_of_a_player(Color::White);
-        let max = [
-            (PieceKind::Pawn, 18),
-            (PieceKind::Lance, 4),
-            (PieceKind::Knight, 4),
-            (PieceKind::Silver, 4),
-            (PieceKind::Gold, 4),
-            (PieceKind::Bishop, 2),
-            (PieceKind::Rook, 2),
-        ];
-        for (piece_kind, limit) in max {
-            let mut bb = position.piece_kind_bitboard(piece_kind);
-            if let Some(promoted) = piece_kind.promote() {
-                bb |= position.piece_kind_bitboard(promoted);
-            }
-            // Safety: `piece_kind` is valid in hand
-            let count = bb.count()
-                + unsafe { hand_b.count(piece_kind).unwrap_unchecked() }
-                + unsafe { hand_w.count(piece_kind).unwrap_unchecked() };
-            if count > limit {
-                return PositionStatus::Invalid;
-            }
-        }
-        PositionStatus::InProgress
+        crate::status_partial(position)
     }
 
+    #[inline(always)]
     fn is_legal_partial(
         &self,
         position: &PartialPosition,
         mv: Move,
     ) -> Result<(), IllegalMoveKind> {
-        prelegality::check_with_error(position, mv)?;
-        let mut next = position.clone();
-        if next.make_move(mv).is_none() {
-            return Err(IllegalMoveKind::IncorrectMove);
-        }
-        if prelegality::will_king_be_captured(&next) == Some(true) {
-            return Err(IllegalMoveKind::IgnoredCheck);
-        }
-        Ok(())
+        crate::is_legal_partial(position, mv)
     }
 
+    #[inline(always)]
     fn is_legal_partial_lite(&self, position: &PartialPosition, mv: Move) -> bool {
-        if !prelegality::check(position, mv) {
-            return false;
-        }
-        let mut next = position.clone();
-        if next.make_move(mv).is_none() {
-            return false;
-        }
-        if prelegality::will_king_be_captured(&next) == Some(true) {
-            return false;
-        }
-        true
+        crate::is_legal_partial_lite(position, mv)
     }
 
     #[cfg(feature = "alloc")]
     #[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
+    #[inline(always)]
     fn all_legal_moves_partial(&self, position: &PartialPosition) -> alloc::vec::Vec<Move> {
-        use shogi_core::Hand;
-
-        let side = position.side_to_move();
-        let my_bb = position.player_bitboard(side);
-        let mut result = alloc::vec::Vec::new();
-        for from in my_bb {
-            let to_candidates = prelegality::normal_from_candidates(position, from);
-            for (index, to_candidates) in to_candidates.into_iter().enumerate() {
-                let promote = index == 1;
-                for to in to_candidates {
-                    let mv = Move::Normal { from, to, promote };
-                    let mut next = position.clone();
-                    if next.make_move(mv).is_none() {
-                        continue;
-                    }
-                    if prelegality::will_king_be_captured(&next) == Some(true) {
-                        continue;
-                    }
-                    result.push(mv);
-                }
-            }
-        }
-
-        let my_hand = position.hand_of_a_player(side);
-        if my_hand == Hand::new() {
-            return result;
-        }
-        for piece_kind in shogi_core::Hand::all_hand_pieces() {
-            let count = unsafe { my_hand.count(piece_kind).unwrap_unchecked() };
-            if count == 0 {
-                continue;
-            }
-            let piece = Piece::new(piece_kind, side);
-            for to in position.vacant_bitboard() {
-                let mv = Move::Drop { piece, to };
-                if self.is_legal_partial_lite(position, mv) {
-                    result.push(mv);
-                }
-            }
-        }
-        result
+        crate::all_legal_moves_partial(position)
     }
 
+    #[inline(always)]
     fn normal_from_candidates(&self, position: &PartialPosition, from: Square) -> Bitboard {
-        let mut result = Bitboard::empty();
-        let side = position.side_to_move();
-        let my_bb = position.player_bitboard(side);
-        if !my_bb.contains(from) {
-            return Bitboard::empty();
+        crate::normal_from_candidates(position, from)
+    }
+
+    #[inline(always)]
+    fn normal_to_candidates(
+        &self,
+        position: &PartialPosition,
+        to: Square,
+        piece: Piece,
+    ) -> Bitboard {
+        crate::normal_to_candidates(position, to, piece)
+    }
+
+    #[inline(always)]
+    fn drop_candidates(&self, position: &PartialPosition, piece: Piece) -> Bitboard {
+        crate::drop_candidates(position, piece)
+    }
+}
+
+/// Returns the status of this position.
+///
+/// Since: 0.1.1
+#[cfg(feature = "alloc")]
+#[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
+pub fn status(position: &shogi_core::Position) -> PositionStatus {
+    let result = status_partial(position.inner());
+    if result != PositionStatus::InProgress {
+        return result;
+    }
+    // repetition check, takes O(length^2)-time
+    let moves = position.moves();
+    let length = moves.len();
+    let mut history = alloc::vec::Vec::with_capacity(length + 1);
+    let mut current = position.initial_position().clone();
+    let _ = current.ply_set(1);
+    history.push(current.to_sfen_owned());
+    let mut repeated = false;
+    for i in 0..length {
+        let result = current.make_move(moves[i]);
+        if result.is_none() {
+            return PositionStatus::Invalid;
         }
+        let _ = current.ply_set(1);
+        history.push(current.to_sfen_owned());
+        debug_assert_eq!(history.len(), i + 2);
+        let mut eq = 0;
+        for j in 0..i + 1 {
+            if history[i + 1] == history[j] {
+                eq += 1;
+            }
+        }
+        if eq >= 3 {
+            // The same position appeared 4 times.
+            repeated = true;
+        }
+    }
+    if repeated {
+        return PositionStatus::Draw;
+    }
+    PositionStatus::InProgress
+}
+
+/// Returns the status of this position.
+///
+/// Because [`PartialPosition`] does not have a move sequence in it,
+/// it cannot return [`PositionStatus::Draw`] (which needs repetition check).
+///
+/// Since: 0.1.1
+pub fn status_partial(position: &PartialPosition) -> PositionStatus {
+    let side = position.side_to_move();
+    if crate::prelegality::is_mate(position) == Some(true) {
+        return [PositionStatus::WhiteWins, PositionStatus::BlackWins][side.array_index()];
+    }
+    let hand_b = position.hand_of_a_player(Color::Black);
+    let hand_w = position.hand_of_a_player(Color::White);
+    let max = [
+        (PieceKind::Pawn, 18),
+        (PieceKind::Lance, 4),
+        (PieceKind::Knight, 4),
+        (PieceKind::Silver, 4),
+        (PieceKind::Gold, 4),
+        (PieceKind::Bishop, 2),
+        (PieceKind::Rook, 2),
+    ];
+    for (piece_kind, limit) in max {
+        let mut bb = position.piece_kind_bitboard(piece_kind);
+        if let Some(promoted) = piece_kind.promote() {
+            bb |= position.piece_kind_bitboard(promoted);
+        }
+        // Safety: `piece_kind` is valid in hand
+        let count = bb.count()
+            + unsafe { hand_b.count(piece_kind).unwrap_unchecked() }
+            + unsafe { hand_w.count(piece_kind).unwrap_unchecked() };
+        if count > limit {
+            return PositionStatus::Invalid;
+        }
+    }
+    PositionStatus::InProgress
+}
+
+/// Finds if a move is legal in the given position.
+///
+/// If `position` is not in progress, no moves are considered to be legal.
+/// If `is_legal_partial` returns `Ok(())`, `position.make_move(mv)` must succeed.
+///
+/// Since: 0.1.1
+pub fn is_legal_partial(position: &PartialPosition, mv: Move) -> Result<(), IllegalMoveKind> {
+    prelegality::check_with_error(position, mv)?;
+    let mut next = position.clone();
+    if next.make_move(mv).is_none() {
+        return Err(IllegalMoveKind::IncorrectMove);
+    }
+    if prelegality::will_king_be_captured(&next) == Some(true) {
+        return Err(IllegalMoveKind::IgnoredCheck);
+    }
+    Ok(())
+}
+
+/// Finds if a move is legal in the given position.
+///
+/// If `position` is not in progress, no moves are considered to be legal.
+/// If `is_legal_partial_lite` returns `true`, `position.make_move(mv)` must succeed.
+///
+/// Since: 0.1.1
+pub fn is_legal_partial_lite(position: &PartialPosition, mv: Move) -> bool {
+    if !prelegality::check(position, mv) {
+        return false;
+    }
+    let mut next = position.clone();
+    if next.make_move(mv).is_none() {
+        return false;
+    }
+    if prelegality::will_king_be_captured(&next) == Some(true) {
+        return false;
+    }
+    true
+}
+
+/// Finds all legal moves in the given position.
+///
+/// If `position` is not in progress, no moves are considered to be legal.
+///
+/// Since: 0.1.1
+#[cfg(feature = "alloc")]
+#[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
+pub fn all_legal_moves_partial(position: &PartialPosition) -> alloc::vec::Vec<Move> {
+    use shogi_core::Hand;
+
+    let side = position.side_to_move();
+    let my_bb = position.player_bitboard(side);
+    let mut result = alloc::vec::Vec::new();
+    for from in my_bb {
         let to_candidates = prelegality::normal_from_candidates(position, from);
         for (index, to_candidates) in to_candidates.into_iter().enumerate() {
             let promote = index == 1;
@@ -199,44 +231,101 @@ impl LegalityChecker for LiteLegalityChecker {
                 if prelegality::will_king_be_captured(&next) == Some(true) {
                     continue;
                 }
-                result |= to;
+                result.push(mv);
             }
         }
-        result
     }
 
-    fn normal_to_candidates(
-        &self,
-        position: &PartialPosition,
-        to: Square,
-        piece: Piece,
-    ) -> Bitboard {
-        let mut result = Bitboard::empty();
-        for from in Square::all() {
-            for promote in [true, false] {
-                let mv = Move::Normal { from, to, promote };
-                if self.is_legal_partial_lite(position, mv)
-                    && position.piece_at(from) == Some(piece)
-                {
-                    result |= from;
-                }
-            }
+    let my_hand = position.hand_of_a_player(side);
+    if my_hand == Hand::new() {
+        return result;
+    }
+    for piece_kind in shogi_core::Hand::all_hand_pieces() {
+        let count = unsafe { my_hand.count(piece_kind).unwrap_unchecked() };
+        if count == 0 {
+            continue;
         }
-        result
-    }
-
-    fn drop_candidates(&self, position: &PartialPosition, piece: Piece) -> Bitboard {
-        let mut result = Bitboard::empty();
-        for to in Square::all() {
+        let piece = Piece::new(piece_kind, side);
+        for to in position.vacant_bitboard() {
             let mv = Move::Drop { piece, to };
-            if self.is_legal_partial_lite(position, mv) {
-                result |= to;
+            if is_legal_partial_lite(position, mv) {
+                result.push(mv);
             }
         }
-        result
     }
+    result
 }
 
+/// Finds all legal normal moves in the given position that move a piece from `from` to some square.
+///
+/// If `position` is not in progress, no moves are considered to be legal.
+/// This function returns a [`Bitboard`] consisting of all destination squares.
+///
+/// Since: 0.1.1
+pub fn normal_from_candidates(position: &PartialPosition, from: Square) -> Bitboard {
+    let mut result = Bitboard::empty();
+    let side = position.side_to_move();
+    let my_bb = position.player_bitboard(side);
+    if !my_bb.contains(from) {
+        return Bitboard::empty();
+    }
+    let to_candidates = prelegality::normal_from_candidates(position, from);
+    for (index, to_candidates) in to_candidates.into_iter().enumerate() {
+        let promote = index == 1;
+        for to in to_candidates {
+            let mv = Move::Normal { from, to, promote };
+            let mut next = position.clone();
+            if next.make_move(mv).is_none() {
+                continue;
+            }
+            if prelegality::will_king_be_captured(&next) == Some(true) {
+                continue;
+            }
+            result |= to;
+        }
+    }
+    result
+}
+
+/// Finds all legal normal moves in the given position that move `piece` from some square to `to`.
+///
+/// If `position` is not in progress, no moves are considered to be legal.
+/// This function returns a [`Bitboard`] consisting of all source squares.
+///
+/// Since: 0.1.1
+pub fn normal_to_candidates(position: &PartialPosition, to: Square, piece: Piece) -> Bitboard {
+    let mut result = Bitboard::empty();
+    for from in Square::all() {
+        for promote in [true, false] {
+            let mv = Move::Normal { from, to, promote };
+            if is_legal_partial_lite(position, mv) && position.piece_at(from) == Some(piece) {
+                result |= from;
+            }
+        }
+    }
+    result
+}
+
+/// Finds all legal drop moves in the given position that drop `piece`.
+///
+/// If `position` is not in progress, no moves are considered to be legal.
+/// This function returns a [`Bitboard`] consisting of all destination squares.
+///
+/// Since: 0.1.1
+pub fn drop_candidates(position: &PartialPosition, piece: Piece) -> Bitboard {
+    let mut result = Bitboard::empty();
+    for to in Square::all() {
+        let mv = Move::Drop { piece, to };
+        if is_legal_partial_lite(position, mv) {
+            result |= to;
+        }
+    }
+    result
+}
+
+/// Finds all checks.
+///
+/// Since: 0.1.1
 #[cfg(feature = "alloc")]
 #[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
 pub fn all_checks_partial(position: &PartialPosition) -> alloc::vec::Vec<Move> {
@@ -292,6 +381,7 @@ pub fn all_checks_partial(position: &PartialPosition) -> alloc::vec::Vec<Move> {
     result
 }
 
+/// Finds all checks that are drop moves.
 #[no_mangle]
 pub extern "C" fn all_drop_checks_partial(
     position: &PartialPosition,
@@ -353,6 +443,9 @@ fn all_drop_checks_partial_sub(
     position.vacant_bitboard() & in_range
 }
 
+/// Determines if king is in check.
+///
+/// Since: 0.1.1
 #[no_mangle]
 pub extern "C" fn is_in_check_partial_lite(position: &PartialPosition) -> bool {
     let mut next = position.clone();
@@ -367,14 +460,14 @@ mod tests {
     #[test]
     fn all_legal_moves_partial_works() {
         let position = PartialPosition::startpos();
-        let first_moves = LiteLegalityChecker.all_legal_moves_partial(&position);
+        let first_moves = all_legal_moves_partial(&position);
         assert_eq!(first_moves.len(), 30);
     }
 
     #[test]
     fn status_works() {
         let position = shogi_core::Position::startpos();
-        let result = LiteLegalityChecker.status(&position);
+        let result = status(&position);
         assert_eq!(result, PositionStatus::InProgress);
 
         let moves_a = [
@@ -431,7 +524,7 @@ mod tests {
         for mv in moves {
             position.make_move(mv).unwrap();
         }
-        let result = LiteLegalityChecker.status(&position);
+        let result = status(&position);
         assert_eq!(result, PositionStatus::Draw);
 
         // Even if exactly the same sequence of moves are not made three times, it is considered repetition.
@@ -443,14 +536,14 @@ mod tests {
         for mv in moves {
             position.make_move(mv).unwrap();
         }
-        let result = LiteLegalityChecker.status(&position);
+        let result = status(&position);
         assert_eq!(result, PositionStatus::Draw);
     }
 
     #[test]
     fn status_partial_works() {
         let position = PartialPosition::startpos();
-        let result = LiteLegalityChecker.status_partial(&position);
+        let result = status_partial(&position);
         assert_eq!(result, PositionStatus::InProgress);
         // One of the shortest mate sequences
         let moves = [
@@ -494,7 +587,7 @@ mod tests {
         for mv in moves {
             position.make_move(mv).unwrap();
         }
-        let result = LiteLegalityChecker.status_partial(&position);
+        let result = status_partial(&position);
         assert_eq!(result, PositionStatus::BlackWins);
     }
 

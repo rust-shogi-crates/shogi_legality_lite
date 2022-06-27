@@ -1,6 +1,6 @@
-use shogi_core::{LegalityChecker, Move, PartialPosition};
+use shogi_core::{Move, PartialPosition};
 
-use crate::{prelegality::is_mate, LiteLegalityChecker};
+use crate::prelegality::is_mate;
 
 #[derive(Debug, Clone, Default)]
 pub struct MateResult {
@@ -88,7 +88,7 @@ fn all_countermoves(position: &PartialPosition, depth: usize) -> (MateResult, Se
             SearchStats { nodes: 1, edges: 0 },
         );
     }
-    let mut all = LiteLegalityChecker.all_legal_moves_partial(position);
+    let mut all = crate::all_legal_moves_partial(position);
     let mut nodes = 0;
     let mut edges = 0;
     let mut best = alloc::vec::Vec::new();
