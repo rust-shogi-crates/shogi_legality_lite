@@ -1,6 +1,4 @@
-use shogi_core::{LegalityChecker, PartialPosition};
-
-use crate::LiteLegalityChecker;
+use shogi_core::PartialPosition;
 
 pub struct Stat {
     pub all: u64,
@@ -10,7 +8,7 @@ pub fn perft(pos: PartialPosition, depth: usize) -> Stat {
     if depth == 0 {
         return Stat { all: 1 };
     }
-    let all = LiteLegalityChecker.all_legal_moves_partial(&pos);
+    let all = crate::all_legal_moves_partial(&pos);
     if depth == 1 {
         return Stat {
             all: all.len() as u64,
