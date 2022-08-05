@@ -16,7 +16,8 @@ use shogi_core::{
 };
 
 mod normal;
-mod prelegality;
+/// Legality checking without confirming king's safety.
+pub mod prelegality;
 
 #[doc(hidden)]
 #[cfg(feature = "alloc")]
@@ -174,7 +175,7 @@ pub fn status_partial(position: &PartialPosition) -> PositionStatus {
 ///
 /// Since: 0.1.1
 pub fn is_legal_partial(position: &PartialPosition, mv: Move) -> Result<(), IllegalMoveKind> {
-    prelegality::check_with_error(position, mv)?;
+    prelegality::is_valid_with_error(position, mv)?;
     let mut next = position.clone();
     if next.make_move(mv).is_none() {
         return Err(IllegalMoveKind::IncorrectMove);
@@ -192,7 +193,7 @@ pub fn is_legal_partial(position: &PartialPosition, mv: Move) -> Result<(), Ille
 ///
 /// Since: 0.1.1
 pub fn is_legal_partial_lite(position: &PartialPosition, mv: Move) -> bool {
-    if !prelegality::check(position, mv) {
+    if !prelegality::is_valid(position, mv) {
         return false;
     }
     let mut next = position.clone();
@@ -425,7 +426,7 @@ fn all_drop_checks_partial_sub(
             piece: Piece::new(PieceKind::Pawn, side),
             to: candidate,
         };
-        if prelegality::check(position, mv) {
+        if prelegality::is_valid(position, mv) {
             return Bitboard::single(candidate);
         } else {
             return Bitboard::empty();

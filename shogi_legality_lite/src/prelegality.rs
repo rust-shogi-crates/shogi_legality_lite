@@ -2,7 +2,10 @@ use shogi_core::{
     Bitboard, Color, IllegalMoveKind, Move, PartialPosition, Piece, PieceKind, Square,
 };
 
-pub fn check(position: &PartialPosition, mv: Move) -> bool {
+/// Checks if a move is valid without considering king's safety.
+///
+/// Since: 0.1.2
+pub fn is_valid(position: &PartialPosition, mv: Move) -> bool {
     let side = position.side_to_move();
     match mv {
         Move::Normal { from, to, promote } => {
@@ -104,7 +107,11 @@ pub fn check(position: &PartialPosition, mv: Move) -> bool {
     }
 }
 
-pub fn check_with_error(position: &PartialPosition, mv: Move) -> Result<(), IllegalMoveKind> {
+/// Checks if a move is valid without considering king's safety.
+/// This function returns a detailed error when `mv` is not legal.
+///
+/// Since: 0.1.2
+pub fn is_valid_with_error(position: &PartialPosition, mv: Move) -> Result<(), IllegalMoveKind> {
     let side = position.side_to_move();
     match mv {
         Move::Normal { from, to, promote } => {
@@ -250,7 +257,7 @@ const WHITE_PROMOTION: Bitboard = {
     result
 };
 
-pub fn normal_from_candidates(position: &PartialPosition, from: Square) -> [Bitboard; 2] {
+pub(crate) fn normal_from_candidates(position: &PartialPosition, from: Square) -> [Bitboard; 2] {
     let side = position.side_to_move();
     let from_piece = if let Some(x) = position.piece_at(from) {
         x
@@ -289,7 +296,10 @@ pub fn normal_from_candidates(position: &PartialPosition, from: Square) -> [Bitb
     [unpromote_prohibited.andnot(base), base & promotable]
 }
 
-pub fn all_legal_moves(position: &PartialPosition) -> impl Iterator<Item = Move> + '_ {
+/// Returns all valid moves without considering king's safety.
+///
+/// Since: 0.1.2
+pub fn all_valid_moves(position: &PartialPosition) -> impl Iterator<Item = Move> + '_ {
     Square::all()
         .flat_map(|from| {
             Square::all().flat_map(move |to| {
@@ -303,10 +313,14 @@ pub fn all_legal_moves(position: &PartialPosition) -> impl Iterator<Item = Move>
                 .into_iter()
                 .flat_map(|piece| Square::all().map(move |to| Move::Drop { piece, to })),
         )
-        .filter(|&mv| check(position, mv))
+        .filter(|&mv| is_valid(position, mv))
 }
 
-// Can `side` play a move that captures the opponent's king?
+/// Can `side` play a move that captures the opponent's king?
+///
+/// This function returns None if the opponent has no king.
+///
+/// Since: 0.1.2
 pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
     let side = position.side_to_move();
     let occupied = !position.vacant_bitboard();
@@ -392,9 +406,15 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
     Some(false)
 }
 
-// The king does not need to be in check.
+/// Checks if `side`'s king has no way to escape from being captured.
+///
+/// This function returns None if `side` has no king.
+///
+/// For this function to return Some(true), the king does not need to be in check.
+///
+/// Since: 0.1.2
 pub fn is_mate(position: &PartialPosition) -> Option<bool> {
-    let all = all_legal_moves(position);
+    let all = all_valid_moves(position);
     for mv in all {
         let mut next = position.clone();
         let result = next.make_move(mv);
