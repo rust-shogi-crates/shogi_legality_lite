@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1656341979069,
+  "lastUpdate": 1659696607515,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -1121,6 +1121,60 @@ window.BENCHMARK_DATA = {
             "name": "perft::tests::bench_perft_4",
             "value": 193118791,
             "range": "± 4452600",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "Hiroki Kobayashi",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d453c00303a2e4f62dd65e2de05e80708b0fc51f",
+          "message": "Merge pull request #7 from rust-shogi-crates/feature/prelegality\n\nMake prelegality public",
+          "timestamp": "2022-08-05T19:43:00+09:00",
+          "tree_id": "449daf979e24bd9b5ca5952f222ebee7088e352a",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/d453c00303a2e4f62dd65e2de05e80708b0fc51f"
+        },
+        "date": 1659696606707,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "mate_solver::tests::bench_mate_0",
+            "value": 36716574,
+            "range": "± 151434",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate_solver::tests::bench_mate_1",
+            "value": 864530554,
+            "range": "± 2337604",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_2",
+            "value": 198183,
+            "range": "± 557",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_3",
+            "value": 5524425,
+            "range": "± 19626",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft::tests::bench_perft_4",
+            "value": 157065262,
+            "range": "± 85225",
             "unit": "ns/iter"
           }
         ]
