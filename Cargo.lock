@@ -10,7 +10,7 @@ checksum = "3d0a7de4ff7c66bf0b6346bda1d530c94a496f8aa3317938923886c58191aa14"
 
 [[package]]
 name = "shogi_legality_lite"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "shogi_core",
  "shogi_usi_parser",
