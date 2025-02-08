@@ -453,14 +453,23 @@ pub extern "C" fn is_in_check_partial_lite(position: &PartialPosition) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use shogi_usi_parser::FromUsi;
 
     #[test]
-    fn all_legal_moves_partial_works() {
+    fn all_legal_moves_partial_works_0() {
         let position = PartialPosition::startpos();
         let first_moves = all_legal_moves_partial(&position);
         assert_eq!(first_moves.len(), 30);
     }
 
+    #[test]
+    fn all_legal_moves_partial_works_1() {
+        let position =
+            PartialPosition::from_usi("sfen 7l1/7pk/7n1/8R/7N1/9/9/9/9 w r2b4g4s2n3l17p 1")
+                .unwrap();
+        let result = all_legal_moves_partial(&position);
+        assert_eq!(result.len(), 7);
+    }
     #[test]
     fn status_works() {
         let position = shogi_core::Position::startpos();
@@ -590,8 +599,6 @@ mod tests {
 
     #[test]
     fn all_checks_partial_works_0() {
-        use shogi_usi_parser::FromUsi;
-
         // From https://github.com/koba-e964/shogi-mate-problems/blob/d58d61336dd82096856bc3ac0ba372e5cd722bc8/2022-05-18/mate5.psn#L3
         let position =
             PartialPosition::from_usi("sfen 3g1ks2/6g2/4S4/7B1/9/9/9/9/9 b G2rbg2s4n4l18p 1")
@@ -603,8 +610,6 @@ mod tests {
 
     #[test]
     fn all_checks_partial_works_1() {
-        use shogi_usi_parser::FromUsi;
-
         // From https://github.com/koba-e964/shogi-mate-problems/blob/d58d61336dd82096856bc3ac0ba372e5cd722bc8/2022-05-18/mate9.psn#L3
         let position =
             PartialPosition::from_usi("sfen 5kgnl/9/4+B1pp1/8p/9/9/9/9/9 b 2S2rb3g2s3n3l15p 1")
@@ -616,8 +621,6 @@ mod tests {
 
     #[test]
     fn all_checks_partial_works_2() {
-        use shogi_usi_parser::FromUsi;
-
         // From https://github.com/koba-e964/shogi-mate-problems/blob/d58d61336dd82096856bc3ac0ba372e5cd722bc8/2022-05-19/dpm.psn#L3
         let position =
             PartialPosition::from_usi("sfen 7nk/9/6PB1/6NP1/9/9/9/9/9 b P2rb4g4s2n4l15p 1")

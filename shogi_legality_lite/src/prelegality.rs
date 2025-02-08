@@ -98,7 +98,7 @@ pub fn is_valid(position: &PartialPosition, mv: Move) -> bool {
                 let mut next = position.clone();
                 let result = next.make_move(mv); // always Some(())
                 debug_assert_eq!(result, Some(()));
-                if is_mate(&next) != Some(false) {
+                if is_mate(&next) == Some(true) {
                     return false;
                 }
             }
@@ -414,6 +414,7 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
 ///
 /// Since: 0.1.2
 pub fn is_mate(position: &PartialPosition) -> Option<bool> {
+    position.king_position(position.side_to_move())?; // Early return if no king.
     let all = all_valid_moves(position);
     for mv in all {
         let mut next = position.clone();
@@ -424,4 +425,23 @@ pub fn is_mate(position: &PartialPosition) -> Option<bool> {
         }
     }
     Some(true)
+}
+
+#[cfg(test)]
+mod tests {
+    use shogi_usi_parser::FromUsi;
+
+    use super::*;
+
+    #[test]
+    fn drop_pawn_0() {
+        let position =
+            PartialPosition::from_usi("sfen 7l1/7pk/7n1/8R/7N1/9/9/9/9 w r2b4g4s2n3l17p 1")
+                .unwrap();
+        let mv = Move::Drop {
+            piece: Piece::new(PieceKind::Pawn, Color::White),
+            to: Square::SQ_1C,
+        };
+        assert!(is_valid(&position, mv));
+    }
 }
