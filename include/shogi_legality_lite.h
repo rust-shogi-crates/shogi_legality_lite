@@ -345,4 +345,4 @@ bool legality_normal_check(const struct PartialPosition *position,
                            Square from,
                            Square to);
 
-#endif /* shogi_legality_lite_bindings_h */
+#endif  /* shogi_legality_lite_bindings_h */

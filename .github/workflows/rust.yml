@@ -2,9 +2,11 @@ name: Rust
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+  schedule:
+    - cron: "25 12 * * 4"
   workflow_dispatch:
 
 env:
@@ -17,36 +19,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: cargo version
-      run: cargo --version
-    - name: install nightly
-      run: rustup toolchain install nightly
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose --locked --all-features
-    - name: Run clippy
-      run: cargo clippy --all-targets --locked
-    - name: Check formatting
-      run: cargo fmt -- --check
-    - name: Build (various features)
-      run: |
-        cargo build --verbose --no-default-features
-        cargo +nightly build --verbose --no-default-features --features alloc
-        cargo build --verbose --no-default-features --features std
-        cargo build --verbose --all-features
-    - name: Document
-      run: cargo doc --verbose
-    - name: benchmark
-      run: ./bench.sh | tee gha-bench.txt
-    - name: Store benchmark results
-      uses: benchmark-action/github-action-benchmark@v1
-      with:
-        name: Benchmark result (shogi_legality_lite)
-        tool: cargo
-        output-file-path: gha-bench.txt
-        auto-push: false
-    - name: Push benchmark result
-      run: git push 'https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/rust-shogi-crates/shogi_legality_lite.git' gh-pages:gh-pages
-      if: github.event_name != 'pull_request'
+      - uses: actions/checkout@v4
+      - name: cargo version
+        run: cargo --version
+      - name: install nightly
+        run: rustup toolchain install nightly
+      - name: Build
+        run: cargo build --verbose
+      - name: Run tests
+        run: cargo test --verbose --locked --all-features
+      - name: Run clippy
+        run: cargo clippy --all-targets --locked
+      - name: Check formatting
+        run: cargo fmt -- --check
+      - name: Build (various features)
+        run: |
+          cargo build --verbose --no-default-features
+          # Note: on MacOS it should be:
+          # RUSTFLAGS=-Clink-arg=-lSystem cargo +nightly bloat --release --no-default-features --features alloc
+          # Omitting "RUSTFLAGS=-Clink-arg=-lSystem" will result in a link error (Undefined symbols for architecture arm64: "dyld_stub_binder").
+          cargo +nightly build --verbose --no-default-features --features alloc
+          cargo build --verbose --no-default-features --features std
+          cargo build --verbose --all-features
+      - name: Document
+        run: cargo doc --verbose
+      - name: benchmark
+        run: ./bench.sh | tee gha-bench.txt
+      - name: Store benchmark results
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          name: Benchmark result (shogi_legality_lite)
+          tool: cargo
+          output-file-path: gha-bench.txt
+          auto-push: false
+      - name: Push benchmark result
+        run: git push 'https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/rust-shogi-crates/shogi_legality_lite.git' gh-pages:gh-pages
+        if: github.event_name != 'pull_request'

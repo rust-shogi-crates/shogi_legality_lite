@@ -55,28 +55,35 @@ fn error_handler(_: core::alloc::Layout) -> ! {
     loop {}
 }
 
-// SimpleAllocator found in https://doc.rust-lang.org/core/alloc/trait.GlobalAlloc.html.
+// SimpleAllocator found in https://doc.rust-lang.org/1.84.1/core/alloc/trait.GlobalAlloc.html.
 // Modified so that ARENA_BSS is on .bss section and SimpleAllocator doesn't take much space.
 #[cfg(feature = "alloc")]
 mod simple_alloc {
     use core::alloc::{GlobalAlloc, Layout};
     use core::cell::UnsafeCell;
     use core::ptr::null_mut;
-    use core::sync::atomic::{AtomicUsize, Ordering::SeqCst};
+    use core::sync::atomic::{AtomicUsize, Ordering::Relaxed};
+
     const ARENA_SIZE: usize = 128 * 1024;
     const MAX_SUPPORTED_ALIGN: usize = 4096;
+    #[repr(C, align(4096))] // 4096 == MAX_SUPPORTED_ALIGN
     struct SimpleAllocator {
         remaining: AtomicUsize, // we allocate from the top, counting down
     }
-
-    static mut ARENA_BSS: UnsafeCell<[u8; ARENA_SIZE]> = UnsafeCell::new([0x00; ARENA_SIZE]);
-
     #[global_allocator]
     static ALLOCATOR: SimpleAllocator = SimpleAllocator {
         remaining: AtomicUsize::new(ARENA_SIZE),
     };
-
     unsafe impl Sync for SimpleAllocator {}
+
+    #[repr(C, align(4096))] // 4096 == MAX_SUPPORTED_ALIGN
+    struct SimpleAllocatorData {
+        arena: UnsafeCell<[u8; ARENA_SIZE]>,
+    }
+    unsafe impl Sync for SimpleAllocatorData {}
+    static ARENA_BSS: SimpleAllocatorData = SimpleAllocatorData {
+        arena: UnsafeCell::new([0x00; ARENA_SIZE]),
+    };
 
     unsafe impl GlobalAlloc for SimpleAllocator {
         unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
@@ -94,7 +101,7 @@ mod simple_alloc {
             let mut allocated = 0;
             if self
                 .remaining
-                .fetch_update(SeqCst, SeqCst, |mut remaining| {
+                .fetch_update(Relaxed, Relaxed, |mut remaining| {
                     if size > remaining {
                         return None;
                     }
@@ -107,7 +114,7 @@ mod simple_alloc {
             {
                 return null_mut();
             };
-            (ARENA_BSS.get() as *mut u8).add(allocated)
+            ARENA_BSS.arena.get().cast::<u8>().add(allocated)
         }
         unsafe fn dealloc(&self, _ptr: *mut u8, _layout: Layout) {}
     }

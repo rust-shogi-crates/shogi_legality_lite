@@ -48,36 +48,4 @@ mod tests {
             assert_eq!(result.all, expected);
         }
     }
-
-    #[cfg(bench)]
-    #[bench]
-    fn bench_perft_2(b: &mut test::Bencher) {
-        let depth = 2;
-        bench_perft(b, depth);
-    }
-
-    #[cfg(bench)]
-    #[bench]
-    fn bench_perft_3(b: &mut test::Bencher) {
-        let depth = 3;
-        bench_perft(b, depth);
-    }
-
-    #[cfg(bench)]
-    #[bench]
-    fn bench_perft_4(b: &mut test::Bencher) {
-        let depth = 4;
-        bench_perft(b, depth);
-    }
-
-    #[cfg(bench)]
-    #[inline(always)]
-    fn bench_perft(b: &mut test::Bencher, depth: usize) {
-        let expected = TABLE_ALL[depth];
-        b.iter(|| {
-            let pos = PartialPosition::startpos();
-            let result = perft(pos, depth);
-            assert_eq!(result.all, expected);
-        });
-    }
 }
