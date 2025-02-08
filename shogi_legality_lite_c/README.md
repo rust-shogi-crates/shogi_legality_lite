@@ -1,5 +1,5 @@
 # Rust shogi crates: Legality Checker (lite version) (`cdylib`)
-![Rust Version](https://img.shields.io/badge/rustc-1.60+-blue.svg)
+![Rust Version](https://img.shields.io/badge/rustc-1.74+-blue.svg)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php)
 
 This crate defines C bindings to [`shogi_legality_lite`](../shogi_legality_lite/). A C header file for this crate is placed in `include/` and generated with `make`.
