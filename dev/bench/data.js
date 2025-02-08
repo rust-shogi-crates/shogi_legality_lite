@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659697419839,
+  "lastUpdate": 1739009926822,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -1229,6 +1229,72 @@ window.BENCHMARK_DATA = {
             "name": "perft::tests::bench_perft_4",
             "value": 156939340,
             "range": "± 113273",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "Hiroki Kobayashi",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "045c4541e884ffd2c381d6a1943d75490fd8d83f",
+          "message": "Merge pull request #10 from rust-shogi-crates/fix/clippy\n\nFix clippy, benches, C bindings, remove shared references to mutable statics, run CI regularly",
+          "timestamp": "2025-02-08T19:16:06+09:00",
+          "tree_id": "c1ac2f2b9132e809d9b61ad64f468b067a039903",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/045c4541e884ffd2c381d6a1943d75490fd8d83f"
+        },
+        "date": 1739009926414,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft/perft 0",
+            "value": 125,
+            "range": "± 1",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 1",
+            "value": 3790,
+            "range": "± 18",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 2",
+            "value": 117390,
+            "range": "± 737",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 3",
+            "value": 3307963,
+            "range": "± 3672",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 4",
+            "value": 96716440,
+            "range": "± 880389",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 0",
+            "value": 30792348,
+            "range": "± 91652",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 1",
+            "value": 718412238,
+            "range": "± 1393169",
             "unit": "ns/iter"
           }
         ]
