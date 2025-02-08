@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739010849071,
+  "lastUpdate": 1739011633662,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -1361,6 +1361,72 @@ window.BENCHMARK_DATA = {
             "name": "mate/mate 1",
             "value": 35935223,
             "range": "± 45538",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "Hiroki Kobayashi",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e3d98acff098af408552569f0dd17f485105124f",
+          "message": "Merge pull request #13 from rust-shogi-crates/release/0.1.3\n\nBump version to 0.1.3",
+          "timestamp": "2025-02-08T19:44:48+09:00",
+          "tree_id": "6314860e4c48cb4d9451c4d32fc6eda4786273f7",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/e3d98acff098af408552569f0dd17f485105124f"
+        },
+        "date": 1739011633351,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft/perft 0",
+            "value": 124,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 1",
+            "value": 3840,
+            "range": "± 13",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 2",
+            "value": 118824,
+            "range": "± 88",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 3",
+            "value": 3353913,
+            "range": "± 7795",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 4",
+            "value": 96856526,
+            "range": "± 596162",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 0",
+            "value": 3530959,
+            "range": "± 14876",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 1",
+            "value": 36068124,
+            "range": "± 36015",
             "unit": "ns/iter"
           }
         ]
