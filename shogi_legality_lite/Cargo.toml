@@ -32,7 +32,7 @@ shogi_core = { version = "0.1.3", default-features = false }
 
 [dev-dependencies]
 shogi_usi_parser = { version = "=0.1.0", default-features = false }
-criterion = "0.5"
+criterion = { version = "0.5", default-features = false, features = ["cargo_bench_support"] }
 
 [[bench]]
 name = "perft"
