@@ -30,7 +30,7 @@ pub unsafe extern "C" fn memcmp(s1: *const u8, s2: *const u8, n: usize) -> i32 {
 }
 
 // Found in https://refspecs.linuxfoundation.org/LSB_1.1.0/gLSB/baselib---bzero-1.html.
-// Some targets (cdylib, rustc 1.60, x86_64-apple-darwin, LLVM version 3.9.0svn) might need this symbol.
+// Some targets (cdylib, rustc 1.74, x86_64-apple-darwin, LLVM version 3.9.0svn) might need this symbol.
 #[no_mangle]
 pub unsafe extern "C" fn __bzero(s: *mut u8, n: usize) {
     // Really want to suppress all optimizations.
