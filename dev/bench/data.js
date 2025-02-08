@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739009926822,
+  "lastUpdate": 1739010849071,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -1295,6 +1295,72 @@ window.BENCHMARK_DATA = {
             "name": "mate/mate 1",
             "value": 718412238,
             "range": "± 1393169",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "Hiroki Kobayashi",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "455fe9e1eb02d380535223c8866eeccf6f72d451",
+          "message": "Merge pull request #12 from rust-shogi-crates/fix/legality-pawn\n\nDrop-pawn mate doesn't happen if the opponent has no king",
+          "timestamp": "2025-02-08T19:31:50+09:00",
+          "tree_id": "c74703ddd5fceda88d8fd5a2eb8d882cf3c32cff",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/455fe9e1eb02d380535223c8866eeccf6f72d451"
+        },
+        "date": 1739010848622,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft/perft 0",
+            "value": 125,
+            "range": "± 1",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 1",
+            "value": 3851,
+            "range": "± 13",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 2",
+            "value": 118369,
+            "range": "± 367",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 3",
+            "value": 3358563,
+            "range": "± 9824",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 4",
+            "value": 97166858,
+            "range": "± 129246",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 0",
+            "value": 3522245,
+            "range": "± 5846",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 1",
+            "value": 35935223,
+            "range": "± 45538",
             "unit": "ns/iter"
           }
         ]
