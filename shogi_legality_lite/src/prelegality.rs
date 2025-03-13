@@ -221,7 +221,7 @@ const FIRST_RANK: Bitboard = {
     let mut result = Bitboard::empty();
     let mut i = 1;
     while i <= 9 {
-        result = result.or(unsafe { Bitboard::from_file_unchecked(i, 1 << 8 | 1) });
+        result = result.or(unsafe { Bitboard::from_file_unchecked(i, (1 << 8) | 1) });
         i += 1;
     }
     result
@@ -231,7 +231,8 @@ const FIRST_TWO_RANKS: Bitboard = {
     let mut result = Bitboard::empty();
     let mut i = 1;
     while i <= 9 {
-        result = result.or(unsafe { Bitboard::from_file_unchecked(i, 1 << 8 | 1 << 7 | 2 | 1) });
+        result =
+            result.or(unsafe { Bitboard::from_file_unchecked(i, (1 << 8) | (1 << 7) | 2 | 1) });
         i += 1;
     }
     result

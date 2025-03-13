@@ -129,7 +129,7 @@ fn silver(color: Color, file: u8, rank: u8) -> Bitboard {
             file,
             match color {
                 Color::Black => 1 << rank >> 2,
-                Color::White => 1 << rank & 0x1ff,
+                Color::White => (1 << rank) & 0x1ff,
             },
         )
     };
