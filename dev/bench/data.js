@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739461985368,
+  "lastUpdate": 1741872981841,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -1493,6 +1493,72 @@ window.BENCHMARK_DATA = {
             "name": "mate/mate 1",
             "value": 36015093,
             "range": "± 72690",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "Hiroki Kobayashi",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3f0563dff71140add5e121d73f9e9abb3ac5f8b7",
+          "message": "Merge pull request #16 from rust-shogi-crates/fix/clippy\n\nClippy",
+          "timestamp": "2025-03-13T22:33:47+09:00",
+          "tree_id": "2531a9d15c72ed2277baae908d492792ac9e4b0d",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/3f0563dff71140add5e121d73f9e9abb3ac5f8b7"
+        },
+        "date": 1741872980943,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft/perft 0",
+            "value": 126,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 1",
+            "value": 3904,
+            "range": "± 5",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 2",
+            "value": 120298,
+            "range": "± 300",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 3",
+            "value": 3398285,
+            "range": "± 15995",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 4",
+            "value": 98437569,
+            "range": "± 287817",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 0",
+            "value": 3555981,
+            "range": "± 9947",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 1",
+            "value": 36214138,
+            "range": "± 42642",
             "unit": "ns/iter"
           }
         ]
