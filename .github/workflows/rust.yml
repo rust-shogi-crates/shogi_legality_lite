@@ -52,6 +52,7 @@ jobs:
           tool: cargo
           output-file-path: gha-bench.txt
           auto-push: false
+        if: github.event_name == 'push'
       - name: Push benchmark result
         run: git push 'https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/rust-shogi-crates/shogi_legality_lite.git' gh-pages:gh-pages
         if: github.event_name == 'push'
