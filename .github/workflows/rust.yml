@@ -46,7 +46,7 @@ jobs:
       - name: benchmark
         run: ./bench.sh | tee gha-bench.txt
       - name: Store benchmark results
-        uses: benchmark-action/github-action-benchmark@v1
+        uses: benchmark-action/github-action-benchmark@d48d326b4ca9ba73ca0cd0d59f108f9e02a381c7 # v1.20.4
         with:
           name: Benchmark result (shogi_legality_lite)
           tool: cargo
