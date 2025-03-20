@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741872981841,
+  "lastUpdate": 1742479144397,
   "repoUrl": "https://github.com/rust-shogi-crates/shogi_legality_lite",
   "entries": {
     "Benchmark result (shogi_legality_lite)": [
@@ -1559,6 +1559,72 @@ window.BENCHMARK_DATA = {
             "name": "mate/mate 1",
             "value": 36214138,
             "range": "± 42642",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3303362+koba-e964@users.noreply.github.com",
+            "name": "Hiroki Kobayashi",
+            "username": "koba-e964"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2f0fb12c6d1615daeafa3f73154c98e4a58d9a6c",
+          "message": "Merge pull request #17 from rust-shogi-crates/koba-e964-patch-1\n\nDon't run benchmark-action/github-action-benchmark unless `github.event_name == 'push'`",
+          "timestamp": "2025-03-20T22:56:31+09:00",
+          "tree_id": "a5007a9afd430378a1b323fc19a84fc20b4f3623",
+          "url": "https://github.com/rust-shogi-crates/shogi_legality_lite/commit/2f0fb12c6d1615daeafa3f73154c98e4a58d9a6c"
+        },
+        "date": 1742479144085,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "perft/perft 0",
+            "value": 132,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 1",
+            "value": 3867,
+            "range": "± 36",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 2",
+            "value": 118300,
+            "range": "± 174",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 3",
+            "value": 3388611,
+            "range": "± 14819",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "perft/perft 4",
+            "value": 96423760,
+            "range": "± 211502",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 0",
+            "value": 3533863,
+            "range": "± 10705",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "mate/mate 1",
+            "value": 36178921,
+            "range": "± 130166",
             "unit": "ns/iter"
           }
         ]
