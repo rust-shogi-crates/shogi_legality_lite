@@ -1,7 +1,7 @@
 # Rust shogi crates: Legality Checker (lite version) (`rlib`)
 [![crate](https://img.shields.io/crates/v/shogi_legality_lite)](https://crates.io/crates/shogi_legality_lite)
 [![docs](https://docs.rs/shogi_legality_lite/badge.svg)](https://docs.rs/shogi_legality_lite)
-![Rust Version](https://img.shields.io/badge/rustc-1.60+-blue.svg)
+![Rust Version](https://img.shields.io/badge/rustc-1.74+-blue.svg)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php)
 
 This crate handles legality checking of moves in shogi.
