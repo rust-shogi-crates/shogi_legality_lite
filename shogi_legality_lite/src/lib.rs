@@ -134,6 +134,9 @@ pub fn status(position: &shogi_core::Position) -> PositionStatus {
 /// Since: 0.1.1
 pub fn status_partial(position: &PartialPosition) -> PositionStatus {
     let side = position.side_to_move();
+    if prelegality::will_king_be_captured(position) == Some(true) {
+        return PositionStatus::Invalid;
+    }
     if crate::prelegality::is_mate(position) == Some(true) {
         return [PositionStatus::WhiteWins, PositionStatus::BlackWins][side.array_index()];
     }
@@ -171,6 +174,9 @@ pub fn status_partial(position: &PartialPosition) -> PositionStatus {
 ///
 /// Since: 0.1.1
 pub fn is_legal_partial(position: &PartialPosition, mv: Move) -> Result<(), IllegalMoveKind> {
+    if prelegality::will_king_be_captured(position) == Some(true) {
+        return Err(IllegalMoveKind::IncorrectMove);
+    }
     prelegality::is_valid_with_error(position, mv)?;
     let mut next = position.clone();
     if next.make_move(mv).is_none() {
@@ -189,6 +195,9 @@ pub fn is_legal_partial(position: &PartialPosition, mv: Move) -> Result<(), Ille
 ///
 /// Since: 0.1.1
 pub fn is_legal_partial_lite(position: &PartialPosition, mv: Move) -> bool {
+    if prelegality::will_king_be_captured(position) == Some(true) {
+        return false;
+    }
     if !prelegality::is_valid(position, mv) {
         return false;
     }
@@ -211,6 +220,10 @@ pub fn is_legal_partial_lite(position: &PartialPosition, mv: Move) -> bool {
 #[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
 pub fn all_legal_moves_partial(position: &PartialPosition) -> alloc::vec::Vec<Move> {
     use shogi_core::Hand;
+
+    if prelegality::will_king_be_captured(position) == Some(true) {
+        return alloc::vec::Vec::new();
+    }
 
     let side = position.side_to_move();
     let my_bb = position.player_bitboard(side);
@@ -470,6 +483,18 @@ mod tests {
         let result = all_legal_moves_partial(&position);
         assert_eq!(result.len(), 7);
     }
+
+    #[test]
+    fn issue_18_malformed_position_does_not_hang() {
+        let position = PartialPosition::from_usi(
+            "sfen G1S3+R1l/3k1+N3/1+B1sp2p1/2lp2P2/p4S1Pp/1PPb5/PKN3N1P/1gg6/L1+s5L b R4Pgn3p 121",
+        )
+        .unwrap();
+        let moves = all_legal_moves_partial(&position);
+        assert!(moves.is_empty());
+        assert_eq!(status_partial(&position), PositionStatus::Invalid);
+    }
+
     #[test]
     fn status_works() {
         let position = shogi_core::Position::startpos();
