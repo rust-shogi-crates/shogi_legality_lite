@@ -32,6 +32,14 @@ jobs:
         run: cargo clippy --all-targets --locked
       - name: Check formatting
         run: cargo fmt -- --check
+      - name: Install cargo-callgraph
+        run: cargo install cargo-callgraph --version 0.1.0 --locked
+        env:
+          RUSTFLAGS: ""
+      - name: Check callgraph JSON
+        run: make check-callgraph-json
+      - name: Check callgraph SVG
+        run: make check-callgraph-svg
       - name: Build (various features)
         run: |
           cargo build --verbose --no-default-features

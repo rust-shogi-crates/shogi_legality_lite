@@ -1,0 +1,308 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1272" height="1588" viewBox="0 0 1272 1588">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="white"/>
+  <text x="36" y="28" fill="#0f172a" font-size="20" font-weight="700">shogi_legality_lite legality callgraph</text>
+  <text x="36" y="50" fill="#64748b" font-size="12">39 nodes, 54 internal edges. Columns are source files; mate/perft are omitted.</text>
+  <text x="36" y="82" fill="#0f172a" font-size="16" font-weight="700">src/lib.rs</text>
+  <text x="36" y="102" fill="#64748b" font-size="11">12 nodes</text>
+  <text x="486" y="82" fill="#0f172a" font-size="16" font-weight="700">src/normal.rs</text>
+  <text x="486" y="102" fill="#64748b" font-size="11">21 nodes</text>
+  <text x="936" y="82" fill="#0f172a" font-size="16" font-weight="700">src/prelegality.rs</text>
+  <text x="936" y="102" fill="#64748b" font-size="11">6 nodes</text>
+  <g id="edges">
+  <path d="M 336.0 656.0 C 384.0 656.0, 384.0 784.0, 336.0 784.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 656.0 C 384.0 656.0, 384.0 848.0, 336.0 848.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 656.0 C 606.0 656.0, 666.0 272.0, 936.0 272.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 656.0 C 606.0 656.0, 666.0 400.0, 936.0 400.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 720.0 C 384.0 720.0, 384.0 784.0, 336.0 784.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 784.0 C 403.5 784.0, 418.5 272.0, 486.0 272.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 784.0 C 606.0 784.0, 666.0 144.0, 936.0 144.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 400.0 C 384.0 400.0, 384.0 336.0, 336.0 336.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 400.0 C 606.0 400.0, 666.0 272.0, 936.0 272.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 400.0 C 606.0 400.0, 666.0 400.0, 936.0 400.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 592.0 C 384.0 592.0, 384.0 336.0, 336.0 336.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 272.0 C 606.0 272.0, 666.0 208.0, 936.0 208.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 272.0 C 606.0 272.0, 666.0 400.0, 936.0 400.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 336.0 C 606.0 336.0, 666.0 144.0, 936.0 144.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 336.0 C 606.0 336.0, 666.0 400.0, 936.0 400.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 784.0 C 834.0 784.0, 834.0 1232.0, 786.0 1232.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 784.0 C 834.0 784.0, 834.0 1296.0, 786.0 1296.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 784.0 C 834.0 784.0, 834.0 1424.0, 786.0 1424.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 784.0 C 834.0 784.0, 834.0 1360.0, 786.0 1360.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 144.0 C 834.0 144.0, 834.0 208.0, 786.0 208.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 208.0 C 834.0 208.0, 834.0 272.0, 786.0 272.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 272.0 C 834.0 272.0, 834.0 784.0, 786.0 784.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 272.0 C 834.0 272.0, 834.0 656.0, 786.0 656.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 272.0 C 834.0 272.0, 834.0 720.0, 786.0 720.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 272.0 C 834.0 272.0, 834.0 848.0, 786.0 848.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 272.0 C 834.0 272.0, 834.0 336.0, 786.0 336.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 720.0 C 834.0 720.0, 834.0 976.0, 786.0 976.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 720.0 C 834.0 720.0, 834.0 1040.0, 786.0 1040.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 848.0 C 834.0 848.0, 834.0 976.0, 786.0 976.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 848.0 C 834.0 848.0, 834.0 1040.0, 786.0 1040.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 848.0 C 834.0 848.0, 834.0 1104.0, 786.0 1104.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 848.0 C 834.0 848.0, 834.0 1168.0, 786.0 1168.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 336.0 C 834.0 336.0, 834.0 592.0, 786.0 592.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 336.0 C 834.0 336.0, 834.0 656.0, 786.0 656.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 336.0 C 834.0 336.0, 834.0 464.0, 786.0 464.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 336.0 C 834.0 336.0, 834.0 400.0, 786.0 400.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 786.0 336.0 C 834.0 336.0, 834.0 528.0, 786.0 528.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 464.0 C 606.0 464.0, 666.0 272.0, 936.0 272.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 464.0 C 606.0 464.0, 666.0 400.0, 936.0 400.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 528.0 C 384.0 528.0, 384.0 336.0, 336.0 336.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 1236.0 336.0 C 1284.0 336.0, 1284.0 144.0, 1236.0 144.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 1236.0 464.0 C 1284.0 464.0, 1284.0 336.0, 1236.0 336.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 1236.0 464.0 C 1284.0 464.0, 1284.0 400.0, 1236.0 400.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 936.0 144.0 C 868.5 144.0, 853.5 144.0, 786.0 144.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 1236.0 144.0 C 1284.0 144.0, 1284.0 464.0, 1236.0 464.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 936.0 208.0 C 868.5 208.0, 853.5 144.0, 786.0 144.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 1236.0 208.0 C 1284.0 208.0, 1284.0 464.0, 1236.0 464.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 936.0 272.0 C 868.5 272.0, 853.5 208.0, 786.0 208.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 936.0 400.0 C 868.5 400.0, 853.5 272.0, 786.0 272.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 936.0 400.0 C 868.5 400.0, 853.5 656.0, 786.0 656.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 936.0 400.0 C 868.5 400.0, 853.5 464.0, 786.0 464.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 936.0 400.0 C 868.5 400.0, 853.5 720.0, 786.0 720.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 144.0 C 384.0 144.0, 384.0 208.0, 336.0 208.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  <path d="M 336.0 208.0 C 606.0 208.0, 666.0 464.0, 936.0 464.0" fill="none" stroke="#334155" stroke-width="1" opacity="0.28" marker-end="url(#arrow)"/>
+  </g>
+  <g id="nodes">
+  <g id="status@shogi_legality_lite/src/lib.rs:90">
+    <title>status@shogi_legality_lite/src/lib.rs:90</title>
+    <rect x="36" y="122" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="140" fill="#0f172a" font-size="12" font-weight="600">status</text>
+    <text x="48" y="156" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:90</text>
+  </g>
+  <g id="status_partial@shogi_legality_lite/src/lib.rs:134">
+    <title>status_partial@shogi_legality_lite/src/lib.rs:134</title>
+    <rect x="36" y="186" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="204" fill="#0f172a" font-size="12" font-weight="600">status_partial</text>
+    <text x="48" y="220" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:134</text>
+  </g>
+  <g id="is_legal_partial@shogi_legality_lite/src/lib.rs:172">
+    <title>is_legal_partial@shogi_legality_lite/src/lib.rs:172</title>
+    <rect x="36" y="250" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="268" fill="#0f172a" font-size="12" font-weight="600">is_legal_partial</text>
+    <text x="48" y="284" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:172</text>
+  </g>
+  <g id="is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190">
+    <title>is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190</title>
+    <rect x="36" y="314" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="332" fill="#0f172a" font-size="12" font-weight="600">is_legal_partial_lite</text>
+    <text x="48" y="348" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:190</text>
+  </g>
+  <g id="all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211">
+    <title>all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211</title>
+    <rect x="36" y="378" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="396" fill="#0f172a" font-size="12" font-weight="600">all_legal_moves_partial</text>
+    <text x="48" y="412" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:211</text>
+  </g>
+  <g id="normal_from_candidates@shogi_legality_lite/src/lib.rs:261">
+    <title>normal_from_candidates@shogi_legality_lite/src/lib.rs:261</title>
+    <rect x="36" y="442" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="460" fill="#0f172a" font-size="12" font-weight="600">normal_from_candidates</text>
+    <text x="48" y="476" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:261</text>
+  </g>
+  <g id="normal_to_candidates@shogi_legality_lite/src/lib.rs:292">
+    <title>normal_to_candidates@shogi_legality_lite/src/lib.rs:292</title>
+    <rect x="36" y="506" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="524" fill="#0f172a" font-size="12" font-weight="600">normal_to_candidates</text>
+    <text x="48" y="540" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:292</text>
+  </g>
+  <g id="drop_candidates@shogi_legality_lite/src/lib.rs:311">
+    <title>drop_candidates@shogi_legality_lite/src/lib.rs:311</title>
+    <rect x="36" y="570" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="588" fill="#0f172a" font-size="12" font-weight="600">drop_candidates</text>
+    <text x="48" y="604" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:311</text>
+  </g>
+  <g id="all_checks_partial@shogi_legality_lite/src/lib.rs:327">
+    <title>all_checks_partial@shogi_legality_lite/src/lib.rs:327</title>
+    <rect x="36" y="634" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="652" fill="#0f172a" font-size="12" font-weight="600">all_checks_partial</text>
+    <text x="48" y="668" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:327</text>
+  </g>
+  <g id="all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382">
+    <title>all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382</title>
+    <rect x="36" y="698" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="716" fill="#0f172a" font-size="12" font-weight="600">all_drop_checks_partial</text>
+    <text x="48" y="732" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:382</text>
+  </g>
+  <g id="all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401">
+    <title>all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401</title>
+    <rect x="36" y="762" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="780" fill="#0f172a" font-size="12" font-weight="600">all_drop_checks_partial_sub</text>
+    <text x="48" y="796" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:401</text>
+  </g>
+  <g id="is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446">
+    <title>is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446</title>
+    <rect x="36" y="826" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="844" fill="#0f172a" font-size="12" font-weight="600">is_in_check_partial_lite</text>
+    <text x="48" y="860" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:446</text>
+  </g>
+  <g id="normal::check@shogi_legality_lite/src/normal.rs:7">
+    <title>normal::check@shogi_legality_lite/src/normal.rs:7</title>
+    <rect x="486" y="122" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="140" fill="#0f172a" font-size="12" font-weight="600">normal::check</text>
+    <text x="498" y="156" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:7</text>
+  </g>
+  <g id="normal::from_candidates@shogi_legality_lite/src/normal.rs:18">
+    <title>normal::from_candidates@shogi_legality_lite/src/normal.rs:18</title>
+    <rect x="486" y="186" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="204" fill="#0f172a" font-size="12" font-weight="600">normal::from_candidates</text>
+    <text x="498" y="220" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:18</text>
+  </g>
+  <g id="normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27">
+    <title>normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27</title>
+    <rect x="486" y="250" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="268" fill="#0f172a" font-size="12" font-weight="600">normal::from_candidates_without_asserti...</text>
+    <text x="498" y="284" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:27</text>
+  </g>
+  <g id="normal::short_range@shogi_legality_lite/src/normal.rs:60">
+    <title>normal::short_range@shogi_legality_lite/src/normal.rs:60</title>
+    <rect x="486" y="314" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="332" fill="#0f172a" font-size="12" font-weight="600">normal::short_range</text>
+    <text x="498" y="348" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:60</text>
+  </g>
+  <g id="normal::pawn@shogi_legality_lite/src/normal.rs:81">
+    <title>normal::pawn@shogi_legality_lite/src/normal.rs:81</title>
+    <rect x="486" y="378" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="396" fill="#0f172a" font-size="12" font-weight="600">normal::pawn</text>
+    <text x="498" y="412" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:81</text>
+  </g>
+  <g id="normal::knight@shogi_legality_lite/src/normal.rs:101">
+    <title>normal::knight@shogi_legality_lite/src/normal.rs:101</title>
+    <rect x="486" y="442" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="460" fill="#0f172a" font-size="12" font-weight="600">normal::knight</text>
+    <text x="498" y="476" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:101</text>
+  </g>
+  <g id="normal::silver@shogi_legality_lite/src/normal.rs:125">
+    <title>normal::silver@shogi_legality_lite/src/normal.rs:125</title>
+    <rect x="486" y="506" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="524" fill="#0f172a" font-size="12" font-weight="600">normal::silver</text>
+    <text x="498" y="540" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:125</text>
+  </g>
+  <g id="normal::gold@shogi_legality_lite/src/normal.rs:145">
+    <title>normal::gold@shogi_legality_lite/src/normal.rs:145</title>
+    <rect x="486" y="570" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="588" fill="#0f172a" font-size="12" font-weight="600">normal::gold</text>
+    <text x="498" y="604" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:145</text>
+  </g>
+  <g id="normal::king@shogi_legality_lite/src/normal.rs:160">
+    <title>normal::king@shogi_legality_lite/src/normal.rs:160</title>
+    <rect x="486" y="634" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="652" fill="#0f172a" font-size="12" font-weight="600">normal::king</text>
+    <text x="498" y="668" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:160</text>
+  </g>
+  <g id="normal::lance_range@shogi_legality_lite/src/normal.rs:171">
+    <title>normal::lance_range@shogi_legality_lite/src/normal.rs:171</title>
+    <rect x="486" y="698" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="716" fill="#0f172a" font-size="12" font-weight="600">normal::lance_range</text>
+    <text x="498" y="732" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:171</text>
+  </g>
+  <g id="normal::bishop_range@shogi_legality_lite/src/normal.rs:178">
+    <title>normal::bishop_range@shogi_legality_lite/src/normal.rs:178</title>
+    <rect x="486" y="762" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="780" fill="#0f172a" font-size="12" font-weight="600">normal::bishop_range</text>
+    <text x="498" y="796" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:178</text>
+  </g>
+  <g id="normal::rook_range@shogi_legality_lite/src/normal.rs:185">
+    <title>normal::rook_range@shogi_legality_lite/src/normal.rs:185</title>
+    <rect x="486" y="826" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="844" fill="#0f172a" font-size="12" font-weight="600">normal::rook_range</text>
+    <text x="498" y="860" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:185</text>
+  </g>
+  <g id="normal::long_range@shogi_legality_lite/src/normal.rs:194">
+    <title>normal::long_range@shogi_legality_lite/src/normal.rs:194</title>
+    <rect x="486" y="890" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="908" fill="#0f172a" font-size="12" font-weight="600">normal::long_range</text>
+    <text x="498" y="924" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:194</text>
+  </g>
+  <g id="normal::long_range_01@shogi_legality_lite/src/normal.rs:214">
+    <title>normal::long_range_01@shogi_legality_lite/src/normal.rs:214</title>
+    <rect x="486" y="954" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="972" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_01</text>
+    <text x="498" y="988" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:214</text>
+  </g>
+  <g id="normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224">
+    <title>normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224</title>
+    <rect x="486" y="1018" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="1036" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_0m1</text>
+    <text x="498" y="1052" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:224</text>
+  </g>
+  <g id="normal::long_range_10@shogi_legality_lite/src/normal.rs:247">
+    <title>normal::long_range_10@shogi_legality_lite/src/normal.rs:247</title>
+    <rect x="486" y="1082" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="1100" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_10</text>
+    <text x="498" y="1116" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:247</text>
+  </g>
+  <g id="normal::long_range_m10@shogi_legality_lite/src/normal.rs:257">
+    <title>normal::long_range_m10@shogi_legality_lite/src/normal.rs:257</title>
+    <rect x="486" y="1146" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="1164" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_m10</text>
+    <text x="498" y="1180" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:257</text>
+  </g>
+  <g id="normal::long_range_11@shogi_legality_lite/src/normal.rs:289">
+    <title>normal::long_range_11@shogi_legality_lite/src/normal.rs:289</title>
+    <rect x="486" y="1210" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="1228" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_11</text>
+    <text x="498" y="1244" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:289</text>
+  </g>
+  <g id="normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299">
+    <title>normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299</title>
+    <rect x="486" y="1274" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="1292" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_1m1</text>
+    <text x="498" y="1308" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:299</text>
+  </g>
+  <g id="normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309">
+    <title>normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309</title>
+    <rect x="486" y="1338" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="1356" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_m1m1</text>
+    <text x="498" y="1372" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:309</text>
+  </g>
+  <g id="normal::long_range_m11@shogi_legality_lite/src/normal.rs:319">
+    <title>normal::long_range_m11@shogi_legality_lite/src/normal.rs:319</title>
+    <rect x="486" y="1402" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="498" y="1420" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_m11</text>
+    <text x="498" y="1436" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:319</text>
+  </g>
+  <g id="prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7">
+    <title>prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7</title>
+    <rect x="936" y="122" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="948" y="140" fill="#0f172a" font-size="12" font-weight="600">prelegality::is_valid</text>
+    <text x="948" y="156" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:7</text>
+  </g>
+  <g id="prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113">
+    <title>prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113</title>
+    <rect x="936" y="186" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="948" y="204" fill="#0f172a" font-size="12" font-weight="600">prelegality::is_valid_with_error</text>
+    <text x="948" y="220" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:113</text>
+  </g>
+  <g id="prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260">
+    <title>prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260</title>
+    <rect x="936" y="250" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="948" y="268" fill="#0f172a" font-size="12" font-weight="600">prelegality::normal_from_candidates</text>
+    <text x="948" y="284" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:260</text>
+  </g>
+  <g id="prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302">
+    <title>prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302</title>
+    <rect x="936" y="314" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="948" y="332" fill="#0f172a" font-size="12" font-weight="600">prelegality::all_valid_moves</text>
+    <text x="948" y="348" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:302</text>
+  </g>
+  <g id="prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324">
+    <title>prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324</title>
+    <rect x="936" y="378" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="948" y="396" fill="#0f172a" font-size="12" font-weight="600">prelegality::will_king_be_captured</text>
+    <text x="948" y="412" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:324</text>
+  </g>
+  <g id="prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416">
+    <title>prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416</title>
+    <rect x="936" y="442" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="948" y="460" fill="#0f172a" font-size="12" font-weight="600">prelegality::is_mate</text>
+    <text x="948" y="476" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:416</text>
+  </g>
+  </g>
+</svg>
