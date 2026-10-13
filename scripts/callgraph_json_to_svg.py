@@ -35,6 +35,8 @@ def group_sort_key(group):
 
 
 def node_color(node):
+    if node.get("is_cycle"):
+        return "#fee2e2", "#dc2626"
     if node["file"].endswith("/src/lib.rs"):
         return "#dbeafe", "#1d4ed8"
     if "/src/" in node["file"]:
@@ -56,6 +58,10 @@ def count_text(count):
     return f"{count} node" if count == 1 else f"{count} nodes"
 
 
+def cycle_count_text(count):
+    return f"{count} cycle" if count == 1 else f"{count} cycles"
+
+
 def render_node(node, x, y):
     fill, stroke = node_color(node)
     name = truncate(node["qualified_path"], 40)
@@ -68,13 +74,13 @@ def render_node(node, x, y):
   </g>"""
 
 
-def render_edge(source, target, positions):
+def render_edge(source, target, positions, is_cycle_edge):
     source_x, source_y = positions[source]
     target_x, target_y = positions[target]
     start_y = source_y + NODE_HEIGHT / 2
     end_y = target_y + NODE_HEIGHT / 2
-    color = "#334155"
-    opacity = "0.28"
+    color = "#dc2626" if is_cycle_edge else "#334155"
+    opacity = "0.78" if is_cycle_edge else "0.28"
 
     if source_x == target_x:
         start_x = source_x + NODE_WIDTH
@@ -104,6 +110,56 @@ def render_edge(source, target, positions):
         f'{second_x:.1f} {end_y:.1f}, {end_x:.1f} {end_y:.1f}" '
         f'fill="none" stroke="{color}" stroke-width="1" opacity="{opacity}" marker-end="url(#arrow)"/>'
     )
+
+
+def find_cycle_components(node_ids, edges):
+    graph = {node_id: [] for node_id in node_ids}
+    self_loops = set()
+    for edge in edges:
+        source = edge["source"]
+        target = edge["target"]
+        graph[source].append(target)
+        if source == target:
+            self_loops.add(source)
+
+    index = 0
+    stack = []
+    stacked = set()
+    indexes = {}
+    lowlinks = {}
+    components = []
+
+    def visit(node_id):
+        nonlocal index
+        indexes[node_id] = index
+        lowlinks[node_id] = index
+        index += 1
+        stack.append(node_id)
+        stacked.add(node_id)
+
+        for target_id in sorted(graph[node_id]):
+            if target_id not in indexes:
+                visit(target_id)
+                lowlinks[node_id] = min(lowlinks[node_id], lowlinks[target_id])
+            elif target_id in stacked:
+                lowlinks[node_id] = min(lowlinks[node_id], indexes[target_id])
+
+        if lowlinks[node_id] == indexes[node_id]:
+            component = []
+            while True:
+                current = stack.pop()
+                stacked.remove(current)
+                component.append(current)
+                if current == node_id:
+                    break
+            if len(component) > 1 or component[0] in self_loops:
+                components.append(set(component))
+
+    for node_id in sorted(node_ids):
+        if node_id not in indexes:
+            visit(node_id)
+
+    return components
 
 
 def main():
@@ -146,8 +202,23 @@ def main():
         ],
         key=lambda edge: (edge["source"], edge["target"], edge.get("kind", "")),
     )
+    cycle_components = find_cycle_components(workspace_ids, edges)
+    cycle_node_ids = set().union(*cycle_components) if cycle_components else set()
+    cycle_component_by_node = {
+        node_id: index
+        for index, component in enumerate(cycle_components)
+        for node_id in component
+    }
+    for node in nodes:
+        node["is_cycle"] = node["id"] in cycle_node_ids
     rendered_edges = [
-        render_edge(edge["source"], edge["target"], positions)
+        render_edge(
+            edge["source"],
+            edge["target"],
+            positions,
+            cycle_component_by_node.get(edge["source"]) == cycle_component_by_node.get(edge["target"])
+            and edge["source"] in cycle_node_ids,
+        )
         for edge in edges
     ]
 
@@ -166,7 +237,7 @@ def main():
   </defs>
   <rect width="100%" height="100%" fill="white"/>
   <text x="{MARGIN_X}" y="28" fill="#0f172a" font-size="20" font-weight="700">shogi_legality_lite legality callgraph</text>
-  <text x="{MARGIN_X}" y="50" fill="#64748b" font-size="12">{len(nodes)} nodes, {len(edges)} internal edges. Columns are source files; mate/perft are omitted.</text>
+  <text x="{MARGIN_X}" y="50" fill="#64748b" font-size="12">{len(nodes)} nodes, {len(edges)} internal edges, {cycle_count_text(len(cycle_components))}. Columns are source files; mate/perft are omitted.</text>
 {chr(10).join(rendered_headers)}
   <g id="edges">
 {chr(10).join(rendered_edges)}

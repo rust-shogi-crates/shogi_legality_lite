@@ -40,6 +40,8 @@ jobs:
         run: make check-callgraph-json
       - name: Check callgraph SVG
         run: make check-callgraph-svg
+      - name: Check callgraph cycles
+        run: make check-callgraph-cycles
       - name: Build (various features)
         run: |
           cargo build --verbose --no-default-features

@@ -28,5 +28,13 @@ Generate the checked-in SVG image from `callgraph.json` with:
 make callgraph-svg
 ```
 
-The SVG shows crate-internal legality nodes, omits `mate_solver` and `perft` modules, and groups nodes by source file.
+The SVG shows crate-internal legality nodes, omits `mate_solver` and `perft` modules, groups nodes by source file, and highlights detected cycles in red.
 Use `make check-callgraph-svg` to verify that the checked-in `callgraph.svg` matches `callgraph.json`.
+
+Generate the checked-in cycle report with:
+
+```sh
+make callgraph-cycles
+```
+
+Use `make check-callgraph-cycles` to verify that the checked-in `callgraph_cycles.json` matches `callgraph.json`.
