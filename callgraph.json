@@ -1,0 +1,4612 @@
+{
+  "nodes": [
+    {
+      "id": "status@shogi_legality_lite/src/lib.rs:90",
+      "name": "status",
+      "qualified_path": "status",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 90,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "name": "status_partial",
+      "qualified_path": "status_partial",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 134,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "name": "is_legal_partial",
+      "qualified_path": "is_legal_partial",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 172,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "name": "is_legal_partial_lite",
+      "qualified_path": "is_legal_partial_lite",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 190,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "name": "all_legal_moves_partial",
+      "qualified_path": "all_legal_moves_partial",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 211,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "name": "normal_from_candidates",
+      "qualified_path": "normal_from_candidates",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 261,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal_to_candidates@shogi_legality_lite/src/lib.rs:292",
+      "name": "normal_to_candidates",
+      "qualified_path": "normal_to_candidates",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 292,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "drop_candidates@shogi_legality_lite/src/lib.rs:311",
+      "name": "drop_candidates",
+      "qualified_path": "drop_candidates",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 311,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "name": "all_checks_partial",
+      "qualified_path": "all_checks_partial",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 327,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "name": "all_drop_checks_partial",
+      "qualified_path": "all_drop_checks_partial",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 382,
+      "col": 18,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "name": "all_drop_checks_partial_sub",
+      "qualified_path": "all_drop_checks_partial_sub",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 401,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446",
+      "name": "is_in_check_partial_lite",
+      "qualified_path": "is_in_check_partial_lite",
+      "crate_name": "shogi_legality_lite",
+      "module": [],
+      "file": "shogi_legality_lite/src/lib.rs",
+      "line": 446,
+      "col": 18,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::check@shogi_legality_lite/src/normal.rs:7",
+      "name": "check",
+      "qualified_path": "normal::check",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 7,
+      "col": 18,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::from_candidates@shogi_legality_lite/src/normal.rs:18",
+      "name": "from_candidates",
+      "qualified_path": "normal::from_candidates",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 18,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "name": "from_candidates_without_assertion",
+      "qualified_path": "normal::from_candidates_without_assertion",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 27,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "name": "short_range",
+      "qualified_path": "normal::short_range",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 60,
+      "col": 10,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::pawn@shogi_legality_lite/src/normal.rs:81",
+      "name": "pawn",
+      "qualified_path": "normal::pawn",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 81,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::knight@shogi_legality_lite/src/normal.rs:101",
+      "name": "knight",
+      "qualified_path": "normal::knight",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 101,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::silver@shogi_legality_lite/src/normal.rs:125",
+      "name": "silver",
+      "qualified_path": "normal::silver",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 125,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::gold@shogi_legality_lite/src/normal.rs:145",
+      "name": "gold",
+      "qualified_path": "normal::gold",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 145,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::king@shogi_legality_lite/src/normal.rs:160",
+      "name": "king",
+      "qualified_path": "normal::king",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 160,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::lance_range@shogi_legality_lite/src/normal.rs:171",
+      "name": "lance_range",
+      "qualified_path": "normal::lance_range",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 171,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::bishop_range@shogi_legality_lite/src/normal.rs:178",
+      "name": "bishop_range",
+      "qualified_path": "normal::bishop_range",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 178,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::rook_range@shogi_legality_lite/src/normal.rs:185",
+      "name": "rook_range",
+      "qualified_path": "normal::rook_range",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 185,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range@shogi_legality_lite/src/normal.rs:194",
+      "name": "long_range",
+      "qualified_path": "normal::long_range",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 194,
+      "col": 10,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "name": "long_range_01",
+      "qualified_path": "normal::long_range_01",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 214,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "name": "long_range_0m1",
+      "qualified_path": "normal::long_range_0m1",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 224,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range_10@shogi_legality_lite/src/normal.rs:247",
+      "name": "long_range_10",
+      "qualified_path": "normal::long_range_10",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 247,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "name": "long_range_m10",
+      "qualified_path": "normal::long_range_m10",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 257,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range_11@shogi_legality_lite/src/normal.rs:289",
+      "name": "long_range_11",
+      "qualified_path": "normal::long_range_11",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 289,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299",
+      "name": "long_range_1m1",
+      "qualified_path": "normal::long_range_1m1",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 299,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "name": "long_range_m1m1",
+      "qualified_path": "normal::long_range_m1m1",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 309,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "name": "long_range_m11",
+      "qualified_path": "normal::long_range_m11",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "normal"
+      ],
+      "file": "shogi_legality_lite/src/normal.rs",
+      "line": 319,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "name": "is_valid",
+      "qualified_path": "prelegality::is_valid",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "prelegality"
+      ],
+      "file": "shogi_legality_lite/src/prelegality.rs",
+      "line": 7,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "name": "is_valid_with_error",
+      "qualified_path": "prelegality::is_valid_with_error",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "prelegality"
+      ],
+      "file": "shogi_legality_lite/src/prelegality.rs",
+      "line": 113,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "name": "normal_from_candidates",
+      "qualified_path": "prelegality::normal_from_candidates",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "prelegality"
+      ],
+      "file": "shogi_legality_lite/src/prelegality.rs",
+      "line": 260,
+      "col": 14,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "name": "all_valid_moves",
+      "qualified_path": "prelegality::all_valid_moves",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "prelegality"
+      ],
+      "file": "shogi_legality_lite/src/prelegality.rs",
+      "line": 302,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "name": "will_king_be_captured",
+      "qualified_path": "prelegality::will_king_be_captured",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "prelegality"
+      ],
+      "file": "shogi_legality_lite/src/prelegality.rs",
+      "line": 324,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "name": "is_mate",
+      "qualified_path": "prelegality::is_mate",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "prelegality"
+      ],
+      "file": "shogi_legality_lite/src/prelegality.rs",
+      "line": 416,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "mate_solver::solve_mate_problem@shogi_legality_lite/src/mate_solver.rs:16",
+      "name": "solve_mate_problem",
+      "qualified_path": "mate_solver::solve_mate_problem",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "mate_solver"
+      ],
+      "file": "shogi_legality_lite/src/mate_solver.rs",
+      "line": 16,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "name": "all_mymoves",
+      "qualified_path": "mate_solver::all_mymoves",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "mate_solver"
+      ],
+      "file": "shogi_legality_lite/src/mate_solver.rs",
+      "line": 20,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "name": "all_countermoves",
+      "qualified_path": "mate_solver::all_countermoves",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "mate_solver"
+      ],
+      "file": "shogi_legality_lite/src/mate_solver.rs",
+      "line": 80,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "mate_solver::order_mymoves@shogi_legality_lite/src/mate_solver.rs:126",
+      "name": "order_mymoves",
+      "qualified_path": "mate_solver::order_mymoves",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "mate_solver"
+      ],
+      "file": "shogi_legality_lite/src/mate_solver.rs",
+      "line": 126,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "mate_solver::order_countermoves@shogi_legality_lite/src/mate_solver.rs:142",
+      "name": "order_countermoves",
+      "qualified_path": "mate_solver::order_countermoves",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "mate_solver"
+      ],
+      "file": "shogi_legality_lite/src/mate_solver.rs",
+      "line": 142,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "name": "perft",
+      "qualified_path": "perft::perft",
+      "crate_name": "shogi_legality_lite",
+      "module": [
+        "perft"
+      ],
+      "file": "shogi_legality_lite/src/perft.rs",
+      "line": 6,
+      "col": 7,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "name": "main",
+      "qualified_path": "main",
+      "crate_name": "mate_solver",
+      "module": [],
+      "file": "shogi_legality_lite/examples/mate_solver.rs",
+      "line": 6,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "main@shogi_legality_lite/examples/perft.rs:4",
+      "name": "main",
+      "qualified_path": "main",
+      "crate_name": "perft",
+      "module": [],
+      "file": "shogi_legality_lite/examples/perft.rs",
+      "line": 4,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "name": "bench_mate_0",
+      "qualified_path": "bench_mate_0",
+      "crate_name": "mate_solver",
+      "module": [],
+      "file": "shogi_legality_lite/benches/mate_solver.rs",
+      "line": 4,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "name": "bench_mate_1",
+      "qualified_path": "bench_mate_1",
+      "crate_name": "mate_solver",
+      "module": [],
+      "file": "shogi_legality_lite/benches/mate_solver.rs",
+      "line": 21,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "main@shogi_legality_lite/benches/mate_solver.rs:43",
+      "name": "main",
+      "qualified_path": "main",
+      "crate_name": "mate_solver",
+      "module": [],
+      "file": "shogi_legality_lite/benches/mate_solver.rs",
+      "line": 43,
+      "col": 0,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "benches@shogi_legality_lite/benches/mate_solver.rs:42",
+      "name": "benches",
+      "qualified_path": "benches",
+      "crate_name": "mate_solver",
+      "module": [],
+      "file": "shogi_legality_lite/benches/mate_solver.rs",
+      "line": 42,
+      "col": 17,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "bench_perft@shogi_legality_lite/benches/perft.rs:17",
+      "name": "bench_perft",
+      "qualified_path": "bench_perft",
+      "crate_name": "perft",
+      "module": [],
+      "file": "shogi_legality_lite/benches/perft.rs",
+      "line": 17,
+      "col": 3,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "main@shogi_legality_lite/benches/perft.rs:34",
+      "name": "main",
+      "qualified_path": "main",
+      "crate_name": "perft",
+      "module": [],
+      "file": "shogi_legality_lite/benches/perft.rs",
+      "line": 34,
+      "col": 0,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "benches@shogi_legality_lite/benches/perft.rs:33",
+      "name": "benches",
+      "qualified_path": "benches",
+      "crate_name": "perft",
+      "module": [],
+      "file": "shogi_legality_lite/benches/perft.rs",
+      "line": 33,
+      "col": 17,
+      "is_workspace": true,
+      "is_trait_method": false
+    },
+    {
+      "id": "inner@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:111",
+      "name": "inner",
+      "qualified_path": "inner",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 111,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "moves@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:297",
+      "name": "moves",
+      "qualified_path": "moves",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 297,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "len@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs:115",
+      "name": "len",
+      "qualified_path": "len",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs",
+      "line": 115,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "with_capacity@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:522",
+      "name": "with_capacity",
+      "qualified_path": "with_capacity",
+      "crate_name": "alloc",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs",
+      "line": 522,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "name": "clone",
+      "qualified_path": "clone",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 373,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "initial_position@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:118",
+      "name": "initial_position",
+      "qualified_path": "initial_position",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 118,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "ply_set@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:544",
+      "name": "ply_set",
+      "qualified_path": "ply_set",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 544,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "push@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1002",
+      "name": "push",
+      "qualified_path": "push",
+      "crate_name": "alloc",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs",
+      "line": 1002,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "to_sfen_owned@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:818",
+      "name": "to_sfen_owned",
+      "qualified_path": "to_sfen_owned",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 818,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "name": "make_move",
+      "qualified_path": "make_move",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 707,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "name": "is_none",
+      "qualified_path": "is_none",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs",
+      "line": 680,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "name": "side_to_move",
+      "qualified_path": "side_to_move",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 498,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "name": "Some",
+      "qualified_path": "Some",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs",
+      "line": 604,
+      "col": 4,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "array_index@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs:40",
+      "name": "array_index",
+      "qualified_path": "array_index",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs",
+      "line": 40,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "hand_of_a_player@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:511",
+      "name": "hand_of_a_player",
+      "qualified_path": "hand_of_a_player",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 511,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "piece_kind_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:664",
+      "name": "piece_kind_bitboard",
+      "qualified_path": "piece_kind_bitboard",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 664,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "promote@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece_kind.rs:115",
+      "name": "promote",
+      "qualified_path": "promote",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece_kind.rs",
+      "line": 115,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "count@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:79",
+      "name": "count",
+      "qualified_path": "count",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 79,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "name": "unwrap_unchecked",
+      "qualified_path": "unwrap_unchecked",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs",
+      "line": 1124,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "count@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:94",
+      "name": "count",
+      "qualified_path": "count",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs",
+      "line": 94,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Err@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:565",
+      "name": "Err",
+      "qualified_path": "Err",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs",
+      "line": 565,
+      "col": 4,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Ok@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:560",
+      "name": "Ok",
+      "qualified_path": "Ok",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs",
+      "line": 560,
+      "col": 4,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "player_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:631",
+      "name": "player_bitboard",
+      "qualified_path": "player_bitboard",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 631,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "new@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:462",
+      "name": "new",
+      "qualified_path": "new",
+      "crate_name": "alloc",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs",
+      "line": 462,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Iterator::enumerate@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:1043",
+      "name": "enumerate",
+      "qualified_path": "Iterator::enumerate",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs",
+      "line": 1043,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "into_iter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/array/iter.rs:53",
+      "name": "into_iter",
+      "qualified_path": "into_iter",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/array/iter.rs",
+      "line": 53,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:23",
+      "name": "new",
+      "qualified_path": "new",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs",
+      "line": 23,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "all_hand_pieces@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:174",
+      "name": "all_hand_pieces",
+      "qualified_path": "all_hand_pieces",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs",
+      "line": 174,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:35",
+      "name": "new",
+      "qualified_path": "new",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs",
+      "line": 35,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "vacant_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:624",
+      "name": "vacant_bitboard",
+      "qualified_path": "vacant_bitboard",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 624,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "name": "empty",
+      "qualified_path": "empty",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 27,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "contains@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:111",
+      "name": "contains",
+      "qualified_path": "contains",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 111,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "all@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:247",
+      "name": "all",
+      "qualified_path": "all",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs",
+      "line": 247,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "piece_at@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:564",
+      "name": "piece_at",
+      "qualified_path": "piece_at",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 564,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "king_position@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:697",
+      "name": "king_position",
+      "qualified_path": "king_position",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 697,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "flip@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs:29",
+      "name": "flip",
+      "qualified_path": "flip",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs",
+      "line": 29,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "file@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:74",
+      "name": "file",
+      "qualified_path": "file",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs",
+      "line": 74,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:88",
+      "name": "rank",
+      "qualified_path": "rank",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs",
+      "line": 88,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:18",
+      "name": "new",
+      "qualified_path": "new",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs",
+      "line": 18,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "single@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:47",
+      "name": "single",
+      "qualified_path": "single",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 47,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "occupied_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:617",
+      "name": "occupied_bitboard",
+      "qualified_path": "occupied_bitboard",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 617,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "side_to_move_set@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:504",
+      "name": "side_to_move_set",
+      "qualified_path": "side_to_move_set",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 504,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "piece_kind@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:70",
+      "name": "piece_kind",
+      "qualified_path": "piece_kind",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs",
+      "line": 70,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "color@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:77",
+      "name": "color",
+      "qualified_path": "color",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs",
+      "line": 77,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "hint::unreachable_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/hint.rs:102",
+      "name": "unreachable_unchecked",
+      "qualified_path": "hint::unreachable_unchecked",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/hint.rs",
+      "line": 102,
+      "col": 20,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "index@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:103",
+      "name": "index",
+      "qualified_path": "index",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs",
+      "line": 103,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "from_u8_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:172",
+      "name": "from_u8_unchecked",
+      "qualified_path": "from_u8_unchecked",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs",
+      "line": 172,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "from_file_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:211",
+      "name": "from_file_unchecked",
+      "qualified_path": "from_file_unchecked",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 211,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "shift@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:202",
+      "name": "shift",
+      "qualified_path": "shift",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs",
+      "line": 202,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "to_u128@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:185",
+      "name": "to_u128",
+      "qualified_path": "to_u128",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 185,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "wrapping_shl@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2831",
+      "name": "wrapping_shl",
+      "qualified_path": "wrapping_shl",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs",
+      "line": 2831,
+      "col": 21,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "wrapping_shl@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1229",
+      "name": "wrapping_shl",
+      "qualified_path": "wrapping_shl",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs",
+      "line": 1229,
+      "col": 4,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2619",
+      "name": "wrapping_sub",
+      "qualified_path": "wrapping_sub",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs",
+      "line": 2619,
+      "col": 21,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "name": "wrapping_sub",
+      "qualified_path": "wrapping_sub",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs",
+      "line": 1349,
+      "col": 4,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "from_u128_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:199",
+      "name": "from_u128_unchecked",
+      "qualified_path": "from_u128_unchecked",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 199,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "get_file_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:235",
+      "name": "get_file_unchecked",
+      "qualified_path": "get_file_unchecked",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 235,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "wrapping_shr@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2875",
+      "name": "wrapping_shr",
+      "qualified_path": "wrapping_shr",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs",
+      "line": 2875,
+      "col": 21,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "wrapping_shr@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1229",
+      "name": "wrapping_shr",
+      "qualified_path": "wrapping_shr",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs",
+      "line": 1229,
+      "col": 4,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "shift_left@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:317",
+      "name": "shift_left",
+      "qualified_path": "shift_left",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 317,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "shift_down@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:285",
+      "name": "shift_down",
+      "qualified_path": "shift_down",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 285,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "swap_bytes@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:699",
+      "name": "swap_bytes",
+      "qualified_path": "swap_bytes",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs",
+      "line": 699,
+      "col": 21,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "swap_bytes@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "name": "swap_bytes",
+      "qualified_path": "swap_bytes",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs",
+      "line": 1349,
+      "col": 4,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "shift_right@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:341",
+      "name": "shift_right",
+      "qualified_path": "shift_right",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 341,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "shift_up@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:301",
+      "name": "shift_up",
+      "qualified_path": "shift_up",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 301,
+      "col": 24,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "relative_rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:110",
+      "name": "relative_rank",
+      "qualified_path": "relative_rank",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs",
+      "line": 110,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "promote@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:90",
+      "name": "promote",
+      "qualified_path": "promote",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs",
+      "line": 90,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "hand@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:529",
+      "name": "hand",
+      "qualified_path": "hand",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 529,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "is_some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:631",
+      "name": "is_some",
+      "qualified_path": "is_some",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs",
+      "line": 631,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "andnot@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:268",
+      "name": "andnot",
+      "qualified_path": "andnot",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 268,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Iterator::filter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:951",
+      "name": "filter",
+      "qualified_path": "Iterator::filter",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs",
+      "line": 951,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Iterator::chain@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:509",
+      "name": "chain",
+      "qualified_path": "Iterator::chain",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs",
+      "line": 509,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Iterator::flat_map@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:1532",
+      "name": "flat_map",
+      "qualified_path": "Iterator::flat_map",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs",
+      "line": 1532,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Iterator::map@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:830",
+      "name": "map",
+      "qualified_path": "Iterator::map",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs",
+      "line": 830,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "all@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:155",
+      "name": "all",
+      "qualified_path": "all",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs",
+      "line": 155,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "is_empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:97",
+      "name": "is_empty",
+      "qualified_path": "is_empty",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs",
+      "line": 97,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "piece_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:648",
+      "name": "piece_bitboard",
+      "qualified_path": "piece_bitboard",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 648,
+      "col": 22,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1009",
+      "name": "unwrap",
+      "qualified_path": "unwrap",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs",
+      "line": 1009,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "is_empty@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3077",
+      "name": "is_empty",
+      "qualified_path": "is_empty",
+      "crate_name": "alloc",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs",
+      "line": 3077,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "len@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3052",
+      "name": "len",
+      "qualified_path": "len",
+      "crate_name": "alloc",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs",
+      "line": 3052,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "sort_unstable_by_key@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs:3240",
+      "name": "sort_unstable_by_key",
+      "qualified_path": "sort_unstable_by_key",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs",
+      "line": 3240,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Iterator::collect@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:2076",
+      "name": "collect",
+      "qualified_path": "Iterator::collect",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs",
+      "line": 2076,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "env::args@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/env.rs:825",
+      "name": "args",
+      "qualified_path": "env::args",
+      "crate_name": "std",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/env.rs",
+      "line": 825,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "to_string@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/string.rs:2905",
+      "name": "to_string",
+      "qualified_path": "to_string",
+      "crate_name": "alloc",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/string.rs",
+      "line": 2905,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:1226",
+      "name": "unwrap",
+      "qualified_path": "unwrap",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs",
+      "line": 1226,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "read_line@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/io/stdio.rs:411",
+      "name": "read_line",
+      "qualified_path": "read_line",
+      "crate_name": "std",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/io/stdio.rs",
+      "line": 411,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "stdio::stdin@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/io/stdio.rs:340",
+      "name": "stdin",
+      "qualified_path": "stdio::stdin",
+      "crate_name": "std",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/io/stdio.rs",
+      "line": 340,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "FromUsi::from_usi@~/.cargo/registry/src/<registry>/shogi_usi_parser-0.1.0/src/lib.rs:59",
+      "name": "from_usi",
+      "qualified_path": "FromUsi::from_usi",
+      "crate_name": "shogi_usi_parser",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_usi_parser-0.1.0/src/lib.rs",
+      "line": 59,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "trim@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/str/mod.rs:2170",
+      "name": "trim",
+      "qualified_path": "trim",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/str/mod.rs",
+      "line": 2170,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "Default::default@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/default.rs:138",
+      "name": "default",
+      "qualified_path": "Default::default",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/default.rs",
+      "line": 138,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "reverse@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs:978",
+      "name": "reverse",
+      "qualified_path": "reverse",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs",
+      "line": 978,
+      "col": 17,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "into_iter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3951",
+      "name": "into_iter",
+      "qualified_path": "into_iter",
+      "crate_name": "alloc",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs",
+      "line": 3951,
+      "col": 7,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "parse@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/str/mod.rs:2764",
+      "name": "parse",
+      "qualified_path": "parse",
+      "crate_name": "core",
+      "module": [],
+      "file": "~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/str/mod.rs",
+      "line": 2764,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "startpos@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:430",
+      "name": "startpos",
+      "qualified_path": "startpos",
+      "crate_name": "shogi_core",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs",
+      "line": 430,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "benchmark_group@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs:1178",
+      "name": "benchmark_group",
+      "qualified_path": "benchmark_group",
+      "crate_name": "criterion",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs",
+      "line": 1178,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "sample_size@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs:96",
+      "name": "sample_size",
+      "qualified_path": "sample_size",
+      "crate_name": "criterion",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs",
+      "line": 96,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "bench_function@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs:249",
+      "name": "bench_function",
+      "qualified_path": "bench_function",
+      "crate_name": "criterion",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs",
+      "line": 249,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "iter@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/bencher.rs:79",
+      "name": "iter",
+      "qualified_path": "iter",
+      "crate_name": "criterion",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/criterion-0.5.1/src/bencher.rs",
+      "line": 79,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    },
+    {
+      "id": "configure_from_args@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs:769",
+      "name": "configure_from_args",
+      "qualified_path": "configure_from_args",
+      "crate_name": "criterion",
+      "module": [],
+      "file": "~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs",
+      "line": 769,
+      "col": 11,
+      "is_workspace": false,
+      "is_trait_method": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 91
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "inner@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:111",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 91
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "moves@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:297",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 96
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "len@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs:115",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 97
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "with_capacity@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:522",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 98
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 99
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "initial_position@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:118",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 99
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "ply_set@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:544",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 100
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "push@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1002",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 101
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "to_sfen_owned@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:818",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 101
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 104
+    },
+    {
+      "source": "status@shogi_legality_lite/src/lib.rs:90",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 105
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 135
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 136
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 136
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "array_index@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs:40",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 137
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "hand_of_a_player@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:511",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 139
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "piece_kind_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:664",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 151
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "promote@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece_kind.rs:115",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 152
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "count@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:79",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 156
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 157
+    },
+    {
+      "source": "status_partial@shogi_legality_lite/src/lib.rs:134",
+      "target": "count@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:94",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 157
+    },
+    {
+      "source": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "target": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 173
+    },
+    {
+      "source": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 174
+    },
+    {
+      "source": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 175
+    },
+    {
+      "source": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 175
+    },
+    {
+      "source": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "target": "Err@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:565",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 176
+    },
+    {
+      "source": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "target": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 178
+    },
+    {
+      "source": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 178
+    },
+    {
+      "source": "is_legal_partial@shogi_legality_lite/src/lib.rs:172",
+      "target": "Ok@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:560",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 181
+    },
+    {
+      "source": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "target": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 191
+    },
+    {
+      "source": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 194
+    },
+    {
+      "source": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 195
+    },
+    {
+      "source": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 195
+    },
+    {
+      "source": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "target": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 198
+    },
+    {
+      "source": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 198
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 214
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "player_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 215
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "new@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:462",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 216
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 218
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "Iterator::enumerate@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:1043",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 219
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "into_iter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/array/iter.rs:53",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 219
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 223
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 224
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 224
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 227
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 227
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "push@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1002",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 230
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "hand_of_a_player@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:511",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 235
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:23",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 236
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "all_hand_pieces@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:174",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 239
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 240
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "count@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:94",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 240
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:35",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 244
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "vacant_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:624",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 245
+    },
+    {
+      "source": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "target": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 247
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 262
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 263
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "player_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 264
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "contains@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:111",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 265
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 268
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "Iterator::enumerate@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:1043",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 269
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "into_iter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/array/iter.rs:53",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 269
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 273
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 274
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 274
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 277
+    },
+    {
+      "source": "normal_from_candidates@shogi_legality_lite/src/lib.rs:261",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 277
+    },
+    {
+      "source": "normal_to_candidates@shogi_legality_lite/src/lib.rs:292",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 293
+    },
+    {
+      "source": "normal_to_candidates@shogi_legality_lite/src/lib.rs:292",
+      "target": "all@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:247",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 294
+    },
+    {
+      "source": "normal_to_candidates@shogi_legality_lite/src/lib.rs:292",
+      "target": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 297
+    },
+    {
+      "source": "normal_to_candidates@shogi_legality_lite/src/lib.rs:292",
+      "target": "piece_at@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:564",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 297
+    },
+    {
+      "source": "normal_to_candidates@shogi_legality_lite/src/lib.rs:292",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 297
+    },
+    {
+      "source": "drop_candidates@shogi_legality_lite/src/lib.rs:311",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 312
+    },
+    {
+      "source": "drop_candidates@shogi_legality_lite/src/lib.rs:311",
+      "target": "all@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:247",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 313
+    },
+    {
+      "source": "drop_candidates@shogi_legality_lite/src/lib.rs:311",
+      "target": "is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 315
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 330
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "king_position@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:697",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 331
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "flip@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs:29",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 331
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "new@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:462",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 333
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "file@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:74",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 335
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:88",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 336
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "player_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 337
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 340
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "Iterator::enumerate@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:1043",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 341
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "into_iter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/array/iter.rs:53",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 341
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 345
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 346
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 346
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 349
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 349
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 352
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "push@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1002",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 353
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "hand_of_a_player@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:511",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 359
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:23",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 360
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "all_hand_pieces@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:174",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 363
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 364
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "count@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:94",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 364
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 368
+    },
+    {
+      "source": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:35",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 371
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 386
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "hand_of_a_player@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:511",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 387
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 388
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "count@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/hand.rs:94",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 388
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 390
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "king_position@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:697",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 392
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "flip@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs:29",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 392
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 396
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "file@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:74",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 396
+    },
+    {
+      "source": "all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382",
+      "target": "rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:88",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 396
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 407
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 412
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 418
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:18",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 418
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:35",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 421
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 424
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "single@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:47",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 425
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "flip@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs:29",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 430
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 431
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "occupied_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:617",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 432
+    },
+    {
+      "source": "all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401",
+      "target": "vacant_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:624",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 439
+    },
+    {
+      "source": "is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 447
+    },
+    {
+      "source": "is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446",
+      "target": "side_to_move_set@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:504",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 448
+    },
+    {
+      "source": "is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446",
+      "target": "flip@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs:29",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 448
+    },
+    {
+      "source": "is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/lib.rs",
+      "call_site_line": 448
+    },
+    {
+      "source": "normal::check@shogi_legality_lite/src/normal.rs:7",
+      "target": "normal::from_candidates@shogi_legality_lite/src/normal.rs:18",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 13
+    },
+    {
+      "source": "normal::check@shogi_legality_lite/src/normal.rs:7",
+      "target": "contains@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:111",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 14
+    },
+    {
+      "source": "normal::from_candidates@shogi_legality_lite/src/normal.rs:18",
+      "target": "file@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:74",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 21
+    },
+    {
+      "source": "normal::from_candidates@shogi_legality_lite/src/normal.rs:18",
+      "target": "rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:88",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 22
+    },
+    {
+      "source": "normal::from_candidates@shogi_legality_lite/src/normal.rs:18",
+      "target": "vacant_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:624",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 23
+    },
+    {
+      "source": "normal::from_candidates@shogi_legality_lite/src/normal.rs:18",
+      "target": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 24
+    },
+    {
+      "source": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "target": "piece_kind@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:70",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 43
+    },
+    {
+      "source": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "target": "normal::lance_range@shogi_legality_lite/src/normal.rs:171",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 44
+    },
+    {
+      "source": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "target": "color@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:77",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 44
+    },
+    {
+      "source": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "target": "normal::bishop_range@shogi_legality_lite/src/normal.rs:178",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 45
+    },
+    {
+      "source": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "target": "normal::rook_range@shogi_legality_lite/src/normal.rs:185",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 46
+    },
+    {
+      "source": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "target": "normal::king@shogi_legality_lite/src/normal.rs:160",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 47
+    },
+    {
+      "source": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "target": "player_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 51
+    },
+    {
+      "source": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "target": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 55
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "piece_kind@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:70",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 61
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "normal::pawn@shogi_legality_lite/src/normal.rs:81",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 62
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "color@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:77",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 62
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 62
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:18",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 62
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "normal::knight@shogi_legality_lite/src/normal.rs:101",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 63
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "normal::silver@shogi_legality_lite/src/normal.rs:125",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 64
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "normal::gold@shogi_legality_lite/src/normal.rs:145",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 69
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "normal::king@shogi_legality_lite/src/normal.rs:160",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 70
+    },
+    {
+      "source": "normal::short_range@shogi_legality_lite/src/normal.rs:60",
+      "target": "hint::unreachable_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/hint.rs:102",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 75
+    },
+    {
+      "source": "normal::pawn@shogi_legality_lite/src/normal.rs:81",
+      "target": "index@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:103",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 82
+    },
+    {
+      "source": "normal::pawn@shogi_legality_lite/src/normal.rs:81",
+      "target": "single@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:47",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 86
+    },
+    {
+      "source": "normal::pawn@shogi_legality_lite/src/normal.rs:81",
+      "target": "from_u8_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:172",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 86
+    },
+    {
+      "source": "normal::pawn@shogi_legality_lite/src/normal.rs:81",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 88
+    },
+    {
+      "source": "normal::knight@shogi_legality_lite/src/normal.rs:101",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 107
+    },
+    {
+      "source": "normal::knight@shogi_legality_lite/src/normal.rs:101",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 116
+    },
+    {
+      "source": "normal::knight@shogi_legality_lite/src/normal.rs:101",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:18",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 116
+    },
+    {
+      "source": "normal::silver@shogi_legality_lite/src/normal.rs:125",
+      "target": "from_file_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:211",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 127
+    },
+    {
+      "source": "normal::gold@shogi_legality_lite/src/normal.rs:145",
+      "target": "from_file_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:211",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 146
+    },
+    {
+      "source": "normal::king@shogi_legality_lite/src/normal.rs:160",
+      "target": "from_file_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:211",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 161
+    },
+    {
+      "source": "normal::lance_range@shogi_legality_lite/src/normal.rs:171",
+      "target": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 173
+    },
+    {
+      "source": "normal::lance_range@shogi_legality_lite/src/normal.rs:171",
+      "target": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 174
+    },
+    {
+      "source": "normal::bishop_range@shogi_legality_lite/src/normal.rs:178",
+      "target": "normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 179
+    },
+    {
+      "source": "normal::bishop_range@shogi_legality_lite/src/normal.rs:178",
+      "target": "normal::long_range_11@shogi_legality_lite/src/normal.rs:289",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 179
+    },
+    {
+      "source": "normal::bishop_range@shogi_legality_lite/src/normal.rs:178",
+      "target": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 180
+    },
+    {
+      "source": "normal::bishop_range@shogi_legality_lite/src/normal.rs:178",
+      "target": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 181
+    },
+    {
+      "source": "normal::rook_range@shogi_legality_lite/src/normal.rs:185",
+      "target": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 186
+    },
+    {
+      "source": "normal::rook_range@shogi_legality_lite/src/normal.rs:185",
+      "target": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 187
+    },
+    {
+      "source": "normal::rook_range@shogi_legality_lite/src/normal.rs:185",
+      "target": "normal::long_range_10@shogi_legality_lite/src/normal.rs:247",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 188
+    },
+    {
+      "source": "normal::rook_range@shogi_legality_lite/src/normal.rs:185",
+      "target": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 189
+    },
+    {
+      "source": "normal::long_range@shogi_legality_lite/src/normal.rs:194",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 200
+    },
+    {
+      "source": "normal::long_range@shogi_legality_lite/src/normal.rs:194",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:18",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 200
+    },
+    {
+      "source": "normal::long_range@shogi_legality_lite/src/normal.rs:194",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 201
+    },
+    {
+      "source": "normal::long_range@shogi_legality_lite/src/normal.rs:194",
+      "target": "shift@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:202",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 203
+    },
+    {
+      "source": "normal::long_range@shogi_legality_lite/src/normal.rs:194",
+      "target": "contains@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:111",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 206
+    },
+    {
+      "source": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "target": "to_u128@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:185",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 215
+    },
+    {
+      "source": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "target": "wrapping_shl@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2831",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 216
+    },
+    {
+      "source": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "target": "wrapping_shl@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1229",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 216
+    },
+    {
+      "source": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "target": "from_file_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:211",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 217
+    },
+    {
+      "source": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2619",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 220
+    },
+    {
+      "source": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 220
+    },
+    {
+      "source": "normal::long_range_01@shogi_legality_lite/src/normal.rs:214",
+      "target": "from_u128_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:199",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 221
+    },
+    {
+      "source": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "target": "wrapping_shl@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2831",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 225
+    },
+    {
+      "source": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "target": "wrapping_shl@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1229",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 225
+    },
+    {
+      "source": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "target": "get_file_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:235",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 226
+    },
+    {
+      "source": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "target": "wrapping_shr@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2875",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 228
+    },
+    {
+      "source": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "target": "wrapping_shr@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1229",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 228
+    },
+    {
+      "source": "normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224",
+      "target": "from_file_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:211",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 233
+    },
+    {
+      "source": "normal::long_range_10@shogi_legality_lite/src/normal.rs:247",
+      "target": "to_u128@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:185",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 248
+    },
+    {
+      "source": "normal::long_range_10@shogi_legality_lite/src/normal.rs:247",
+      "target": "shift_left@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:317",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 249
+    },
+    {
+      "source": "normal::long_range_10@shogi_legality_lite/src/normal.rs:247",
+      "target": "shift_down@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:285",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 249
+    },
+    {
+      "source": "normal::long_range_10@shogi_legality_lite/src/normal.rs:247",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2619",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 253
+    },
+    {
+      "source": "normal::long_range_10@shogi_legality_lite/src/normal.rs:247",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 253
+    },
+    {
+      "source": "normal::long_range_10@shogi_legality_lite/src/normal.rs:247",
+      "target": "from_u128_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:199",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 254
+    },
+    {
+      "source": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "target": "swap_bytes@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:699",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 258
+    },
+    {
+      "source": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "target": "swap_bytes@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 258
+    },
+    {
+      "source": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "target": "to_u128@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:185",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 258
+    },
+    {
+      "source": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "target": "shift_right@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:341",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 259
+    },
+    {
+      "source": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "target": "shift_down@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:285",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 259
+    },
+    {
+      "source": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2619",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 263
+    },
+    {
+      "source": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 263
+    },
+    {
+      "source": "normal::long_range_m10@shogi_legality_lite/src/normal.rs:257",
+      "target": "from_u128_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:199",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 264
+    },
+    {
+      "source": "normal::long_range_11@shogi_legality_lite/src/normal.rs:289",
+      "target": "to_u128@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:185",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 290
+    },
+    {
+      "source": "normal::long_range_11@shogi_legality_lite/src/normal.rs:289",
+      "target": "shift_left@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:317",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 291
+    },
+    {
+      "source": "normal::long_range_11@shogi_legality_lite/src/normal.rs:289",
+      "target": "shift_down@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:285",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 291
+    },
+    {
+      "source": "normal::long_range_11@shogi_legality_lite/src/normal.rs:289",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2619",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 295
+    },
+    {
+      "source": "normal::long_range_11@shogi_legality_lite/src/normal.rs:289",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 295
+    },
+    {
+      "source": "normal::long_range_11@shogi_legality_lite/src/normal.rs:289",
+      "target": "from_u128_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:199",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 296
+    },
+    {
+      "source": "normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299",
+      "target": "to_u128@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:185",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 300
+    },
+    {
+      "source": "normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299",
+      "target": "shift_left@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:317",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 301
+    },
+    {
+      "source": "normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299",
+      "target": "shift_up@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:301",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 301
+    },
+    {
+      "source": "normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2619",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 305
+    },
+    {
+      "source": "normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 305
+    },
+    {
+      "source": "normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299",
+      "target": "from_u128_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:199",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 306
+    },
+    {
+      "source": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "target": "swap_bytes@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:699",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 310
+    },
+    {
+      "source": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "target": "swap_bytes@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 310
+    },
+    {
+      "source": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "target": "to_u128@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:185",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 310
+    },
+    {
+      "source": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "target": "shift_right@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:341",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 311
+    },
+    {
+      "source": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "target": "shift_up@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:301",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 311
+    },
+    {
+      "source": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2619",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 315
+    },
+    {
+      "source": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 315
+    },
+    {
+      "source": "normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309",
+      "target": "from_u128_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:199",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 316
+    },
+    {
+      "source": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "target": "swap_bytes@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:699",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 320
+    },
+    {
+      "source": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "target": "swap_bytes@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 320
+    },
+    {
+      "source": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "target": "to_u128@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:185",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 320
+    },
+    {
+      "source": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "target": "shift_right@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:341",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 321
+    },
+    {
+      "source": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "target": "shift_down@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:285",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 321
+    },
+    {
+      "source": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:2619",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 325
+    },
+    {
+      "source": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "target": "wrapping_sub@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/num/mod.rs:1349",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 325
+    },
+    {
+      "source": "normal::long_range_m11@shogi_legality_lite/src/normal.rs:319",
+      "target": "from_u128_unchecked@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:199",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/normal.rs",
+      "call_site_line": 326
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 8
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "piece_at@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:564",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 12
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "color@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:77",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 17
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "piece_kind@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:70",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 27
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "relative_rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:110",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 32
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 49
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "promote@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:90",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 49
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "normal::check@shogi_legality_lite/src/normal.rs:7",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 53
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "hand@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:529",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 60
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "is_some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 69
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "file@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:74",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 87
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 89
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:18",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 89
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 90
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 97
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 98
+    },
+    {
+      "source": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "target": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 100
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 114
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "piece_at@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:564",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 118
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "Err@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:565",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 121
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "color@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:77",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 123
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "piece_kind@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:70",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 133
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "relative_rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:110",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 138
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 155
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "promote@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:90",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 155
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "normal::check@shogi_legality_lite/src/normal.rs:7",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 159
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "Ok@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:560",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 160
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "hand@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:529",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 170
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "is_some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 179
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "file@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:74",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 197
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "unwrap_unchecked@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1124",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 199
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:18",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 199
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 200
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 207
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 208
+    },
+    {
+      "source": "prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113",
+      "target": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 210
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 261
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "piece_at@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:564",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 262
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 265
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "color@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:77",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 267
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "normal::from_candidates@shogi_legality_lite/src/normal.rs:18",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 271
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "player_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 274
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "piece_kind_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:664",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 275
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "andnot@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:268",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 276
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "piece_kind@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:70",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 279
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "relative_rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:110",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 285
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "is_none@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:680",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 293
+    },
+    {
+      "source": "prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260",
+      "target": "promote@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:90",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 293
+    },
+    {
+      "source": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "target": "Iterator::filter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:951",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 316
+    },
+    {
+      "source": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "target": "Iterator::chain@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:509",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 311
+    },
+    {
+      "source": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "target": "Iterator::flat_map@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:1532",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 304
+    },
+    {
+      "source": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "target": "all@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:247",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 303
+    },
+    {
+      "source": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "target": "Iterator::map@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:830",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 308
+    },
+    {
+      "source": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "target": "into_iter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/array/iter.rs:53",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 307
+    },
+    {
+      "source": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "target": "all@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:155",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 312
+    },
+    {
+      "source": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "target": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 316
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 325
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "vacant_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:624",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 326
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "king_position@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:697",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 327
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "flip@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/color.rs:29",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 327
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "file@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:74",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 328
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:88",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 329
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "normal::king@shogi_legality_lite/src/normal.rs:160",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 330
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "player_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 331
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "is_empty@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/bitboard.rs:97",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 332
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "new@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/piece.rs:35",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 334
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "piece_bitboard@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:648",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 335
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 337
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 352
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "normal::lance_range@shogi_legality_lite/src/normal.rs:171",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 366
+    },
+    {
+      "source": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "target": "normal::knight@shogi_legality_lite/src/normal.rs:101",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 375
+    },
+    {
+      "source": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "target": "king_position@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:697",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 417
+    },
+    {
+      "source": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 417
+    },
+    {
+      "source": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "target": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 418
+    },
+    {
+      "source": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 420
+    },
+    {
+      "source": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 421
+    },
+    {
+      "source": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "target": "prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 423
+    },
+    {
+      "source": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+      "target": "Some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:604",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/prelegality.rs",
+      "call_site_line": 424
+    },
+    {
+      "source": "mate_solver::solve_mate_problem@shogi_legality_lite/src/mate_solver.rs:16",
+      "target": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 17
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "new@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:462",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 25
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "all_checks_partial@shogi_legality_lite/src/lib.rs:327",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 30
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "mate_solver::order_mymoves@shogi_legality_lite/src/mate_solver.rs:126",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 31
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 37
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1009",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 38
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 38
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 39
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "is_empty@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3077",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 41
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "len@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3052",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 44
+    },
+    {
+      "source": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "target": "push@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1002",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 50
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "new@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:462",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 85
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 90
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "mate_solver::order_countermoves@shogi_legality_lite/src/mate_solver.rs:142",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 94
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 97
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1009",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 98
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 98
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "mate_solver::all_mymoves@shogi_legality_lite/src/mate_solver.rs:20",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 99
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "push@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1002",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 103
+    },
+    {
+      "source": "mate_solver::all_countermoves@shogi_legality_lite/src/mate_solver.rs:80",
+      "target": "len@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3052",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 113
+    },
+    {
+      "source": "mate_solver::order_mymoves@shogi_legality_lite/src/mate_solver.rs:126",
+      "target": "side_to_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:498",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 127
+    },
+    {
+      "source": "mate_solver::order_mymoves@shogi_legality_lite/src/mate_solver.rs:126",
+      "target": "sort_unstable_by_key@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs:3240",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 128
+    },
+    {
+      "source": "mate_solver::order_mymoves@shogi_legality_lite/src/mate_solver.rs:126",
+      "target": "relative_rank@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/square.rs:110",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 132
+    },
+    {
+      "source": "mate_solver::order_countermoves@shogi_legality_lite/src/mate_solver.rs:142",
+      "target": "sort_unstable_by_key@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs:3240",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 143
+    },
+    {
+      "source": "mate_solver::order_countermoves@shogi_legality_lite/src/mate_solver.rs:142",
+      "target": "is_some@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:631",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 152
+    },
+    {
+      "source": "mate_solver::order_countermoves@shogi_legality_lite/src/mate_solver.rs:142",
+      "target": "piece_at@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:564",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/mate_solver.rs",
+      "call_site_line": 152
+    },
+    {
+      "source": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "target": "all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/perft.rs",
+      "call_site_line": 10
+    },
+    {
+      "source": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "target": "len@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3052",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/perft.rs",
+      "call_site_line": 13
+    },
+    {
+      "source": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "target": "clone@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:373",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/perft.rs",
+      "call_site_line": 18
+    },
+    {
+      "source": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "target": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/option.rs:1009",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/perft.rs",
+      "call_site_line": 19
+    },
+    {
+      "source": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "target": "make_move@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:707",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/perft.rs",
+      "call_site_line": 19
+    },
+    {
+      "source": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "target": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/src/perft.rs",
+      "call_site_line": 20
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "Iterator::collect@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:2076",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 7
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "env::args@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/env.rs:825",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 7
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "to_string@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/string.rs:2905",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 8
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "len@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3052",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 9
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:1226",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 12
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "read_line@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/io/stdio.rs:411",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 12
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "stdio::stdin@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/io/stdio.rs:340",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 12
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "FromUsi::from_usi@~/.cargo/registry/src/<registry>/shogi_usi_parser-0.1.0/src/lib.rs:59",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 14
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "trim@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/str/mod.rs:2170",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 14
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "Default::default@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/default.rs:138",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 17
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "mate_solver::solve_mate_problem@shogi_legality_lite/src/mate_solver.rs:16",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 19
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "reverse@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs:978",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 31
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "Iterator::enumerate@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:1043",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 32
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/mate_solver.rs:6",
+      "target": "into_iter@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3951",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/mate_solver.rs",
+      "call_site_line": 32
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/perft.rs:4",
+      "target": "Iterator::collect@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:2076",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/perft.rs",
+      "call_site_line": 5
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/perft.rs:4",
+      "target": "env::args@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/std/src/env.rs:825",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/perft.rs",
+      "call_site_line": 5
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/perft.rs:4",
+      "target": "len@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3052",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/perft.rs",
+      "call_site_line": 7
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/perft.rs:4",
+      "target": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:1226",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/perft.rs",
+      "call_site_line": 8
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/perft.rs:4",
+      "target": "parse@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/str/mod.rs:2764",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/perft.rs",
+      "call_site_line": 8
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/perft.rs:4",
+      "target": "startpos@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:430",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/perft.rs",
+      "call_site_line": 10
+    },
+    {
+      "source": "main@shogi_legality_lite/examples/perft.rs:4",
+      "target": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/examples/perft.rs",
+      "call_site_line": 11
+    },
+    {
+      "source": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "target": "benchmark_group@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs:1178",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 7
+    },
+    {
+      "source": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "target": "sample_size@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs:96",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 8
+    },
+    {
+      "source": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "target": "bench_function@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs:249",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 10
+    },
+    {
+      "source": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "target": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:1226",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 13
+    },
+    {
+      "source": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "target": "FromUsi::from_usi@~/.cargo/registry/src/<registry>/shogi_usi_parser-0.1.0/src/lib.rs:59",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 12
+    },
+    {
+      "source": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "target": "iter@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/bencher.rs:79",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 14
+    },
+    {
+      "source": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "target": "mate_solver::solve_mate_problem@shogi_legality_lite/src/mate_solver.rs:16",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 15
+    },
+    {
+      "source": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "target": "benchmark_group@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs:1178",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 24
+    },
+    {
+      "source": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "target": "sample_size@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs:96",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 25
+    },
+    {
+      "source": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "target": "unwrap@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/result.rs:1226",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 29
+    },
+    {
+      "source": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "target": "FromUsi::from_usi@~/.cargo/registry/src/<registry>/shogi_usi_parser-0.1.0/src/lib.rs:59",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 28
+    },
+    {
+      "source": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "target": "bench_function@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs:249",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 30
+    },
+    {
+      "source": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "target": "iter@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/bencher.rs:79",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 31
+    },
+    {
+      "source": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "target": "mate_solver::solve_mate_problem@shogi_legality_lite/src/mate_solver.rs:16",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 32
+    },
+    {
+      "source": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "target": "reverse@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/slice/mod.rs:978",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 35
+    },
+    {
+      "source": "benches@shogi_legality_lite/benches/mate_solver.rs:42",
+      "target": "configure_from_args@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs:769",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 42
+    },
+    {
+      "source": "benches@shogi_legality_lite/benches/mate_solver.rs:42",
+      "target": "Default::default@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/default.rs:138",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 42
+    },
+    {
+      "source": "benches@shogi_legality_lite/benches/mate_solver.rs:42",
+      "target": "bench_mate_0@shogi_legality_lite/benches/mate_solver.rs:4",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 42
+    },
+    {
+      "source": "benches@shogi_legality_lite/benches/mate_solver.rs:42",
+      "target": "bench_mate_1@shogi_legality_lite/benches/mate_solver.rs:21",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/mate_solver.rs",
+      "call_site_line": 42
+    },
+    {
+      "source": "bench_perft@shogi_legality_lite/benches/perft.rs:17",
+      "target": "benchmark_group@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs:1178",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 18
+    },
+    {
+      "source": "bench_perft@shogi_legality_lite/benches/perft.rs:17",
+      "target": "sample_size@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs:96",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 19
+    },
+    {
+      "source": "bench_perft@shogi_legality_lite/benches/perft.rs:17",
+      "target": "bench_function@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/benchmark_group.rs:249",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 22
+    },
+    {
+      "source": "bench_perft@shogi_legality_lite/benches/perft.rs:17",
+      "target": "iter@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/bencher.rs:79",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 24
+    },
+    {
+      "source": "bench_perft@shogi_legality_lite/benches/perft.rs:17",
+      "target": "startpos@~/.cargo/registry/src/<registry>/shogi_core-0.1.5/src/position.rs:430",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 25
+    },
+    {
+      "source": "bench_perft@shogi_legality_lite/benches/perft.rs:17",
+      "target": "perft::perft@shogi_legality_lite/src/perft.rs:6",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 26
+    },
+    {
+      "source": "benches@shogi_legality_lite/benches/perft.rs:33",
+      "target": "configure_from_args@~/.cargo/registry/src/<registry>/criterion-0.5.1/src/lib.rs:769",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 33
+    },
+    {
+      "source": "benches@shogi_legality_lite/benches/perft.rs:33",
+      "target": "Default::default@~/.rustup/toolchains/<toolchain>/lib/rustlib/src/rust/library/core/src/default.rs:138",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 33
+    },
+    {
+      "source": "benches@shogi_legality_lite/benches/perft.rs:33",
+      "target": "bench_perft@shogi_legality_lite/benches/perft.rs:17",
+      "kind": "DirectCall",
+      "call_site_file": "shogi_legality_lite/benches/perft.rs",
+      "call_site_line": 33
+    }
+  ]
+}

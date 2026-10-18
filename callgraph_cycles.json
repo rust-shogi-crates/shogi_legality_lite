@@ -1,0 +1,34 @@
+{
+  "scope": {
+    "included": "workspace src nodes",
+    "excluded_files": [
+      "shogi_legality_lite/src/mate_solver.rs",
+      "shogi_legality_lite/src/perft.rs"
+    ]
+  },
+  "cycle_count": 1,
+  "cycles": [
+    {
+      "nodes": [
+        {
+          "id": "prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7",
+          "qualified_path": "prelegality::is_valid",
+          "file": "shogi_legality_lite/src/prelegality.rs",
+          "line": 7
+        },
+        {
+          "id": "prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302",
+          "qualified_path": "prelegality::all_valid_moves",
+          "file": "shogi_legality_lite/src/prelegality.rs",
+          "line": 302
+        },
+        {
+          "id": "prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416",
+          "qualified_path": "prelegality::is_mate",
+          "file": "shogi_legality_lite/src/prelegality.rs",
+          "line": 416
+        }
+      ]
+    }
+  ]
+}

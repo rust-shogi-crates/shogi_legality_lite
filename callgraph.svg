@@ -1,0 +1,317 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2592" height="1900" viewBox="0 0 2592 1900">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#64748b"/>
+    </marker>
+    <marker id="cycle-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: sans-serif; }
+    .edge { cursor: crosshair; }
+    #edges:has(.edge:hover) .edge:not(:hover), #edges:has(.edge:focus) .edge:not(:focus) { opacity: .12; }
+    .edge:hover .wire, .edge:focus .wire { stroke-width: 3.5; }
+  </style>
+  <rect width="100%" height="100%" fill="white"/>
+  <text x="36" y="28" fill="#0f172a" font-size="20" font-weight="700">shogi_legality_lite legality callgraph</text>
+  <text x="36" y="50" fill="#64748b" font-size="12">39 nodes, 54 internal edges, 1 cycle. Columns are source files; mate/perft are omitted.</text>
+  <text x="36" y="82" fill="#0f172a" font-size="16" font-weight="700">src/lib.rs</text>
+  <text x="36" y="102" fill="#64748b" font-size="11">12 nodes</text>
+  <text x="876" y="82" fill="#0f172a" font-size="16" font-weight="700">src/prelegality.rs</text>
+  <text x="876" y="102" fill="#64748b" font-size="11">6 nodes</text>
+  <text x="1716" y="82" fill="#0f172a" font-size="16" font-weight="700">src/normal.rs</text>
+  <text x="1716" y="102" fill="#64748b" font-size="11">21 nodes</text>
+  <g id="edges">
+<g class="edge" tabindex="0"><title>all_checks_partial@shogi_legality_lite/src/lib.rs:327 → all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401</title><path d="M 336 742.4 H 360 V 894.4 H 336" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 742.4 H 360 V 894.4 H 336" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 742.4 H 360 V 894.4 H 336" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_checks_partial@shogi_legality_lite/src/lib.rs:327 → is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446</title><path d="M 336 748.8 H 368 V 980.0 H 336" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 748.8 H 368 V 980.0 H 336" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 748.8 H 368 V 980.0 H 336" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_checks_partial@shogi_legality_lite/src/lib.rs:327 → prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260</title><path d="M 336 755.2 H 376 V 286.4 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 755.2 H 376 V 286.4 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 755.2 H 376 V 286.4 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_checks_partial@shogi_legality_lite/src/lib.rs:327 → prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324</title><path d="M 336 761.6 H 384 V 434.90909090909093 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 761.6 H 384 V 434.90909090909093 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 761.6 H 384 V 434.90909090909093 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382 → all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401</title><path d="M 336 828.0 H 392 V 900.8 H 336" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 828.0 H 392 V 900.8 H 336" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 828.0 H 392 V 900.8 H 336" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401 → normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27</title><path d="M 336 907.2 H 400 V 1792 H 2080 V 283.55555555555554 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 907.2 H 400 V 1792 H 2080 V 283.55555555555554 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 907.2 H 400 V 1792 H 2080 V 283.55555555555554 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401 → prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7</title><path d="M 336 913.6 H 408 V 133.33333333333334 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 913.6 H 408 V 133.33333333333334 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 913.6 H 408 V 133.33333333333334 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211 → is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190</title><path d="M 336 440.0 H 416 V 361.3333333333333 H 336" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 440.0 H 416 V 361.3333333333333 H 336" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 440.0 H 416 V 361.3333333333333 H 336" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211 → prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260</title><path d="M 336 448.0 H 424 V 292.8 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 448.0 H 424 V 292.8 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 448.0 H 424 V 292.8 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211 → prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324</title><path d="M 336 456.0 H 432 V 437.8181818181818 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 456.0 H 432 V 437.8181818181818 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 456.0 H 432 V 437.8181818181818 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>drop_candidates@shogi_legality_lite/src/lib.rs:311 → is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190</title><path d="M 336 676.0 H 440 V 366.6666666666667 H 336" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 676.0 H 440 V 366.6666666666667 H 336" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 676.0 H 440 V 366.6666666666667 H 336" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>is_legal_partial@shogi_legality_lite/src/lib.rs:172 → prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113</title><path d="M 336 290.6666666666667 H 448 V 212.0 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 290.6666666666667 H 448 V 212.0 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 290.6666666666667 H 448 V 212.0 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>is_legal_partial@shogi_legality_lite/src/lib.rs:172 → prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324</title><path d="M 336 301.3333333333333 H 456 V 440.72727272727275 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 301.3333333333333 H 456 V 440.72727272727275 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 301.3333333333333 H 456 V 440.72727272727275 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190 → prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7</title><path d="M 336 372.0 H 464 V 138.66666666666666 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 372.0 H 464 V 138.66666666666666 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 372.0 H 464 V 138.66666666666666 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190 → prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324</title><path d="M 336 377.3333333333333 H 472 V 443.6363636363636 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 377.3333333333333 H 472 V 443.6363636363636 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 377.3333333333333 H 472 V 443.6363636363636 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::bishop_range@shogi_legality_lite/src/normal.rs:178 → normal::long_range_11@shogi_legality_lite/src/normal.rs:289</title><path d="M 2016 893.3333333333334 H 2160 V 1436.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 893.3333333333334 H 2160 V 1436.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 893.3333333333334 H 2160 V 1436.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::bishop_range@shogi_legality_lite/src/normal.rs:178 → normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299</title><path d="M 2016 898.6666666666666 H 2168 V 1512.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 898.6666666666666 H 2168 V 1512.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 898.6666666666666 H 2168 V 1512.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::bishop_range@shogi_legality_lite/src/normal.rs:178 → normal::long_range_m11@shogi_legality_lite/src/normal.rs:319</title><path d="M 2016 904.0 H 2176 V 1664.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 904.0 H 2176 V 1664.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 904.0 H 2176 V 1664.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::bishop_range@shogi_legality_lite/src/normal.rs:178 → normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309</title><path d="M 2016 909.3333333333334 H 2184 V 1588.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 909.3333333333334 H 2184 V 1588.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 909.3333333333334 H 2184 V 1588.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::check@shogi_legality_lite/src/normal.rs:7 → normal::from_candidates@shogi_legality_lite/src/normal.rs:18</title><path d="M 2016 136.0 H 2192 V 212.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 136.0 H 2192 V 212.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 136.0 H 2192 V 212.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::from_candidates@shogi_legality_lite/src/normal.rs:18 → normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27</title><path d="M 2016 220.0 H 2200 V 287.1111111111111 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 220.0 H 2200 V 287.1111111111111 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 220.0 H 2200 V 287.1111111111111 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27 → normal::bishop_range@shogi_legality_lite/src/normal.rs:178</title><path d="M 2016 290.6666666666667 H 2208 V 914.6666666666666 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 290.6666666666667 H 2208 V 914.6666666666666 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 290.6666666666667 H 2208 V 914.6666666666666 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27 → normal::king@shogi_legality_lite/src/normal.rs:160</title><path d="M 2016 294.22222222222223 H 2216 V 744.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 294.22222222222223 H 2216 V 744.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 294.22222222222223 H 2216 V 744.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27 → normal::lance_range@shogi_legality_lite/src/normal.rs:171</title><path d="M 2016 297.77777777777777 H 2224 V 818.4 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 297.77777777777777 H 2224 V 818.4 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 297.77777777777777 H 2224 V 818.4 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27 → normal::rook_range@shogi_legality_lite/src/normal.rs:185</title><path d="M 2016 301.3333333333333 H 2232 V 969.3333333333334 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 301.3333333333333 H 2232 V 969.3333333333334 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 301.3333333333333 H 2232 V 969.3333333333334 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27 → normal::short_range@shogi_legality_lite/src/normal.rs:60</title><path d="M 2016 304.8888888888889 H 2240 V 360.57142857142856 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 304.8888888888889 H 2240 V 360.57142857142856 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 304.8888888888889 H 2240 V 360.57142857142856 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::lance_range@shogi_legality_lite/src/normal.rs:171 → normal::long_range_01@shogi_legality_lite/src/normal.rs:214</title><path d="M 2016 824.8 H 2248 V 1126.6666666666667 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 824.8 H 2248 V 1126.6666666666667 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 824.8 H 2248 V 1126.6666666666667 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::lance_range@shogi_legality_lite/src/normal.rs:171 → normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224</title><path d="M 2016 831.2 H 2256 V 1202.6666666666667 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 831.2 H 2256 V 1202.6666666666667 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 831.2 H 2256 V 1202.6666666666667 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::rook_range@shogi_legality_lite/src/normal.rs:185 → normal::long_range_01@shogi_legality_lite/src/normal.rs:214</title><path d="M 2016 974.6666666666666 H 2264 V 1137.3333333333333 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 974.6666666666666 H 2264 V 1137.3333333333333 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 974.6666666666666 H 2264 V 1137.3333333333333 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::rook_range@shogi_legality_lite/src/normal.rs:185 → normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224</title><path d="M 2016 980.0 H 2272 V 1213.3333333333333 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 980.0 H 2272 V 1213.3333333333333 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 980.0 H 2272 V 1213.3333333333333 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::rook_range@shogi_legality_lite/src/normal.rs:185 → normal::long_range_10@shogi_legality_lite/src/normal.rs:247</title><path d="M 2016 985.3333333333334 H 2280 V 1284.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 985.3333333333334 H 2280 V 1284.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 985.3333333333334 H 2280 V 1284.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::rook_range@shogi_legality_lite/src/normal.rs:185 → normal::long_range_m10@shogi_legality_lite/src/normal.rs:257</title><path d="M 2016 990.6666666666666 H 2288 V 1360.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 990.6666666666666 H 2288 V 1360.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 990.6666666666666 H 2288 V 1360.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::short_range@shogi_legality_lite/src/normal.rs:60 → normal::gold@shogi_legality_lite/src/normal.rs:145</title><path d="M 2016 365.14285714285717 H 2296 V 676.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 365.14285714285717 H 2296 V 676.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 365.14285714285717 H 2296 V 676.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::short_range@shogi_legality_lite/src/normal.rs:60 → normal::king@shogi_legality_lite/src/normal.rs:160</title><path d="M 2016 369.7142857142857 H 2304 V 752.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 369.7142857142857 H 2304 V 752.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 369.7142857142857 H 2304 V 752.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::short_range@shogi_legality_lite/src/normal.rs:60 → normal::knight@shogi_legality_lite/src/normal.rs:101</title><path d="M 2016 374.2857142857143 H 2312 V 518.6666666666666 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 374.2857142857143 H 2312 V 518.6666666666666 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 374.2857142857143 H 2312 V 518.6666666666666 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::short_range@shogi_legality_lite/src/normal.rs:60 → normal::pawn@shogi_legality_lite/src/normal.rs:81</title><path d="M 2016 378.85714285714283 H 2320 V 448.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 378.85714285714283 H 2320 V 448.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 378.85714285714283 H 2320 V 448.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal::short_range@shogi_legality_lite/src/normal.rs:60 → normal::silver@shogi_legality_lite/src/normal.rs:125</title><path d="M 2016 383.42857142857144 H 2328 V 600.0 H 2016" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 2016 383.42857142857144 H 2328 V 600.0 H 2016" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 2016 383.42857142857144 H 2328 V 600.0 H 2016" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal_from_candidates@shogi_legality_lite/src/lib.rs:261 → prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260</title><path d="M 336 518.6666666666666 H 656 V 299.2 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 518.6666666666666 H 656 V 299.2 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 518.6666666666666 H 656 V 299.2 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal_from_candidates@shogi_legality_lite/src/lib.rs:261 → prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324</title><path d="M 336 529.3333333333334 H 664 V 446.54545454545456 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 529.3333333333334 H 664 V 446.54545454545456 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 529.3333333333334 H 664 V 446.54545454545456 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>normal_to_candidates@shogi_legality_lite/src/lib.rs:292 → is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190</title><path d="M 336 600.0 H 672 V 382.6666666666667 H 336" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 600.0 H 672 V 382.6666666666667 H 336" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 600.0 H 672 V 382.6666666666667 H 336" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302 → prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7</title><path d="M 1176 366.6666666666667 H 1520 V 144.0 H 1176" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 366.6666666666667 H 1520 V 144.0 H 1176" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#cycle-arrow)"/><path d="M 1176 366.6666666666667 H 1520 V 144.0 H 1176" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416 → prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302</title><path d="M 1176 513.3333333333334 H 1528 V 377.3333333333333 H 1176" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 513.3333333333334 H 1528 V 377.3333333333333 H 1176" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#cycle-arrow)"/><path d="M 1176 513.3333333333334 H 1528 V 377.3333333333333 H 1176" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416 → prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324</title><path d="M 1176 518.6666666666666 H 1536 V 449.45454545454544 H 1176" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 518.6666666666666 H 1536 V 449.45454545454544 H 1176" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 518.6666666666666 H 1536 V 449.45454545454544 H 1176" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7 → normal::check@shogi_legality_lite/src/normal.rs:7</title><path d="M 1176 149.33333333333334 H 1544 V 144.0 H 1716" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 149.33333333333334 H 1544 V 144.0 H 1716" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 149.33333333333334 H 1544 V 144.0 H 1716" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7 → prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416</title><path d="M 1176 154.66666666666669 H 1552 V 524.0 H 1176" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 154.66666666666669 H 1552 V 524.0 H 1176" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#cycle-arrow)"/><path d="M 1176 154.66666666666669 H 1552 V 524.0 H 1176" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113 → normal::check@shogi_legality_lite/src/normal.rs:7</title><path d="M 1176 220.0 H 1560 V 152.0 H 1716" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 220.0 H 1560 V 152.0 H 1716" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 220.0 H 1560 V 152.0 H 1716" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113 → prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416</title><path d="M 1176 228.0 H 1568 V 529.3333333333334 H 1176" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 228.0 H 1568 V 529.3333333333334 H 1176" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 228.0 H 1568 V 529.3333333333334 H 1176" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260 → normal::from_candidates@shogi_legality_lite/src/normal.rs:18</title><path d="M 1176 305.6 H 1576 V 228.0 H 1716" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 305.6 H 1576 V 228.0 H 1716" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 305.6 H 1576 V 228.0 H 1716" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324 → normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27</title><path d="M 1176 452.3636363636364 H 1584 V 308.44444444444446 H 1716" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 452.3636363636364 H 1584 V 308.44444444444446 H 1716" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 452.3636363636364 H 1584 V 308.44444444444446 H 1716" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324 → normal::king@shogi_legality_lite/src/normal.rs:160</title><path d="M 1176 455.27272727272725 H 1592 V 760.0 H 1716" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 455.27272727272725 H 1592 V 760.0 H 1716" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 455.27272727272725 H 1592 V 760.0 H 1716" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324 → normal::knight@shogi_legality_lite/src/normal.rs:101</title><path d="M 1176 458.1818181818182 H 1600 V 529.3333333333334 H 1716" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 458.1818181818182 H 1600 V 529.3333333333334 H 1716" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 458.1818181818182 H 1600 V 529.3333333333334 H 1716" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324 → normal::lance_range@shogi_legality_lite/src/normal.rs:171</title><path d="M 1176 461.0909090909091 H 1608 V 837.6 H 1716" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 1176 461.0909090909091 H 1608 V 837.6 H 1716" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 1176 461.0909090909091 H 1608 V 837.6 H 1716" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>status@shogi_legality_lite/src/lib.rs:90 → status_partial@shogi_legality_lite/src/lib.rs:134</title><path d="M 336 144.0 H 776 V 214.66666666666666 H 336" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 144.0 H 776 V 214.66666666666666 H 336" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 144.0 H 776 V 214.66666666666666 H 336" fill="none" stroke="transparent" stroke-width="10"/></g>
+<g class="edge" tabindex="0"><title>status_partial@shogi_legality_lite/src/lib.rs:134 → prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416</title><path d="M 336 225.33333333333334 H 784 V 534.6666666666666 H 876" fill="none" stroke="white" stroke-width="6"/><path class="wire" d="M 336 225.33333333333334 H 784 V 534.6666666666666 H 876" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><path d="M 336 225.33333333333334 H 784 V 534.6666666666666 H 876" fill="none" stroke="transparent" stroke-width="10"/></g>
+  </g>
+  <g id="nodes">
+  <g id="status@shogi_legality_lite/src/lib.rs:90">
+    <title>status@shogi_legality_lite/src/lib.rs:90</title>
+    <rect x="36" y="122" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="140" fill="#0f172a" font-size="12" font-weight="600">status</text>
+    <text x="48" y="156" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:90</text>
+  </g>
+  <g id="status_partial@shogi_legality_lite/src/lib.rs:134">
+    <title>status_partial@shogi_legality_lite/src/lib.rs:134</title>
+    <rect x="36" y="198" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="216" fill="#0f172a" font-size="12" font-weight="600">status_partial</text>
+    <text x="48" y="232" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:134</text>
+  </g>
+  <g id="is_legal_partial@shogi_legality_lite/src/lib.rs:172">
+    <title>is_legal_partial@shogi_legality_lite/src/lib.rs:172</title>
+    <rect x="36" y="274" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="292" fill="#0f172a" font-size="12" font-weight="600">is_legal_partial</text>
+    <text x="48" y="308" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:172</text>
+  </g>
+  <g id="is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190">
+    <title>is_legal_partial_lite@shogi_legality_lite/src/lib.rs:190</title>
+    <rect x="36" y="350" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="368" fill="#0f172a" font-size="12" font-weight="600">is_legal_partial_lite</text>
+    <text x="48" y="384" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:190</text>
+  </g>
+  <g id="all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211">
+    <title>all_legal_moves_partial@shogi_legality_lite/src/lib.rs:211</title>
+    <rect x="36" y="426" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="444" fill="#0f172a" font-size="12" font-weight="600">all_legal_moves_partial</text>
+    <text x="48" y="460" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:211</text>
+  </g>
+  <g id="normal_from_candidates@shogi_legality_lite/src/lib.rs:261">
+    <title>normal_from_candidates@shogi_legality_lite/src/lib.rs:261</title>
+    <rect x="36" y="502" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="520" fill="#0f172a" font-size="12" font-weight="600">normal_from_candidates</text>
+    <text x="48" y="536" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:261</text>
+  </g>
+  <g id="normal_to_candidates@shogi_legality_lite/src/lib.rs:292">
+    <title>normal_to_candidates@shogi_legality_lite/src/lib.rs:292</title>
+    <rect x="36" y="578" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="596" fill="#0f172a" font-size="12" font-weight="600">normal_to_candidates</text>
+    <text x="48" y="612" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:292</text>
+  </g>
+  <g id="drop_candidates@shogi_legality_lite/src/lib.rs:311">
+    <title>drop_candidates@shogi_legality_lite/src/lib.rs:311</title>
+    <rect x="36" y="654" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="672" fill="#0f172a" font-size="12" font-weight="600">drop_candidates</text>
+    <text x="48" y="688" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:311</text>
+  </g>
+  <g id="all_checks_partial@shogi_legality_lite/src/lib.rs:327">
+    <title>all_checks_partial@shogi_legality_lite/src/lib.rs:327</title>
+    <rect x="36" y="730" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="748" fill="#0f172a" font-size="12" font-weight="600">all_checks_partial</text>
+    <text x="48" y="764" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:327</text>
+  </g>
+  <g id="all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382">
+    <title>all_drop_checks_partial@shogi_legality_lite/src/lib.rs:382</title>
+    <rect x="36" y="806" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="824" fill="#0f172a" font-size="12" font-weight="600">all_drop_checks_partial</text>
+    <text x="48" y="840" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:382</text>
+  </g>
+  <g id="all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401">
+    <title>all_drop_checks_partial_sub@shogi_legality_lite/src/lib.rs:401</title>
+    <rect x="36" y="882" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="900" fill="#0f172a" font-size="12" font-weight="600">all_drop_checks_partial_sub</text>
+    <text x="48" y="916" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:401</text>
+  </g>
+  <g id="is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446">
+    <title>is_in_check_partial_lite@shogi_legality_lite/src/lib.rs:446</title>
+    <rect x="36" y="958" width="300" height="44" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+    <text x="48" y="976" fill="#0f172a" font-size="12" font-weight="600">is_in_check_partial_lite</text>
+    <text x="48" y="992" fill="#64748b" font-size="10">shogi_legality_lite/src/lib.rs:446</text>
+  </g>
+  <g id="normal::check@shogi_legality_lite/src/normal.rs:7">
+    <title>normal::check@shogi_legality_lite/src/normal.rs:7</title>
+    <rect x="1716" y="122" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="140" fill="#0f172a" font-size="12" font-weight="600">normal::check</text>
+    <text x="1728" y="156" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:7</text>
+  </g>
+  <g id="normal::from_candidates@shogi_legality_lite/src/normal.rs:18">
+    <title>normal::from_candidates@shogi_legality_lite/src/normal.rs:18</title>
+    <rect x="1716" y="198" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="216" fill="#0f172a" font-size="12" font-weight="600">normal::from_candidates</text>
+    <text x="1728" y="232" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:18</text>
+  </g>
+  <g id="normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27">
+    <title>normal::from_candidates_without_assertion@shogi_legality_lite/src/normal.rs:27</title>
+    <rect x="1716" y="274" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="292" fill="#0f172a" font-size="12" font-weight="600">normal::from_candidates_without_asserti...</text>
+    <text x="1728" y="308" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:27</text>
+  </g>
+  <g id="normal::short_range@shogi_legality_lite/src/normal.rs:60">
+    <title>normal::short_range@shogi_legality_lite/src/normal.rs:60</title>
+    <rect x="1716" y="350" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="368" fill="#0f172a" font-size="12" font-weight="600">normal::short_range</text>
+    <text x="1728" y="384" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:60</text>
+  </g>
+  <g id="normal::pawn@shogi_legality_lite/src/normal.rs:81">
+    <title>normal::pawn@shogi_legality_lite/src/normal.rs:81</title>
+    <rect x="1716" y="426" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="444" fill="#0f172a" font-size="12" font-weight="600">normal::pawn</text>
+    <text x="1728" y="460" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:81</text>
+  </g>
+  <g id="normal::knight@shogi_legality_lite/src/normal.rs:101">
+    <title>normal::knight@shogi_legality_lite/src/normal.rs:101</title>
+    <rect x="1716" y="502" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="520" fill="#0f172a" font-size="12" font-weight="600">normal::knight</text>
+    <text x="1728" y="536" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:101</text>
+  </g>
+  <g id="normal::silver@shogi_legality_lite/src/normal.rs:125">
+    <title>normal::silver@shogi_legality_lite/src/normal.rs:125</title>
+    <rect x="1716" y="578" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="596" fill="#0f172a" font-size="12" font-weight="600">normal::silver</text>
+    <text x="1728" y="612" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:125</text>
+  </g>
+  <g id="normal::gold@shogi_legality_lite/src/normal.rs:145">
+    <title>normal::gold@shogi_legality_lite/src/normal.rs:145</title>
+    <rect x="1716" y="654" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="672" fill="#0f172a" font-size="12" font-weight="600">normal::gold</text>
+    <text x="1728" y="688" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:145</text>
+  </g>
+  <g id="normal::king@shogi_legality_lite/src/normal.rs:160">
+    <title>normal::king@shogi_legality_lite/src/normal.rs:160</title>
+    <rect x="1716" y="730" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="748" fill="#0f172a" font-size="12" font-weight="600">normal::king</text>
+    <text x="1728" y="764" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:160</text>
+  </g>
+  <g id="normal::lance_range@shogi_legality_lite/src/normal.rs:171">
+    <title>normal::lance_range@shogi_legality_lite/src/normal.rs:171</title>
+    <rect x="1716" y="806" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="824" fill="#0f172a" font-size="12" font-weight="600">normal::lance_range</text>
+    <text x="1728" y="840" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:171</text>
+  </g>
+  <g id="normal::bishop_range@shogi_legality_lite/src/normal.rs:178">
+    <title>normal::bishop_range@shogi_legality_lite/src/normal.rs:178</title>
+    <rect x="1716" y="882" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="900" fill="#0f172a" font-size="12" font-weight="600">normal::bishop_range</text>
+    <text x="1728" y="916" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:178</text>
+  </g>
+  <g id="normal::rook_range@shogi_legality_lite/src/normal.rs:185">
+    <title>normal::rook_range@shogi_legality_lite/src/normal.rs:185</title>
+    <rect x="1716" y="958" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="976" fill="#0f172a" font-size="12" font-weight="600">normal::rook_range</text>
+    <text x="1728" y="992" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:185</text>
+  </g>
+  <g id="normal::long_range@shogi_legality_lite/src/normal.rs:194">
+    <title>normal::long_range@shogi_legality_lite/src/normal.rs:194</title>
+    <rect x="1716" y="1034" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1052" fill="#0f172a" font-size="12" font-weight="600">normal::long_range</text>
+    <text x="1728" y="1068" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:194</text>
+  </g>
+  <g id="normal::long_range_01@shogi_legality_lite/src/normal.rs:214">
+    <title>normal::long_range_01@shogi_legality_lite/src/normal.rs:214</title>
+    <rect x="1716" y="1110" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1128" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_01</text>
+    <text x="1728" y="1144" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:214</text>
+  </g>
+  <g id="normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224">
+    <title>normal::long_range_0m1@shogi_legality_lite/src/normal.rs:224</title>
+    <rect x="1716" y="1186" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1204" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_0m1</text>
+    <text x="1728" y="1220" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:224</text>
+  </g>
+  <g id="normal::long_range_10@shogi_legality_lite/src/normal.rs:247">
+    <title>normal::long_range_10@shogi_legality_lite/src/normal.rs:247</title>
+    <rect x="1716" y="1262" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1280" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_10</text>
+    <text x="1728" y="1296" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:247</text>
+  </g>
+  <g id="normal::long_range_m10@shogi_legality_lite/src/normal.rs:257">
+    <title>normal::long_range_m10@shogi_legality_lite/src/normal.rs:257</title>
+    <rect x="1716" y="1338" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1356" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_m10</text>
+    <text x="1728" y="1372" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:257</text>
+  </g>
+  <g id="normal::long_range_11@shogi_legality_lite/src/normal.rs:289">
+    <title>normal::long_range_11@shogi_legality_lite/src/normal.rs:289</title>
+    <rect x="1716" y="1414" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1432" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_11</text>
+    <text x="1728" y="1448" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:289</text>
+  </g>
+  <g id="normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299">
+    <title>normal::long_range_1m1@shogi_legality_lite/src/normal.rs:299</title>
+    <rect x="1716" y="1490" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1508" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_1m1</text>
+    <text x="1728" y="1524" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:299</text>
+  </g>
+  <g id="normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309">
+    <title>normal::long_range_m1m1@shogi_legality_lite/src/normal.rs:309</title>
+    <rect x="1716" y="1566" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1584" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_m1m1</text>
+    <text x="1728" y="1600" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:309</text>
+  </g>
+  <g id="normal::long_range_m11@shogi_legality_lite/src/normal.rs:319">
+    <title>normal::long_range_m11@shogi_legality_lite/src/normal.rs:319</title>
+    <rect x="1716" y="1642" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="1728" y="1660" fill="#0f172a" font-size="12" font-weight="600">normal::long_range_m11</text>
+    <text x="1728" y="1676" fill="#64748b" font-size="10">shogi_legality_lite/src/normal.rs:319</text>
+  </g>
+  <g id="prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7">
+    <title>prelegality::is_valid@shogi_legality_lite/src/prelegality.rs:7</title>
+    <rect x="876" y="122" width="300" height="44" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="888" y="140" fill="#0f172a" font-size="12" font-weight="600">prelegality::is_valid</text>
+    <text x="888" y="156" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:7</text>
+  </g>
+  <g id="prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113">
+    <title>prelegality::is_valid_with_error@shogi_legality_lite/src/prelegality.rs:113</title>
+    <rect x="876" y="198" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="888" y="216" fill="#0f172a" font-size="12" font-weight="600">prelegality::is_valid_with_error</text>
+    <text x="888" y="232" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:113</text>
+  </g>
+  <g id="prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260">
+    <title>prelegality::normal_from_candidates@shogi_legality_lite/src/prelegality.rs:260</title>
+    <rect x="876" y="274" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="888" y="292" fill="#0f172a" font-size="12" font-weight="600">prelegality::normal_from_candidates</text>
+    <text x="888" y="308" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:260</text>
+  </g>
+  <g id="prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302">
+    <title>prelegality::all_valid_moves@shogi_legality_lite/src/prelegality.rs:302</title>
+    <rect x="876" y="350" width="300" height="44" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="888" y="368" fill="#0f172a" font-size="12" font-weight="600">prelegality::all_valid_moves</text>
+    <text x="888" y="384" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:302</text>
+  </g>
+  <g id="prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324">
+    <title>prelegality::will_king_be_captured@shogi_legality_lite/src/prelegality.rs:324</title>
+    <rect x="876" y="426" width="300" height="44" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+    <text x="888" y="444" fill="#0f172a" font-size="12" font-weight="600">prelegality::will_king_be_captured</text>
+    <text x="888" y="460" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:324</text>
+  </g>
+  <g id="prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416">
+    <title>prelegality::is_mate@shogi_legality_lite/src/prelegality.rs:416</title>
+    <rect x="876" y="502" width="300" height="44" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="888" y="520" fill="#0f172a" font-size="12" font-weight="600">prelegality::is_mate</text>
+    <text x="888" y="536" fill="#64748b" font-size="10">shogi_legality_lite/src/prelegality.rs:416</text>
+  </g>
+  </g>
+</svg>
