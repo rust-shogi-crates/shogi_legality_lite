@@ -8,8 +8,8 @@ from pathlib import Path
 
 NODE_WIDTH = 300
 NODE_HEIGHT = 44
-X_GAP = 150
-Y_GAP = 20
+X_GAP = 540
+Y_GAP = 32
 MARGIN_X = 36
 MARGIN_Y = 122
 EXCLUDED_SRC_FILES = {
@@ -31,7 +31,8 @@ def node_sort_key(node):
 
 
 def group_sort_key(group):
-    return group[0]
+    order = {"lib.rs": 0, "prelegality.rs": 1, "normal.rs": 2}
+    return (order.get(Path(group[0]).name, 3), group[0])
 
 
 def node_color(node):
@@ -74,41 +75,34 @@ def render_node(node, x, y):
   </g>"""
 
 
-def render_edge(source, target, positions, is_cycle_edge):
+def render_edge(source, target, positions, is_cycle_edge, index, ports, bottom):
     source_x, source_y = positions[source]
     target_x, target_y = positions[target]
-    start_y = source_y + NODE_HEIGHT / 2
-    end_y = target_y + NODE_HEIGHT / 2
-    color = "#dc2626" if is_cycle_edge else "#334155"
-    opacity = "0.78" if is_cycle_edge else "0.28"
-
-    if source_x == target_x:
-        start_x = source_x + NODE_WIDTH
-        end_x = target_x + NODE_WIDTH
-        loop_x = source_x + NODE_WIDTH + 48
-        return (
-            f'  <path d="M {start_x:.1f} {start_y:.1f} C {loop_x:.1f} {start_y:.1f}, '
-            f'{loop_x:.1f} {end_y:.1f}, {end_x:.1f} {end_y:.1f}" '
-            f'fill="none" stroke="{color}" stroke-width="1" opacity="{opacity}" marker-end="url(#arrow)"/>'
-        )
-
-    if source_x < target_x:
-        start_x = source_x + NODE_WIDTH
-        end_x = target_x
-        bend = max(48, abs(end_x - start_x) * 0.45)
-        first_x = start_x + bend
-        second_x = end_x - bend
+    start_y = source_y + ports[(index, "source")]
+    end_y = target_y + ports[(index, "target")]
+    color = "#dc2626" if is_cycle_edge else "#475569"
+    lane = 24 + index * 8
+    # Long edges travel below all nodes; no path crosses an intervening column.
+    if abs(source_x - target_x) > NODE_WIDTH + X_GAP:
+        start_x, end_x = source_x + NODE_WIDTH, target_x + NODE_WIDTH
+        rail_y = bottom + 24 + index * 10
+        path = (f"M {start_x} {start_y} H {start_x + lane} V {rail_y} "
+                f"H {end_x + lane} V {end_y} H {end_x}")
+    elif source_x == target_x:
+        start_x = end_x = source_x + NODE_WIDTH
+        path = f"M {start_x} {start_y} H {start_x + lane} V {end_y} H {end_x}"
     else:
-        start_x = source_x
-        end_x = target_x + NODE_WIDTH
-        bend = max(48, abs(start_x - end_x) * 0.45)
-        first_x = start_x - bend
-        second_x = end_x + bend
-
+        start_x = source_x + NODE_WIDTH if source_x < target_x else source_x
+        end_x = target_x if source_x < target_x else target_x + NODE_WIDTH
+        lane_x = min(source_x, target_x) + NODE_WIDTH + lane
+        path = f"M {start_x} {start_y} H {lane_x} V {end_y} H {end_x}"
+    marker = "cycle-arrow" if is_cycle_edge else "arrow"
     return (
-        f'  <path d="M {start_x:.1f} {start_y:.1f} C {first_x:.1f} {start_y:.1f}, '
-        f'{second_x:.1f} {end_y:.1f}, {end_x:.1f} {end_y:.1f}" '
-        f'fill="none" stroke="{color}" stroke-width="1" opacity="{opacity}" marker-end="url(#arrow)"/>'
+        f'<g class="edge" tabindex="0"><title>{text(source)} → {text(target)}</title>'
+        f'<path d="{path}" fill="none" stroke="white" stroke-width="6"/>'
+        f'<path class="wire" d="{path}" fill="none" stroke="{color}" '
+        f'stroke-width="2" marker-end="url(#{marker})"/>'
+        f'<path d="{path}" fill="none" stroke="transparent" stroke-width="10"/></g>'
     )
 
 
@@ -202,6 +196,21 @@ def main():
         ],
         key=lambda edge: (edge["source"], edge["target"], edge.get("kind", "")),
     )
+    # Separate every incoming and outgoing connection along the node boundary.
+    incidents = defaultdict(list)
+    for index, edge in enumerate(edges):
+        for endpoint in ("source", "target"):
+            incidents[edge[endpoint]].append((index, endpoint))
+    ports = {}
+    for connections in incidents.values():
+        for rank, connection in enumerate(connections):
+            ports[connection] = 6 + (NODE_HEIGHT - 12) * (rank + 1) / (len(connections) + 1)
+    bottom = height - MARGIN_Y
+    width += X_GAP
+    long_edges = [index for index, edge in enumerate(edges)
+                  if abs(positions[edge["source"]][0] - positions[edge["target"]][0])
+                  > NODE_WIDTH + X_GAP]
+    height += (max(long_edges, default=0) + 1) * 10
     cycle_components = find_cycle_components(workspace_ids, edges)
     cycle_node_ids = set().union(*cycle_components) if cycle_components else set()
     cycle_component_by_node = {
@@ -218,8 +227,9 @@ def main():
             positions,
             cycle_component_by_node.get(edge["source"]) == cycle_component_by_node.get(edge["target"])
             and edge["source"] in cycle_node_ids,
+            index, ports, bottom,
         )
-        for edge in edges
+        for index, edge in enumerate(edges)
     ]
 
     rendered_nodes = [render_node(node, *positions[node["id"]]) for node in nodes]
@@ -231,10 +241,19 @@ def main():
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
   <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M 0 0 L 8 4 L 0 8 z" fill="#64748b"/>
     </marker>
+    <marker id="cycle-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#dc2626"/>
+    </marker>
   </defs>
+  <style>
+    text {{ font-family: sans-serif; }}
+    .edge {{ cursor: crosshair; }}
+    #edges:has(.edge:hover) .edge:not(:hover), #edges:has(.edge:focus) .edge:not(:focus) {{ opacity: .12; }}
+    .edge:hover .wire, .edge:focus .wire {{ stroke-width: 3.5; }}
+  </style>
   <rect width="100%" height="100%" fill="white"/>
   <text x="{MARGIN_X}" y="28" fill="#0f172a" font-size="20" font-weight="700">shogi_legality_lite legality callgraph</text>
   <text x="{MARGIN_X}" y="50" fill="#64748b" font-size="12">{len(nodes)} nodes, {len(edges)} internal edges, {cycle_count_text(len(cycle_components))}. Columns are source files; mate/perft are omitted.</text>
