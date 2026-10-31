@@ -6,6 +6,10 @@ use shogi_core::{
 ///
 /// Since: 0.1.2
 pub fn is_valid(position: &PartialPosition, mv: Move) -> bool {
+    is_valid_impl(position, mv, true)
+}
+
+fn is_valid_impl(position: &PartialPosition, mv: Move, check_drop_pawn_mate: bool) -> bool {
     let side = position.side_to_move();
     match mv {
         Move::Normal { from, to, promote } => {
@@ -94,7 +98,7 @@ pub fn is_valid(position: &PartialPosition, mv: Move) -> bool {
                 }
             }
             // Does a drop-pawn-mate (`打ち歩詰め`, *uchifu-zume*) happen?
-            if piece.piece_kind() == PieceKind::Pawn {
+            if check_drop_pawn_mate && piece.piece_kind() == PieceKind::Pawn {
                 let mut next = position.clone();
                 let result = next.make_move(mv); // always Some(())
                 debug_assert_eq!(result, Some(()));
@@ -317,6 +321,25 @@ pub fn all_valid_moves(position: &PartialPosition) -> impl Iterator<Item = Move>
         .filter(|&mv| is_valid(position, mv))
 }
 
+fn all_valid_moves_without_nested_drop_pawn_mate(
+    position: &PartialPosition,
+) -> impl Iterator<Item = Move> + '_ {
+    Square::all()
+        .flat_map(|from| {
+            Square::all().flat_map(move |to| {
+                [false, true]
+                    .into_iter()
+                    .map(move |promote| Move::Normal { from, to, promote })
+            })
+        })
+        .chain(
+            Piece::all()
+                .into_iter()
+                .flat_map(|piece| Square::all().map(move |to| Move::Drop { piece, to })),
+        )
+        .filter(|&mv| is_valid_impl(position, mv, false))
+}
+
 /// Can `side` play a move that captures the opponent's king?
 ///
 /// This function returns None if the opponent has no king.
@@ -416,7 +439,7 @@ pub fn will_king_be_captured(position: &PartialPosition) -> Option<bool> {
 /// Since: 0.1.2
 pub fn is_mate(position: &PartialPosition) -> Option<bool> {
     position.king_position(position.side_to_move())?; // Early return if no king.
-    let all = all_valid_moves(position);
+    let all = all_valid_moves_without_nested_drop_pawn_mate(position);
     for mv in all {
         let mut next = position.clone();
         let result = next.make_move(mv);
@@ -444,5 +467,14 @@ mod tests {
             to: Square::SQ_1C,
         };
         assert!(is_valid(&position, mv));
+    }
+
+    #[test]
+    fn mate_check_does_not_recurse_through_nested_drop_pawn_mate() {
+        let position = PartialPosition::from_usi(
+            "sfen 1ng1kBR+P1/3s2Gp1/3sNs3/4Pp1P1/1N4Pb1/1PpP1P2p/1r7/1+l1K2S2/2G1LG1NL w L5P2p 132",
+        )
+        .unwrap();
+        assert_eq!(is_mate(&position), Some(false));
     }
 }

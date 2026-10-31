@@ -654,4 +654,13 @@ mod tests {
         assert_eq!(checks.len(), 2);
         assert_eq!(checks.iter().filter(|mv| mv.is_drop()).count(), 0);
     }
+
+    #[test]
+    fn all_checks_partial_terminates_on_nested_drop_pawn_mate_position() {
+        let position = PartialPosition::from_usi(
+            "sfen 1ng1kBR+P1/3s2Gp1/3sNs3/4Pp1P1/1N4Pb1/1PpP1P2p/1r7/1+l1K2S2/2G1LG1NL w L5P2p 132",
+        )
+        .unwrap();
+        assert!(!all_checks_partial(&position).is_empty());
+    }
 }
